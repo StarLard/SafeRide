@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MHd-lm-EWn">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="h2D-FH-OBN">
+            <objects>
+                <viewController id="6G6-ty-3UW" customClass="SettingsViewController" customModule="SafeRide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="524-83-5Gq"/>
+                        <viewControllerLayoutGuide type="bottom" id="zDG-GC-sZP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1l6-90-0i0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" id="AHJ-Gn-MvI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ds-Tv-z7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="544" y="-127"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="NvB-9n-DSD">
+            <objects>
+                <navigationController id="0D6-VE-RKE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" id="ozN-AF-cMM"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QVy-Z7-0Q2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="VA0-qc-6lI" kind="relationship" relationship="rootViewController" id="cS9-B6-KCH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ywL-ID-Si9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="537" y="-807"/>
+        </scene>
+        <!--Tap to Set Pickup Location-->
+        <scene sceneID="r4U-48-wvZ">
+            <objects>
+                <viewController id="VA0-qc-6lI" customClass="MapViewController" customModule="SafeRide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q3c-1C-4GF"/>
+                        <viewControllerLayoutGuide type="bottom" id="R8e-2N-c1L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Oc-3T-Yx1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Xn-GU-fmX">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="delegate" destination="VA0-qc-6lI" id="wJW-3M-c38"/>
+                                    <outletCollection property="gestureRecognizers" destination="B2E-TU-5t5" appends="YES" id="Jba-9A-Pcm"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R8e-2N-c1L" firstAttribute="top" secondItem="3Xn-GU-fmX" secondAttribute="bottom" id="1bA-Vt-CYa"/>
+                            <constraint firstAttribute="trailing" secondItem="3Xn-GU-fmX" secondAttribute="trailing" id="Z8t-3o-2Ie"/>
+                            <constraint firstItem="3Xn-GU-fmX" firstAttribute="top" secondItem="Q3c-1C-4GF" secondAttribute="bottom" id="cAu-CZ-L48"/>
+                            <constraint firstItem="3Xn-GU-fmX" firstAttribute="leading" secondItem="4Oc-3T-Yx1" secondAttribute="leading" id="nj3-rx-Rlh"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" id="AeK-1x-2P7"/>
+                    <navigationItem key="navigationItem" title="Tap to Set Pickup Location" id="Dhc-vX-1qP">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="8tq-1h-CB8">
+                            <connections>
+                                <action selector="cancelButton:" destination="VA0-qc-6lI" id="Fi0-yW-LXL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="f3D-n3-dcS"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="3Xn-GU-fmX" id="29P-mW-Et4"/>
+                        <outlet property="navigationBar" destination="Dhc-vX-1qP" id="6jY-VN-eAC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EyM-St-gmU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="B2E-TU-5t5">
+                    <connections>
+                        <action selector="setPickUp:" destination="VA0-qc-6lI" id="lyU-1B-4I9"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1272" y="-807"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="J1B-yq-aFD">
+            <objects>
+                <tabBarController id="MHd-lm-EWn" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="eoM-f3-GeB"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="2yL-CQ-mx4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="0D6-VE-RKE" kind="relationship" relationship="viewControllers" id="ayc-nD-MTf"/>
+                        <segue destination="6G6-ty-3UW" kind="relationship" relationship="viewControllers" id="zCO-Vr-2pf"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wbc-j5-q3O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-276" y="-456"/>
+        </scene>
+    </scenes>
+</document>
