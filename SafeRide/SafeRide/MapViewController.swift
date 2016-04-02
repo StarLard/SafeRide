@@ -9,12 +9,14 @@
 import UIKit
 import MapKit
 import CoreLocation
+import AddressBookUI
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     // MARK: Properties (IBOutlet)
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var navigationBar: UINavigationItem!
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     
     // MARK: Properties (IBAction)
     @IBAction func setPickUp(sender: UITapGestureRecognizer) {
@@ -22,16 +24,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let tapLocation = sender.locationInView(self.mapView)
             let tapCoordinates = self.mapView.convertPoint(tapLocation, toCoordinateFromView: self.mapView)
             let annotation = MKPointAnnotation()
+            let getLat: CLLocationDegrees = tapCoordinates.latitude
+            let getLon: CLLocationDegrees = tapCoordinates.longitude
+            let location: CLLocation =  CLLocation(latitude: getLat, longitude: getLon)
         
             annotation.coordinate = tapCoordinates
             if (numberOfPins < 1) {
                 annotation.title = "Pickup Location"
                 self.navigationBar.title = "Tap to Set Dropoff Location"
+                updateAddressFromCoordinates(location, addressType: "pick up")
+                
             }
             else {
                 annotation.title = "Dropoff Location"
                 self.navigationBar.title = "Press Next to Continue"
-
+                self.nextButton.enabled = true
+                updateAddressFromCoordinates(location, addressType: "drop off")
             }
             self.mapView.addAnnotation(annotation)
             self.mapView.selectAnnotation(annotation, animated: false)
@@ -42,6 +50,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.mapView.removeAnnotations(mapView.annotations)
         numberOfPins = 0
         self.navigationBar.title = "Tap to Set Pickup Location"
+        self.nextButton.enabled = false
     }
     
     
@@ -57,9 +66,40 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // MARK: Properties (Private)
     private var numberOfPins = 0
     private var boundaryOverlay: MKCircle?
+    private var pickUpAddress = ""
+    private var dropOffAddress = ""
+    
+    // MARK: Methods (Private)
+    private func updateAddressFromCoordinates(location: CLLocation, addressType: String){
+        if (addressType != "drop off" && addressType != "pick up") {
+            print("Error: addressType must be either \"drop off\" or \"pick up\"!")
+            return
+        }
+        CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
+            
+            if error != nil {
+                print("Reverse geocoder failed with error" + error!.localizedDescription)
+                return
+            }
+            
+            if placemarks!.count > 0 {
+                let pm = placemarks![0]
+                let address = ABCreateStringWithAddressDictionary(pm.addressDictionary!, false)
+                if (addressType == "pick up") {
+                    self.pickUpAddress = address
+                }
+                else if (addressType == "drop off") {
+                    self.dropOffAddress = address
+                }
+            }
+            else {
+                print("Problem with the data received from geocoder")
+            }
+        })
+    }
     
     
-    // MARK: View Methods
+    // MARK: View Management
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -75,6 +115,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let circle = MKCircle(centerCoordinate: coordinates, radius: 4828.03)
         self.mapView.addOverlay(circle)
         self.boundaryOverlay = circle
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        switch segue.identifier {
+        case .Some("confirmSegue"):
+            let viewController = segue.destinationViewController as! ConfirmViewController
+            print(pickUpAddress)
+            print(dropOffAddress)
+            viewController.pickUpAddress = pickUpAddress
+            viewController.dropOffAddress = dropOffAddress
+        default:
+            super.prepareForSegue(segue, sender: sender)
+        }
     }
     
     // MARK: CLLocationManagerDelegate

@@ -77,11 +77,16 @@
                                 <action selector="cancelButton:" destination="VA0-qc-6lI" id="Fi0-yW-LXL"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="f3D-n3-dcS"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Next" id="f3D-n3-dcS">
+                            <connections>
+                                <segue destination="4Ws-Sp-SGe" kind="show" identifier="confirmSegue" id="c1q-bM-w0T"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="3Xn-GU-fmX" id="29P-mW-Et4"/>
                         <outlet property="navigationBar" destination="Dhc-vX-1qP" id="6jY-VN-eAC"/>
+                        <outlet property="nextButton" destination="f3D-n3-dcS" id="IMx-eP-g66"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EyM-St-gmU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -92,6 +97,65 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1272" y="-807"/>
+        </scene>
+        <!--Confirm Ride Details-->
+        <scene sceneID="dXn-rF-pBb">
+            <objects>
+                <viewController id="4Ws-Sp-SGe" customClass="ConfirmViewController" customModule="SafeRide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ld2-jZ-lqk"/>
+                        <viewControllerLayoutGuide type="bottom" id="MiY-0L-3qn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jUg-yS-v7O">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fPL-vo-sef">
+                                <rect key="frame" x="135" y="205" width="162" height="230"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Where You Are" borderStyle="roundedRect" placeholder="Pick Up Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KQu-hn-dS9">
+                                        <rect key="frame" x="0.0" y="0.0" width="162" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Where You are Going!" borderStyle="roundedRect" placeholder="Drop Off Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BfE-pb-9z5">
+                                        <rect key="frame" x="0.0" y="50" width="162" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of Riders" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lq6-5Z-Oy1">
+                                        <rect key="frame" x="0.0" y="100" width="162" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pOo-0B-O2O">
+                                        <rect key="frame" x="0.0" y="150" width="162" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UO ID Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H18-sc-pli">
+                                        <rect key="frame" x="0.0" y="200" width="162" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fPL-vo-sef" firstAttribute="centerX" secondItem="jUg-yS-v7O" secondAttribute="centerX" id="9Ya-oy-ckQ"/>
+                            <constraint firstItem="fPL-vo-sef" firstAttribute="centerY" secondItem="jUg-yS-v7O" secondAttribute="centerY" id="KU1-i3-HQU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Confirm Ride Details" id="lEP-YC-fqG"/>
+                    <connections>
+                        <outlet property="dropOffField" destination="BfE-pb-9z5" id="mB1-ZP-fVP"/>
+                        <outlet property="pickUpField" destination="KQu-hn-dS9" id="DIg-DG-r6m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K7w-UL-pcm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2009" y="-807"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="J1B-yq-aFD">

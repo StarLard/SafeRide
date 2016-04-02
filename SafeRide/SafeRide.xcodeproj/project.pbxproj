@@ -15,6 +15,7 @@
 		854D396F1CAC70BA00C72EE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 854D396D1CAC70BA00C72EE0 /* LaunchScreen.storyboard */; };
 		854D397A1CAC70BA00C72EE0 /* SafeRideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39791CAC70BA00C72EE0 /* SafeRideTests.swift */; };
 		854D39851CAC70BA00C72EE0 /* SafeRideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39841CAC70BA00C72EE0 /* SafeRideUITests.swift */; };
+		854D39951CB0838200C72EE0 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39941CB0838200C72EE0 /* ConfirmViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		854D39801CAC70BA00C72EE0 /* SafeRideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeRideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		854D39841CAC70BA00C72EE0 /* SafeRideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeRideUITests.swift; sourceTree = "<group>"; };
 		854D39861CAC70BA00C72EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		854D39941CB0838200C72EE0 /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmViewController.swift; path = ../../../ConfirmViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				854D39621CAC70BA00C72EE0 /* AppDelegate.swift */,
 				854D39641CAC70BA00C72EE0 /* MapViewController.swift */,
 				854D39661CAC70BA00C72EE0 /* SettingsViewController.swift */,
+				854D39941CB0838200C72EE0 /* ConfirmViewController.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				854D39671CAC70BA00C72EE0 /* SettingsViewController.swift in Sources */,
 				854D39631CAC70BA00C72EE0 /* AppDelegate.swift in Sources */,
 				854D39651CAC70BA00C72EE0 /* MapViewController.swift in Sources */,
+				854D39951CB0838200C72EE0 /* ConfirmViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +509,7 @@
 				854D398B1CAC70BA00C72EE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		854D398C1CAC70BA00C72EE0 /* Build configuration list for PBXNativeTarget "SafeRideTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +518,7 @@
 				854D398E1CAC70BA00C72EE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		854D398F1CAC70BA00C72EE0 /* Build configuration list for PBXNativeTarget "SafeRideUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +527,7 @@
 				854D39911CAC70BA00C72EE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
