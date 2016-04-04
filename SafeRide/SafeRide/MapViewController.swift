@@ -17,6 +17,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var navigationBar: UINavigationItem!
     @IBOutlet weak var nextButton: UIBarButtonItem!
+    @IBOutlet weak var pickUpSearchBar: UISearchBar!
+    @IBOutlet weak var dropOffSearchBar: UISearchBar!
     
     // MARK: Properties (IBAction)
     @IBAction func setPickUp(sender: UITapGestureRecognizer) {
@@ -31,8 +33,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             annotation.coordinate = tapCoordinates
             if (numberOfPins < 1) {
                 annotation.title = "Pickup Location"
-                self.navigationBar.title = "Tap to Set Dropoff Location"
+                self.navigationBar.title = "Set Dropoff Location"
                 updateAddressFromCoordinates(location, addressType: "pick up")
+                self.dropOffSearchBar.userInteractionEnabled = true
                 
             }
             else {
@@ -49,8 +52,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBAction func cancelButton(sender: UIBarButtonItem) {
         self.mapView.removeAnnotations(mapView.annotations)
         numberOfPins = 0
-        self.navigationBar.title = "Tap to Set Pickup Location"
+        self.navigationBar.title = "Set Pickup Location"
         self.nextButton.enabled = false
+        self.pickUpSearchBar.text = ""
+        self.dropOffSearchBar.text = ""
+        self.dropOffSearchBar.userInteractionEnabled = false
     }
     
     
@@ -87,9 +93,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 let address = ABCreateStringWithAddressDictionary(pm.addressDictionary!, false)
                 if (addressType == "pick up") {
                     self.pickUpAddress = address
+                    self.pickUpSearchBar.text = self.pickUpAddress
                 }
                 else if (addressType == "drop off") {
                     self.dropOffAddress = address
+                    self.dropOffSearchBar.text = self.dropOffAddress
+
                 }
             }
             else {
@@ -121,8 +130,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         switch segue.identifier {
         case .Some("confirmSegue"):
             let viewController = segue.destinationViewController as! ConfirmViewController
-            print(pickUpAddress)
-            print(dropOffAddress)
             viewController.pickUpAddress = pickUpAddress
             viewController.dropOffAddress = dropOffAddress
         default:
