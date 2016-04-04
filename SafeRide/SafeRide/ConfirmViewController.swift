@@ -20,8 +20,25 @@ class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     private let pickOptions = ["1", "2", "3", "4", "5", "6"]
     let headerTitles = ["Ride Information", "Your Information"]
     
+    private var numberOfRiders = ""
+    private var phoneNumber = ""
+    private var UOID = ""
+    
+    // MARK: Properties (IBAction)
+    @IBAction func textFieldChanged(sender: UITextField) {
+        // Called whenever a text field changes
+        // phone field has tag 1, UO ID has tag 2
+        if sender.tag == 1 {
+            self.phoneNumber = sender.text!
+        }
+        else {
+            self.UOID = sender.text!
+        }
+        readyToRequest()
+    }
     // MARK: Properties (IBOutlet)
     @IBOutlet weak var infoTableView: UITableView!
+    @IBOutlet weak var sendRequestButton: UIBarButtonItem!
 
     // MARK: View Management
     override func viewDidLoad() {
@@ -56,6 +73,7 @@ class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             let cell = tableView.dequeueReusableCellWithIdentifier("AddressCell", forIndexPath: indexPath) as! AddressCell
             cell.addressLabel.text = "Pick Up Address"
             cell.addressField.text = pickUpAddress
+
             return cell
         }
         else if indexPath == NSIndexPath(forRow: 1, inSection: 0){
@@ -74,12 +92,14 @@ class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         else if indexPath == NSIndexPath(forRow: 0, inSection: 1){
             let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! InfoCell
             cell.infoLabel.text = "Phone Number"
+            cell.infoField.tag = 1
             cell.infoField.keyboardType = .NumberPad
             return cell
         }
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! InfoCell
             cell.infoLabel.text = "UO ID Number"
+            cell.infoField.tag = 2
             cell.infoField.keyboardType = .NumberPad
             return cell
         }
@@ -117,17 +137,33 @@ class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         numberOfRidersField.text = pickOptions[row]
+        self.numberOfRiders = numberOfRidersField.text!
         self.view.endEditing(true)
     }
     
     // MARK: UITextFieldDelegate
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        // Ensures Only Valid characters have been entered in numerical fields
         let invalidCharacters = NSCharacterSet(charactersInString: "0123456789").invertedSet
         return string.rangeOfCharacterFromSet(invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        textField.becomeFirstResponder()
+    // MARK: Helper Methods
+    func readyToRequest(){
+        // Checks if all required info has been filled out before enable request button
+        let requiredInformation = [self.pickUpAddress, self.dropOffAddress, self.numberOfRiders, self.phoneNumber, self.UOID]
+        for info in requiredInformation {
+            if info == "" {
+                self.sendRequestButton.enabled = false
+                return
+            }
+            // Valid Phone numbers must be either 10 (or 11 with country code) digits
+            else if info == self.phoneNumber && (info.characters.count < 10 || info.characters.count > 11) {
+                self.sendRequestButton.enabled = false
+                return
+            }
+        }
+        self.sendRequestButton.enabled = true
     }
 
     /*

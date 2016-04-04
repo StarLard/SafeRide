@@ -165,6 +165,9 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldChanged:" destination="4Ws-Sp-SGe" eventType="editingChanged" id="Mtq-VL-D7Y"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -238,9 +241,12 @@
                             <constraint firstItem="q6W-Eh-B0n" firstAttribute="top" secondItem="ld2-jZ-lqk" secondAttribute="bottom" id="Vep-t0-rFb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Confirm Ride Details" id="lEP-YC-fqG"/>
+                    <navigationItem key="navigationItem" title="Confirm Ride Details" id="lEP-YC-fqG">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Send Request" id="5z0-Zc-kxK"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="infoTableView" destination="q6W-Eh-B0n" id="yGs-yQ-a3Q"/>
+                        <outlet property="sendRequestButton" destination="5z0-Zc-kxK" id="N9L-k8-miJ"/>
                     </connections>
                 </viewController>
             </objects>
