@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		851599631CB2DA3B0075C656 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851599621CB2DA3B0075C656 /* ConfirmViewController.swift */; };
+		851599671CB319DE0075C656 /* UITableView_Keyboard_Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851599661CB319DE0075C656 /* UITableView_Keyboard_Notification.swift */; };
+		851599691CB31D830075C656 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851599681CB31D830075C656 /* AddressCell.swift */; };
+		8515996B1CB31D9C0075C656 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8515996A1CB31D9C0075C656 /* InfoCell.swift */; };
 		854D39631CAC70BA00C72EE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39621CAC70BA00C72EE0 /* AppDelegate.swift */; };
 		854D39651CAC70BA00C72EE0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39641CAC70BA00C72EE0 /* MapViewController.swift */; };
 		854D39671CAC70BA00C72EE0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39661CAC70BA00C72EE0 /* SettingsViewController.swift */; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		851599621CB2DA3B0075C656 /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
+		851599661CB319DE0075C656 /* UITableView_Keyboard_Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView_Keyboard_Notification.swift; sourceTree = "<group>"; };
+		851599681CB31D830075C656 /* AddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
+		8515996A1CB31D9C0075C656 /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		854D395F1CAC70B900C72EE0 /* SafeRide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeRide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		854D39621CAC70BA00C72EE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		854D39641CAC70BA00C72EE0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +84,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		851599641CB3197E0075C656 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				851599621CB2DA3B0075C656 /* ConfirmViewController.swift */,
+				854D39641CAC70BA00C72EE0 /* MapViewController.swift */,
+				854D39661CAC70BA00C72EE0 /* SettingsViewController.swift */,
+				851599681CB31D830075C656 /* AddressCell.swift */,
+				8515996A1CB31D9C0075C656 /* InfoCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		851599651CB3198E0075C656 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				851599661CB319DE0075C656 /* UITableView_Keyboard_Notification.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		854D39561CAC70B900C72EE0 = {
 			isa = PBXGroup;
 			children = (
@@ -139,10 +165,9 @@
 		854D39931CAC7E8700C72EE0 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				851599621CB2DA3B0075C656 /* ConfirmViewController.swift */,
+				851599651CB3198E0075C656 /* Extensions */,
+				851599641CB3197E0075C656 /* View */,
 				854D39621CAC70BA00C72EE0 /* AppDelegate.swift */,
-				854D39641CAC70BA00C72EE0 /* MapViewController.swift */,
-				854D39661CAC70BA00C72EE0 /* SettingsViewController.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -283,8 +308,11 @@
 			files = (
 				851599631CB2DA3B0075C656 /* ConfirmViewController.swift in Sources */,
 				854D39671CAC70BA00C72EE0 /* SettingsViewController.swift in Sources */,
+				851599671CB319DE0075C656 /* UITableView_Keyboard_Notification.swift in Sources */,
 				854D39631CAC70BA00C72EE0 /* AppDelegate.swift in Sources */,
+				851599691CB31D830075C656 /* AddressCell.swift in Sources */,
 				854D39651CAC70BA00C72EE0 /* MapViewController.swift in Sources */,
+				8515996B1CB31D9C0075C656 /* InfoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

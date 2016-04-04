@@ -8,22 +8,20 @@
 
 import UIKit
 
-class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate,UITableViewDataSource, UITableViewDelegate {
     // MARK: Properties
     var pickUpAddress: String = ""
     var dropOffAddress: String = ""
     
     // MARK: Properties (Private)
+    private var numberOfRidersField = UITextField()
     private let pickerView = UIPickerView()
     let toolBar = UIToolbar()
     private let pickOptions = ["1", "2", "3", "4", "5", "6"]
+    let headerTitles = ["Ride Information", "Your Information"]
     
     // MARK: Properties (IBOutlet)
-    @IBOutlet weak var pickUpField: UITextView!
-    @IBOutlet weak var dropOffField: UITextView!
-    @IBOutlet weak var numberOfRidersField: UITextField!
-    @IBOutlet weak var phoneNumberField: UITextField!
-    @IBOutlet weak var UOIDNumberField: UITextField!
+    @IBOutlet weak var infoTableView: UITableView!
 
     // MARK: View Management
     override func viewDidLoad() {
@@ -31,23 +29,78 @@ class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 
         // Do any additional setup after loading the view.
         
-        self.pickUpField.text = pickUpAddress
-        self.pickUpField.layer.borderWidth = 1
-        self.dropOffField.text = dropOffAddress
-        self.dropOffField.layer.borderWidth = 1
-        
-        phoneNumberField.keyboardType = .NumberPad
-        UOIDNumberField.keyboardType = .NumberPad
-        
         pickerView.delegate = self
-        
-        numberOfRidersField.inputView = pickerView
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: UITableViewDataSource
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (section == 0) {
+            return 3
+        }
+        else {
+            return 2
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if indexPath == NSIndexPath(forRow: 0, inSection: 0){
+            let cell = tableView.dequeueReusableCellWithIdentifier("AddressCell", forIndexPath: indexPath) as! AddressCell
+            cell.addressLabel.text = "Pick Up Address"
+            cell.addressField.text = pickUpAddress
+            return cell
+        }
+        else if indexPath == NSIndexPath(forRow: 1, inSection: 0){
+            let cell = tableView.dequeueReusableCellWithIdentifier("AddressCell", forIndexPath: indexPath) as! AddressCell
+            cell.addressLabel.text = "Drop Off Address"
+            cell.addressField.text = dropOffAddress
+            return cell
+        }
+        else if indexPath == NSIndexPath(forRow: 2, inSection: 0){
+            let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! InfoCell
+            cell.infoLabel.text = "Number of Riders"
+            cell.infoField.inputView = pickerView
+            self.numberOfRidersField = cell.infoField
+            return cell
+        }
+        else if indexPath == NSIndexPath(forRow: 0, inSection: 1){
+            let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! InfoCell
+            cell.infoLabel.text = "Phone Number"
+            cell.infoField.keyboardType = .NumberPad
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! InfoCell
+            cell.infoLabel.text = "UO ID Number"
+            cell.infoField.keyboardType = .NumberPad
+            return cell
+        }
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        if (indexPath == NSIndexPath(forRow: 0, inSection: 0) || indexPath == NSIndexPath(forRow: 1, inSection: 0)){
+            return 90
+        }
+        return 50
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section < headerTitles.count {
+            return headerTitles[section]
+        }
+        
+        return nil
+    }
+
     
     // MARK: UIPickerViewDelegate
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
