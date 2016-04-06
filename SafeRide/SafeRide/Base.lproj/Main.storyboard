@@ -131,7 +131,6 @@
         <!--Confirm Ride Details-->
         <scene sceneID="dXn-rF-pBb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K7w-UL-pcm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="4Ws-Sp-SGe" customClass="ConfirmViewController" customModule="SafeRide" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ld2-jZ-lqk"/>
@@ -249,6 +248,7 @@
                         <outlet property="sendRequestButton" destination="5z0-Zc-kxK" id="N9L-k8-miJ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K7w-UL-pcm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1969" y="-807"/>
         </scene>

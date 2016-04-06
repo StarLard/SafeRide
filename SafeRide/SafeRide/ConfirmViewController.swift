@@ -15,9 +15,11 @@ class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     // MARK: Properties (Private)
     private var numberOfRidersField = UITextField()
-    private let pickerView = UIPickerView()
+    private var timeField = UITextField()
+    private let riderPickerView = UIPickerView()
+    private let timePicker = UIDatePicker()
     let toolBar = UIToolbar()
-    private let pickOptions = ["1", "2", "3", "4", "5", "6"]
+    private let riderPickOptions = ["1", "2", "3", "4", "5", "6"]
     let headerTitles = ["Ride Information", "Your Information"]
     
     private var numberOfRiders = ""
@@ -46,7 +48,7 @@ class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 
         // Do any additional setup after loading the view.
         
-        pickerView.delegate = self
+        riderPickerView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,7 +66,7 @@ class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             return 3
         }
         else {
-            return 2
+            return 3
         }
     }
     
@@ -85,7 +87,7 @@ class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         else if indexPath == NSIndexPath(forRow: 2, inSection: 0){
             let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! InfoCell
             cell.infoLabel.text = "Number of Riders"
-            cell.infoField.inputView = pickerView
+            cell.infoField.inputView = riderPickerView
             self.numberOfRidersField = cell.infoField
             return cell
         }
@@ -96,11 +98,18 @@ class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             cell.infoField.keyboardType = .NumberPad
             return cell
         }
-        else {
+        else if indexPath == NSIndexPath(forRow: 0, inSection: 2){
             let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! InfoCell
             cell.infoLabel.text = "UO ID Number"
             cell.infoField.tag = 2
             cell.infoField.keyboardType = .NumberPad
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! InfoCell
+            cell.infoLabel.text = "When do you need your ride?"
+            cell.infoField.inputView = timePickerView
+            self.timeField = cell.infoField
             return cell
         }
     }
@@ -128,15 +137,15 @@ class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickOptions.count
+        return riderPickOptions.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickOptions[row]
+        return riderPickOptions[row]
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        numberOfRidersField.text = pickOptions[row]
+        numberOfRidersField.text = riderPickOptions[row]
         self.numberOfRiders = numberOfRidersField.text!
         self.view.endEditing(true)
     }
