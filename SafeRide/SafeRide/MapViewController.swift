@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 import AddressBookUI
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocationManagerDelegate {
     
     // MARK: Properties (IBOutlet)
     @IBOutlet private weak var mapView: MKMapView!
@@ -118,6 +118,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             self.locationManager.requestWhenInUseAuthorization()
             self.locationManager.startUpdatingLocation()
             self.mapView.showsUserLocation = true
+            pickUpSearchBar.returnKeyType = UIReturnKeyType.Done
+            dropOffSearchBar.returnKeyType = UIReturnKeyType.Done
         }
         
         // Add Safe Ride Boundary Area
@@ -135,6 +137,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         default:
             super.prepareForSegue(segue, sender: sender)
         }
+    }
+    // MARK: SearchBar Delegate
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        if searchBar == pickUpSearchBar {
+            pickUpAddress = searchBar.text!
+            dropOffSearchBar.userInteractionEnabled = true
+        }
+        else {
+            dropOffAddress = searchBar.text!
+            self.nextButton.enabled = true
+        }
+        searchBar.resignFirstResponder()
     }
     
     // MARK: CLLocationManagerDelegate

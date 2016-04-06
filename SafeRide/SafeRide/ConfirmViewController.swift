@@ -8,18 +8,18 @@
 
 import UIKit
 
-class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate,UITableViewDataSource, UITableViewDelegate {
+class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate,UITableViewDataSource, UITableViewDelegate {
     // MARK: Properties
     var pickUpAddress: String = ""
     var dropOffAddress: String = ""
     
     // MARK: Properties (Private)
+    private var observationTokens = Array<AnyObject>()
     private var numberOfRidersField = UITextField()
     private var timeField = UITextField()
     private let riderPickerView = UIPickerView()
-    private let timePicker = UIDatePicker()
-    let toolBar = UIToolbar()
-    private let riderPickOptions = ["1", "2", "3", "4", "5", "6"]
+    private let timePickerView = UIDatePicker()
+    private let riderPickOptions = ["1", "2", "3"]
     let headerTitles = ["Ride Information", "Your Information"]
     
     private var numberOfRiders = ""
@@ -41,6 +41,28 @@ class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     // MARK: Properties (IBOutlet)
     @IBOutlet weak var infoTableView: UITableView!
     @IBOutlet weak var sendRequestButton: UIBarButtonItem!
+    
+    // MARK: Private (Notifications)
+    private func registerForNotifications() {
+        if !observationTokens.isEmpty {
+            unregisterForNotifications()
+        }
+        observationTokens.append(NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillShowNotification, object: nil, queue: NSOperationQueue.mainQueue()) { [unowned self] (notification: NSNotification) -> Void in
+            // Update the table view content and scroller insets
+            self.infoTableView.adjustInsetsForWillShowKeyboardNotification(notification)
+            })
+        observationTokens.append(NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillHideNotification, object: nil, queue: NSOperationQueue.mainQueue()) { [unowned self] (notification: NSNotification) -> Void in
+            // Update the table view content and scroller insets
+            self.infoTableView.adjustInsetsForWillHideKeyboardNotification(notification)
+            })
+    }
+    
+    private func unregisterForNotifications() {
+        for token in observationTokens {
+            NSNotificationCenter.defaultCenter().removeObserver(token)
+        }
+        observationTokens.removeAll()
+    }
 
     // MARK: View Management
     override func viewDidLoad() {
@@ -49,6 +71,11 @@ class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         // Do any additional setup after loading the view.
         
         riderPickerView.delegate = self
+        
+        registerForNotifications()
+    }
+    deinit {
+        unregisterForNotifications()
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,53 +90,56 @@ class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 0) {
-            return 3
+            return 4
         }
         else {
-            return 3
+            return 2
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath == NSIndexPath(forRow: 0, inSection: 0){
+        if indexPath == NSIndexPath(forRow: 0, inSection: 0) || indexPath == NSIndexPath(forRow: 1, inSection: 0) {
             let cell = tableView.dequeueReusableCellWithIdentifier("AddressCell", forIndexPath: indexPath) as! AddressCell
             cell.addressLabel.text = "Pick Up Address"
             cell.addressField.text = pickUpAddress
-
+            cell.addressField.tag = 1
+            if indexPath == NSIndexPath(forRow: 1, inSection: 0) {
+                cell.addressLabel.text = "Drop Off Address"
+                cell.addressField.text = dropOffAddress
+                cell.addressField.tag = 2
+            }
+            cell.addressField.returnKeyType = UIReturnKeyType.Done
+            addToolBarToTextView(cell.addressField)
+            cell.addressField.delegate = self
             return cell
         }
-        else if indexPath == NSIndexPath(forRow: 1, inSection: 0){
-            let cell = tableView.dequeueReusableCellWithIdentifier("AddressCell", forIndexPath: indexPath) as! AddressCell
-            cell.addressLabel.text = "Drop Off Address"
-            cell.addressField.text = dropOffAddress
-            return cell
-        }
-        else if indexPath == NSIndexPath(forRow: 2, inSection: 0){
+        else if indexPath == NSIndexPath(forRow: 2, inSection: 0) || indexPath == NSIndexPath(forRow: 3, inSection: 0) {
             let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! InfoCell
             cell.infoLabel.text = "Number of Riders"
             cell.infoField.inputView = riderPickerView
-            self.numberOfRidersField = cell.infoField
-            return cell
-        }
-        else if indexPath == NSIndexPath(forRow: 0, inSection: 1){
-            let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! InfoCell
-            cell.infoLabel.text = "Phone Number"
-            cell.infoField.tag = 1
-            cell.infoField.keyboardType = .NumberPad
-            return cell
-        }
-        else if indexPath == NSIndexPath(forRow: 0, inSection: 2){
-            let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! InfoCell
-            cell.infoLabel.text = "UO ID Number"
-            cell.infoField.tag = 2
-            cell.infoField.keyboardType = .NumberPad
+            cell.infoField.delegate = self
+            addToolBarToTextField(cell.infoField)
+            if indexPath == NSIndexPath(forRow: 3, inSection: 0) {
+                cell.infoLabel.text = "Ride Time"
+                cell.infoField.inputView = timePickerView
+                self.timeField = cell.infoField
+            }
+            else {
+                self.numberOfRidersField = cell.infoField
+            }
             return cell
         }
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! InfoCell
-            cell.infoLabel.text = "When do you need your ride?"
-            cell.infoField.inputView = timePickerView
-            self.timeField = cell.infoField
+            cell.infoLabel.text = "UO ID Number"
+            cell.infoField.tag = 2
+            if indexPath == NSIndexPath(forRow: 0, inSection: 1){
+                cell.infoLabel.text = "Phone Number"
+                cell.infoField.tag = 1
+            }
+            cell.infoField.keyboardType = .NumberPad
+            addToolBarToTextField(cell.infoField)
+            cell.infoField.delegate = self
             return cell
         }
     }
@@ -150,11 +180,26 @@ class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         self.view.endEditing(true)
     }
     
+    // MARK: UITextViewDelegate
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.tag == 1 {
+            pickUpAddress = textView.text
+        }
+        else {
+            dropOffAddress = textView.text
+        }
+    }
+    
     // MARK: UITextFieldDelegate
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         // Ensures Only Valid characters have been entered in numerical fields
         let invalidCharacters = NSCharacterSet(charactersInString: "0123456789").invertedSet
         return string.rangeOfCharacterFromSet(invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     // MARK: Helper Methods
@@ -173,6 +218,42 @@ class ConfirmViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             }
         }
         self.sendRequestButton.enabled = true
+    }
+    func addToolBarToTextField(textField: UITextField){
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.Default
+        toolBar.translucent = true
+        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: #selector(ConfirmViewController.donePressed))
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ConfirmViewController.cancelPressed))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.userInteractionEnabled = true
+        toolBar.sizeToFit()
+        
+        textField.delegate = self
+        textField.inputAccessoryView = toolBar
+    }
+    func addToolBarToTextView(textField: UITextView){
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.Default
+        toolBar.translucent = true
+        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: #selector(ConfirmViewController.donePressed))
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ConfirmViewController.cancelPressed))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.userInteractionEnabled = true
+        toolBar.sizeToFit()
+        
+        textField.delegate = self
+        textField.inputAccessoryView = toolBar
+    }
+    func donePressed(){
+        view.endEditing(true)
+    }
+    func cancelPressed(){
+        view.endEditing(true) // or do something
     }
 
     /*
