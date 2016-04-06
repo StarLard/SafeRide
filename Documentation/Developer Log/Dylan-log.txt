@@ -1,0 +1,4 @@
+4/5/16:
+- Pushed meteor web app
+- Local project client, server, and database are minimally functional
+- Currently supports adding, removing, and reporting from MongoDB
