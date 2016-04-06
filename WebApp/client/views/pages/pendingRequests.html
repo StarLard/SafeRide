@@ -1,0 +1,12 @@
+<template name="pendingRequests">
+  {{#each pending}}
+    <p><small>
+      <b>Name:</b> {{name}}<br>
+      <b>Phone:</b> {{phone}}<br>
+      <b>UO ID:</b> {{uoid}}<br><br>
+      <b>Pickup:</b> {{pickup}}<br>
+      <b>Drop Off:</b> {{dropoff}}<br>
+      <b># Riders:</b> {{riders}}
+    </small></p>
+  {{/each}}
+</template>

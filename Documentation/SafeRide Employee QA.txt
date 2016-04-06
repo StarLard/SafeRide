@@ -1,0 +1,20 @@
+4/6/16
+
+- Take reservations 24/7, schedule messages left after hours before phones open during business hours
+    - Currently don’t call to confirm message reservation, no call = assume scheduled
+- Can only make reservation day of
+- First come, first serve, but schedule based
+- 4 vans, each with unique schedule
+- Currently no verification of current active student status
+- Only give rides to groups of 3 or less, van max capacity of 5
+- Service area is not one radius
+- If driver is over 3 minutes late, must call requester to notify
+- Schedule gets cleared every night, but does record number of rides - separate accounts for on-campus vs. off-campus
+- Requester 5 minutes late = no show
+    - User is recorded, 3 no shows and they're blacklisted
+        - Record contains name, number, UOID
+- Request for out of service area can apply for an exception
+- Can do multiple rides in one night but must complete the first ride before scheduling next ride
+- Requester only needs to provide info for group reservation
+    - Currently not verifying student status for all riders, but will deny ride if a rider admits to not being a student
+- Comment section for reservations: is rider bringing bikes?
