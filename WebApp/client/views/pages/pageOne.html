@@ -1,19 +1,47 @@
 <template name="pageOne">
 
-    {{> pageHeading title='Queue' }}
+    <!-- {{> pageHeading title='Queue' }} -->
 
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="text-left m-t-lg">
-                    <h1>
-                        UO SafeRide Employee Portal
-                    </h1>
+          <div class="col-md-12">
+              <div class="ibox">
+                  {{> googleMaps}}
+              </div>
+          </div>
+        </div>
 
-                    <br><br>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    Pending Requests {{> addrequest}}
+                </div>
+                <div class="panel-body">
+                  <div class="panel-group" id="accordion">
                     {{> pendingRequests}}
+                  </div>
                 </div>
             </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    Rides Scheduled
+                    <!-- {{> addrequest}} -->
+                </div>
+                <div class="panel-body">
+                  <div class="panel-group" id="accordion">
+                    {{> scheduled}}
+                  </div>
+                </div>
+            </div>
+          </div>
+
         </div>
+
+
+
     </div>
 </template>
