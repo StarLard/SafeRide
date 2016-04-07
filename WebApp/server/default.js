@@ -13,7 +13,8 @@ if (Meteor.isServer) {
         dropoff: "[Dropoff Address]",
         riders: 1,
         ticket: 1,
-        date: new Date()
+        pickupTime: "8:00pm",
+        createdTime: new Date()
       });
     }
 
@@ -25,9 +26,10 @@ if (Meteor.isServer) {
         uoid: 952222222,
         pickup: "[Pickup Address]",
         dropoff: "[Dropoff Address]",
-        riders: 2,
+        riders: 3,
         ticket: 2,
-        date: new Date()
+        pickupTime: "9:00pm",
+        createdTime: new Date()
       });
     }
   });
