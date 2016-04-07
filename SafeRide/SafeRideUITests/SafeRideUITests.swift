@@ -32,5 +32,53 @@ class SafeRideUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+
+    
+    func testStandardTapUse() {
+        // Goes through a standard procedure of what a user would normally do using tapping for selecting locations
+        
+        
+        let app = XCUIApplication()
+        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(2).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.tap()
+        app.otherElements["PopoverDismissRegion"].tap()
+        app.navigationBars["Press Next to Continue"].buttons["Next"].tap()
+        
+        let tablesQuery = app.tables
+        tablesQuery.cells.containingType(.StaticText, identifier:"Number of Riders").childrenMatchingType(.TextField).element.tap()
+        app.pickerWheels["1"].tap()
+        tablesQuery.cells.containingType(.StaticText, identifier:"Ride Time").childrenMatchingType(.TextField).element.tap()
+        
+        let datePickersQuery = app.datePickers
+        datePickersQuery.pickerWheels["4 o'clock"].tap()
+        datePickersQuery.pickerWheels["37 minutes"].tap()
+        
+        let doneButton = app.toolbars.buttons["Done"]
+        doneButton.tap()
+        
+        let phoneNumberCellsQuery = tablesQuery.cells.containingType(.StaticText, identifier:"Phone Number")
+        phoneNumberCellsQuery.childrenMatchingType(.TextField).element.tap()
+        phoneNumberCellsQuery.childrenMatchingType(.TextField).element
+        doneButton.tap()
+        
+        let uoIdNumberCellsQuery = tablesQuery.cells.containingType(.StaticText, identifier:"UO ID Number")
+        uoIdNumberCellsQuery.childrenMatchingType(.TextField).element.tap()
+        uoIdNumberCellsQuery.childrenMatchingType(.TextField).element
+        doneButton.tap()
+        app.navigationBars["Confirm Ride Details"].buttons["Send Request"].tap()        
+        
+        
+    }
+    
+    func testStandardInputUse(){
+        // Goes through a standard procedure of what a user would normally do using the text fields for selecting locations
+        
+        
+    }
+    
+    func testSendingRequest(){
+        // Takes inputs from the confirmation page and submits them
+        
+        
+    }
     
 }

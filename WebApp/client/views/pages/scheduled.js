@@ -1,12 +1,15 @@
-Pending = new Mongo.Collection('pending');
+Scheduled = new Mongo.Collection('scheduled');
 
 // Execute client-side
 if (Meteor.isClient) {
-  Template.pendingRequests.helpers({
-    pending: function() {
-      return Pending.find({});
+  Template.scheduled.helpers({
+    scheduled: function() {
+      return Scheduled.find({});
     }
   });
+
+
+
 }
 
 // Execute server-side
