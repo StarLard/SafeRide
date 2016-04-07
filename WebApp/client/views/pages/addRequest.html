@@ -10,19 +10,47 @@
                   <small class="font-bold">Enter reservation information to place into Pending Requests queue</small>
               </div>
               <div class="modal-body">
+                <form id="requestForm" method="post">
                   <div class="form-group"><input id="requestName" type="normal" placeholder="Student's Name" class="form-control"></div>
                   <div class="form-group"><input id="requestUOID" type="normal" placeholder=" UO ID 95#" class="form-control"></div>
                   <div class="form-group"><input id="requestPhone" type="normal" placeholder="Phone Number" class="form-control"></div>
                   <div class="form-group"><input id="requestPickup" type="normal" placeholder="Pickup Address" class="form-control"></div>
                   <div class="form-group"><input id="requestDropoff" type="normal" placeholder="Dropoff Address" class="form-control"></div>
+                  <div class="form-group"><input id="requestPickupTime" type="normal" placeholder="Pickup Time" class="form-control"></div>
                   <div class="form-group"><input id="requestRiders" type="normal" placeholder="# Riders" class="form-control"></div>
+                </form>
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button> <!-- TODO: clear form on cancel button click -->
-                  <button type="button" class="btn btn-primary">Submit Request</button>
+                  <button id="submitRequest" type="submit" class="btn btn-primary">Submit Request</button>
               </div>
           </div>
       </div>
   </div>
+
+  <script>
+    $('#submitRequest').click(function(e){
+          e.preventDefault();
+          $('#requestModal').modal('hide');
+
+          var name = $('#requestName').val();
+          var uoid = $('#requestUOID').val();
+          var phone = $('#requestPhone').val();
+          var pickup = $('#requestPickup').val();
+          var dropoff = $('#requestDropoff').val();
+          var riders = $('#requestRiders').val();
+          var pickuptime = $('#requestPickupTime').val();
+
+          storeRequest(name, uoid, phone, pickup, dropoff, riders, pickuptime);
+
+          /*
+          $.post('http://path/to/post',
+             $('#requestForm').serialize(),
+             function(data, status, xhr){
+               // do something here with response;
+             });
+          */
+    });
+  </script>
 
 </template>
