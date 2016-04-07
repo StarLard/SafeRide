@@ -1,12 +1,24 @@
 <template name="pendingRequests">
   {{#each pending}}
-    <p><small>
-      <b>Name:</b> {{name}}<br>
-      <b>Phone:</b> {{phone}}<br>
-      <b>UO ID:</b> {{uoid}}<br><br>
-      <b>Pickup:</b> {{pickup}}<br>
-      <b>Drop Off:</b> {{dropoff}}<br>
-      <b># Riders:</b> {{riders}}
-    </small></p>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h5 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#ticket{{ticket}}">
+                  {{name}} <div class="pull-right"><small>{{date}}</small></div>
+                </a>
+            </h5>
+        </div>
+        <div id="ticket{{ticket}}" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <small>
+                <b>Pickup:</b> {{pickup}}<br>
+                <b>Drop Off:</b> {{dropoff}}<br>
+                <b># Riders:</b> {{riders}}<br>
+                <b>UO ID:</b> {{uoid}}<br>
+                <b>Phone:</b> {{phone}}
+              </small>
+            </div>
+        </div>
+    </div>
   {{/each}}
 </template>
