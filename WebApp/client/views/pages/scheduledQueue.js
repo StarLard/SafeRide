@@ -2,13 +2,11 @@ Scheduled = new Mongo.Collection('scheduled');
 
 // Execute client-side
 if (Meteor.isClient) {
-  Template.scheduled.helpers({
+  Template.scheduledQueue.helpers({
     scheduled: function() {
       return Scheduled.find({});
     }
   });
-
-
 
 }
 
