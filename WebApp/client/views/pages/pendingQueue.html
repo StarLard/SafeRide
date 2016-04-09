@@ -1,0 +1,15 @@
+<template name="pendingQueue">
+  {{#each pending}}
+    <tr>
+      <td>{{name}}</td>
+      <td>{{uoid}}</td>
+      <td>{{phone}}</td>
+      <td>{{pickup}}</td>
+      <td>{{dropoff}}</td>
+      <td>{{riders}}</td>
+      <td>{{pickupTime}}</td>
+      <td>{{createdTime}}</td>
+      <td>{{> schedulePending}}</td>
+    </tr>
+  {{/each}}
+</template>
