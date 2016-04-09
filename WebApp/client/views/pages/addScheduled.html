@@ -1,0 +1,76 @@
+<template name="addScheduled">
+  <button type="button" class="btn btn-normal btn-xs btn-primary pull-right" data-toggle="modal" data-target="#scheduledModal">Add Scheduled</button>
+  <div class="modal inmodal" id="scheduledModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content animated bounceInRight">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <i class="fa fa-info-circle modal-icon"></i>
+                  <h4 class="modal-title">Add Scheduled Ride</h4>
+                  <small class="font-bold">Enter reservation information to place into Scheduled Rides queue</small>
+              </div>
+              <div class="modal-body">
+                <form id="scheduledForm" method="post">
+                  <div class="form-group"><input id="scheduledName" type="normal" placeholder="Student's Name" class="form-control"></div>
+                  <div class="form-group"><input id="scheduledUOID" type="normal" placeholder=" UO ID 95#" class="form-control"></div>
+                  <div class="form-group"><input id="scheduledPhone" type="normal" placeholder="Phone Number" class="form-control"></div>
+                  <div class="form-group"><input id="scheduledPickup" type="normal" placeholder="Pickup Address" class="form-control"></div>
+                  <div class="form-group"><input id="scheduledDropoff" type="normal" placeholder="Dropoff Address" class="form-control"></div>
+                  <div class="form-group"><input id="scheduledPickupTime" type="normal" placeholder="Pickup Time" class="form-control"></div>
+                  <div class="form-group"><input id="scheduledRiders" type="normal" placeholder="# Riders" class="form-control"></div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+                  <button id="submitScheduled" type="submit" class="btn btn-primary">Schedule Ride</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script>
+    $('#submitScheduled').click(function(e){
+          e.preventDefault();
+          $('#scheduledModal').modal('hide');
+
+          var name = $('#scheduledName').val();
+          var uoid = $('#scheduledUOID').val();
+          var phone = $('#scheduledPhone').val();
+          var pickup = $('#scheduledPickup').val();
+          var dropoff = $('#scheduledDropoff').val();
+          var riders = $('#scheduledRiders').val();
+          var pickuptime = $('#scheduledPickupTime').val();
+
+          storeScheduled(name, uoid, phone, pickup, dropoff, riders, pickuptime);
+          $('#scheduledModal').find("input,textarea,select").val('').end();
+
+          toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "progressBar": true,
+            "preventDuplicates": false,
+            "positionClass": "toast-top-right",
+            "onclick": null,
+            "showDuration": "400",
+            "hideDuration": "1000",
+            "timeOut": "7000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          }
+
+          toastr.success("Successfully added " + name + " to Scheduled Rides queue.");
+
+          /*
+          $.post('http://path/to/post',
+             $('#scheduledForm').serialize(),
+             function(data, status, xhr){
+               // do something here with response;
+             });
+          */
+    });
+  </script>
+
+</template>
