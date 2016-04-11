@@ -108,9 +108,9 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
                 cell.addressField.text = dropOffAddress
                 cell.addressField.tag = 2
             }
-            cell.addressField.returnKeyType = UIReturnKeyType.Done
             addToolBarToTextView(cell.addressField)
             cell.addressField.delegate = self
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         }
         else if indexPath == NSIndexPath(forRow: 2, inSection: 0) || indexPath == NSIndexPath(forRow: 3, inSection: 0) {
@@ -125,8 +125,10 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
                 self.timeField = cell.infoField
             }
             else {
+                cell.infoField.text = "1"
                 self.numberOfRidersField = cell.infoField
             }
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         }
         else {
@@ -140,6 +142,7 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
             cell.infoField.keyboardType = .NumberPad
             addToolBarToTextField(cell.infoField)
             cell.infoField.delegate = self
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         }
     }
@@ -223,7 +226,6 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.Default
         toolBar.translucent = true
-        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: #selector(ConfirmViewController.donePressed))
         let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ConfirmViewController.cancelPressed))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
@@ -238,7 +240,6 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.Default
         toolBar.translucent = true
-        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: #selector(ConfirmViewController.donePressed))
         let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ConfirmViewController.cancelPressed))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
