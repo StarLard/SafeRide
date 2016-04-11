@@ -307,6 +307,7 @@
                     <navigationItem key="navigationItem" title="Confirm Ride Details" id="lEP-YC-fqG">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Send Request" id="5z0-Zc-kxK">
                             <connections>
+                                <action selector="sendButtonPressed:" destination="4Ws-Sp-SGe" id="ydz-6y-ZVx"/>
                                 <segue destination="uct-Td-rCi" kind="show" id="aSt-20-iVe"/>
                             </connections>
                         </barButtonItem>

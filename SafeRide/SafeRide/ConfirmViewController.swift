@@ -28,6 +28,9 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
     private var rideTime = ""
     
     // MARK: Properties (IBAction)
+    @IBAction func sendButtonPressed(sender: AnyObject) {
+    }
+    
     @IBAction func textFieldChanged(sender: UITextField) {
         // Called whenever a text field changes
         // phone field has tag 1, UO ID has tag 2, time has tag 3
