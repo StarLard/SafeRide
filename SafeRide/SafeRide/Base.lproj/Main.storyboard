@@ -81,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ds-Tv-z7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1356" y="-127"/>
+            <point key="canvasLocation" x="1272" y="-127"/>
         </scene>
         <!--Map-->
         <scene sceneID="NvB-9n-DSD">
@@ -225,6 +225,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textFieldChanged:" destination="4Ws-Sp-SGe" eventType="editingChanged" id="Mtq-VL-D7Y"/>
+                                                        <action selector="textFieldEditing:" destination="4Ws-Sp-SGe" eventType="editingDidBegin" id="SEh-VE-snI"/>
                                                         <outlet property="delegate" destination="4Ws-Sp-SGe" id="bzp-dM-ulu"/>
                                                     </connections>
                                                 </textField>
@@ -319,7 +320,7 @@
             </objects>
             <point key="canvasLocation" x="1969" y="-807"/>
         </scene>
-        <!--Your Request Has Been Sent-->
+        <!--Confirmation-->
         <scene sceneID="LmY-Hy-wMp">
             <objects>
                 <viewController id="uct-Td-rCi" customClass="SetViewController" customModule="SafeRide" customModuleProvider="target" sceneMemberID="viewController">
@@ -330,9 +331,41 @@
                     <view key="view" contentMode="scaleToFill" id="dfW-Jq-ACT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kLD-gD-iKe">
+                                <rect key="frame" x="179" y="239" width="242" height="123"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Request Has Been Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqT-mX-D0y">
+                                        <rect key="frame" x="0.0" y="0.0" width="242" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRE-Rr-gcy">
+                                        <rect key="frame" x="0.0" y="31" width="242" height="61"/>
+                                        <string key="text">You will receive a text message 
+with a confirmation once your
+request has been processed.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for using SafeRide!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uer-Xt-o14">
+                                        <rect key="frame" x="0.0" y="102" width="242" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kLD-gD-iKe" firstAttribute="centerX" secondItem="dfW-Jq-ACT" secondAttribute="centerX" id="eUk-aS-H8b"/>
+                            <constraint firstItem="kLD-gD-iKe" firstAttribute="centerY" secondItem="dfW-Jq-ACT" secondAttribute="centerY" id="gym-jk-7ok"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Your Request Has Been Sent" id="phA-rL-mIQ"/>
+                    <navigationItem key="navigationItem" title="Confirmation" id="phA-rL-mIQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zrK-6R-16a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -25,11 +25,19 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
     private var numberOfRiders = ""
     private var phoneNumber = ""
     private var UOID = ""
+    private var rideTime = ""
     
     // MARK: Properties (IBAction)
+    @IBAction func textFieldEditing(sender: UITextField) {
+        // Called whenever a text begins editing
+        // phone field has tag 1, UO ID has tag 2, time has tag 3
+        if sender.tag == 3 {
+            
+        }
+    }
     @IBAction func textFieldChanged(sender: UITextField) {
         // Called whenever a text field changes
-        // phone field has tag 1, UO ID has tag 2
+        // phone field has tag 1, UO ID has tag 2, time has tag 3
         if sender.tag == 1 {
             self.phoneNumber = sender.text!
         }
@@ -121,11 +129,22 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
             addToolBarToTextField(cell.infoField)
             if indexPath == NSIndexPath(forRow: 3, inSection: 0) {
                 cell.infoLabel.text = "Ride Time"
+                timePickerView.datePickerMode = UIDatePickerMode.Time
+                timePickerView.addTarget(self, action: #selector(ConfirmViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
                 cell.infoField.inputView = timePickerView
+                cell.infoField.tag = 3
+                let dateFormatter = NSDateFormatter()
+                
+                dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
+                dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+                cell.infoField.text = dateFormatter.stringFromDate(timePickerView.date)
+                rideTime = cell.infoField.text!
+                
                 self.timeField = cell.infoField
             }
             else {
                 cell.infoField.text = "1"
+                numberOfRiders = cell.infoField.text!
                 self.numberOfRidersField = cell.infoField
             }
             cell.selectionStyle = UITableViewCellSelectionStyle.None
@@ -205,10 +224,21 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
         return true
     }
     
-    // MARK: Helper Methods
+    // MARK: Methods (Private)
+    func datePickerValueChanged(sender:UIDatePicker) {
+        
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        timeField.text = dateFormatter.stringFromDate(sender.date)
+        rideTime = timeField.text!
+        
+    }
+    
     func readyToRequest(){
         // Checks if all required info has been filled out before enable request button
-        let requiredInformation = [self.pickUpAddress, self.dropOffAddress, self.numberOfRiders, self.phoneNumber, self.UOID]
+        let requiredInformation = [self.pickUpAddress, self.dropOffAddress, self.numberOfRiders, self.phoneNumber, self.UOID, self.rideTime]
         for info in requiredInformation {
             if info == "" {
                 self.sendRequestButton.enabled = false
