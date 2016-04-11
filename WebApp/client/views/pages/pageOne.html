@@ -1,6 +1,6 @@
 <template name="pageOne">
 
-    <!-- {{> pageHeading title='Queue' }} -->
+    <!-- {{> pageHeading title='Queues' }} -->
 
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
@@ -12,36 +12,84 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-6">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    Pending Requests {{> addrequest}}
-                </div>
-                <div class="panel-body">
-                  <div class="panel-group" id="accordion">
-                    {{> pendingRequests}}
-                  </div>
-                </div>
+          <div class="col-md-6">
+            <div class="alert alert-warning">
+                <p>
+                  {{pendingCount}} {{> addPending}}
+                </p>
             </div>
           </div>
 
-          <div class="col-lg-6">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    Rides Scheduled
-                    <!-- {{> addrequest}} -->
-                </div>
-                <div class="panel-body">
-                  <div class="panel-group" id="accordion">
-                    {{> scheduled}}
-                  </div>
-                </div>
+          <div class="col-md-6">
+            <div class="alert alert-success">
+              <p>
+                {{scheduledCount}} {{> addScheduled}}
+              </p>
             </div>
           </div>
-
         </div>
 
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Pending Requests</h5>
+                    {{>iboxTools}}
+                </div>
+                <div class="ibox-content">
 
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>UO ID</th>
+                          <th>Phone</th>
+                          <th>Pickup</th>
+                          <th>Dropoff</th>
+                          <th>Riders</th>
+                          <th>Pickup Time</th>
+                          <th>Submitted</th>
+                          <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          {{> pendingQueue}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Scheduled Rides</h5>
+                    {{>iboxTools}}
+                </div>
+                <div class="ibox-content">
+
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>UO ID</th>
+                          <th>Phone</th>
+                          <th>Pickup</th>
+                          <th>Dropoff</th>
+                          <th>Riders</th>
+                          <th>Pickup Time</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          {{> scheduledQueue}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
+        </div>
 
     </div>
 </template>
