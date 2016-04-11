@@ -19,6 +19,7 @@
 		854D396F1CAC70BA00C72EE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 854D396D1CAC70BA00C72EE0 /* LaunchScreen.storyboard */; };
 		854D397A1CAC70BA00C72EE0 /* SafeRideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39791CAC70BA00C72EE0 /* SafeRideTests.swift */; };
 		854D39851CAC70BA00C72EE0 /* SafeRideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39841CAC70BA00C72EE0 /* SafeRideUITests.swift */; };
+		CE66C46C1CBC13BC00A17900 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C46B1CBC13BC00A17900 /* SetViewController.swift */; };
 		DB52298E1CB5F8E800736E73 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52298D1CB5F8E800736E73 /* SettingsCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		854D39801CAC70BA00C72EE0 /* SafeRideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeRideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		854D39841CAC70BA00C72EE0 /* SafeRideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeRideUITests.swift; sourceTree = "<group>"; };
 		854D39861CAC70BA00C72EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE66C46B1CBC13BC00A17900 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		DB52298D1CB5F8E800736E73 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				851599681CB31D830075C656 /* AddressCell.swift */,
 				8515996A1CB31D9C0075C656 /* InfoCell.swift */,
 				DB52298D1CB5F8E800736E73 /* SettingsCell.swift */,
+				CE66C46B1CBC13BC00A17900 /* SetViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				851599631CB2DA3B0075C656 /* ConfirmViewController.swift in Sources */,
+				CE66C46C1CBC13BC00A17900 /* SetViewController.swift in Sources */,
 				854D39671CAC70BA00C72EE0 /* SettingsViewController.swift in Sources */,
 				851599671CB319DE0075C656 /* UITableView_Keyboard_Notification.swift in Sources */,
 				854D39631CAC70BA00C72EE0 /* AppDelegate.swift in Sources */,

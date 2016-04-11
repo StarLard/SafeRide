@@ -304,7 +304,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Confirm Ride Details" id="lEP-YC-fqG">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Send Request" id="5z0-Zc-kxK"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Send Request" id="5z0-Zc-kxK">
+                            <connections>
+                                <segue destination="uct-Td-rCi" kind="show" id="aSt-20-iVe"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="infoTableView" destination="q6W-Eh-B0n" id="yGs-yQ-a3Q"/>
@@ -314,6 +318,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K7w-UL-pcm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1969" y="-807"/>
+        </scene>
+        <!--Your Request Has Been Sent-->
+        <scene sceneID="LmY-Hy-wMp">
+            <objects>
+                <viewController id="uct-Td-rCi" customClass="SetViewController" customModule="SafeRide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UkE-Tb-DDI"/>
+                        <viewControllerLayoutGuide type="bottom" id="2s3-45-YXV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dfW-Jq-ACT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Your Request Has Been Sent" id="phA-rL-mIQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zrK-6R-16a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2677" y="-807"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="J1B-yq-aFD">
