@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
-import AddressBookUI
+import Contacts
 
 class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocationManagerDelegate {
     
@@ -90,7 +90,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
             
             if placemarks!.count > 0 {
                 let pm = placemarks![0]
-                let address = ABCreateStringWithAddressDictionary(pm.addressDictionary!, false)
+                let address = self.localizedStringForAddressDictionary(pm.addressDictionary!)
                 if (addressType == "pick up") {
                     self.pickUpAddress = address
                     self.pickUpSearchBar.text = self.pickUpAddress
@@ -175,6 +175,27 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
         circleRenderer.alpha = 0.5
         
         return circleRenderer
+    }
+    
+    // MARK: Methods (Private)
+    func postalAddressFromAddressDictionary(addressdictionary: Dictionary<NSObject,AnyObject>) -> CNMutablePostalAddress {
+        // Convert Address Dictionary to CNPostalAddress
+        
+        let address = CNMutablePostalAddress()
+        
+        address.street = addressdictionary["Street"] as? String ?? ""
+        address.state = addressdictionary["State"] as? String ?? ""
+        address.city = addressdictionary["City"] as? String ?? ""
+        address.country = addressdictionary["Country"] as? String ?? ""
+        address.postalCode = addressdictionary["ZIP"] as? String ?? ""
+        
+        return address
+    }
+    
+    func localizedStringForAddressDictionary(addressDictionary: Dictionary<NSObject,AnyObject>) -> String {
+        // Create a localized address string from an Address Dictionary
+        
+        return CNPostalAddressFormatter.stringFromPostalAddress(postalAddressFromAddressDictionary(addressDictionary), style: .MailingAddress)
     }
 
 }
