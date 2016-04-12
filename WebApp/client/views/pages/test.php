@@ -22,5 +22,11 @@
     );
 
     $collection->insert($document);
-    echo "Successfully added iOS pending request";
+
+    // Echo back to client
+    echo "Your request has been received.";
+    echo "You will receive a confirmation text once your request has been processed."
+    echo "";
+    echo "Please note that SafeRide staff are only able to process requests Sun-Thu: 7pm-12am and Fri-Sat: 7pm-2am.";
+    echo "Questions? Call 541-346-7433 ex. 2 during the above hours of operation.";
 ?>
