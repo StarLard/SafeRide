@@ -7,7 +7,7 @@ A SafeRide employee portal that manages reservations in addition to recieving re
 ### Instructions
 ```
 $ git clone https://github.com/ccfriden/SafeRide
-$ cd WebApp
+$ cd SafeRide/WebApp
 $ meteor
 ```
 
