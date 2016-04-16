@@ -27,10 +27,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: CoreData Variables
     
-    var First:String = "John";
-    var Last:String = "Smith";
-    var Phone:String = "5553995652";
-    var UOID:String = "951555444";
+    var First:String = "";
+    var Last:String = "";
+    var Phone:String = "";
+    var UOID:String = "";
     
     
 
@@ -56,23 +56,36 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             cell.settingsLabel.text = "First";
             cell.settingsField.placeholder = "ex. John"
             cell.settingsField.returnKeyType = UIReturnKeyType.Done
+            if (First != ""){
+                cell.settingsField.text = First;
+            }
         }
         else if indexPath == NSIndexPath(forRow: 1, inSection: 0){
             cell.settingsLabel.text = "Last";
             cell.settingsField.placeholder = "ex. Smith"
             cell.settingsField.returnKeyType = UIReturnKeyType.Done
+            if (Last != ""){
+                cell.settingsField.text = Last;
+            }
         }
         else if indexPath == NSIndexPath(forRow: 2, inSection: 0){
             cell.settingsField.keyboardType = .NumberPad
             addToolBarToTextField(cell.settingsField)
             cell.settingsLabel.text = "Phone number";
             cell.settingsField.placeholder = "ex. 5553995652"
+            if (Phone != ""){
+                cell.settingsField.text = Phone;
+            }
         }
         else if indexPath == NSIndexPath(forRow: 3, inSection: 0){
             cell.settingsField.keyboardType = .NumberPad
             addToolBarToTextField(cell.settingsField)
             cell.settingsLabel.text = "UO ID";
             cell.settingsField.placeholder = "ex. 951555444"
+            if (UOID != ""){
+                cell.settingsField.text = UOID;
+            }
+            
         }
         
         cell.settingsField.delegate = self
