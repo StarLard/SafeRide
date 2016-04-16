@@ -8,9 +8,10 @@
 
 import Foundation
 import CoreData
+import CoreDataService
 
 
-class User: NSManagedObject {
+class User: NSManagedObject, NamedEntity {
     // MARK: Properties (NamedEntity)
     static var entityName: String {
         return "User"

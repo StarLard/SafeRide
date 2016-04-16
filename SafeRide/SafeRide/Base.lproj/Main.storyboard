@@ -43,6 +43,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textFieldChanged:" destination="4Ws-Sp-SGe" eventType="editingChanged" id="Un3-JA-VDT"/>
+                                                        <action selector="updateSettings:" destination="6G6-ty-3UW" eventType="editingDidEnd" id="qgI-QT-8pB"/>
                                                         <outlet property="delegate" destination="4Ws-Sp-SGe" id="use-Nr-qBR"/>
                                                     </connections>
                                                 </textField>
@@ -74,20 +75,8 @@
                             <constraint firstAttribute="trailing" secondItem="OUG-59-yD4" secondAttribute="trailing" id="kcK-E6-0p1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="wpx-SJ-q9w">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="aFM-s7-aLe">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="O0X-pD-knX">
-                                <rect key="frame" x="447" y="7" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
-                            </button>
-                            <connections>
-                                <action selector="saveSettings:" destination="6G6-ty-3UW" id="tDq-kL-Veu"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Settings" id="wpx-SJ-q9w"/>
                     <connections>
-                        <outlet property="saveButton" destination="aFM-s7-aLe" id="Orb-MQ-Jb7"/>
                         <outlet property="settingsTableView" destination="OUG-59-yD4" id="MCV-QQ-zZ3"/>
                     </connections>
                 </viewController>
