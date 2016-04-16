@@ -88,7 +88,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="saveButton" destination="aFM-s7-aLe" id="Orb-MQ-Jb7"/>
-                        <outlet property="saveSettings" destination="aFM-s7-aLe" id="T3g-ed-dch"/>
                         <outlet property="settingsTableView" destination="OUG-59-yD4" id="MCV-QQ-zZ3"/>
                     </connections>
                 </viewController>
