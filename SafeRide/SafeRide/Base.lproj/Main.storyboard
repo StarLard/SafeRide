@@ -81,9 +81,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
                             </button>
+                            <connections>
+                                <action selector="saveSettings:" destination="6G6-ty-3UW" id="tDq-kL-Veu"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveButton" destination="aFM-s7-aLe" id="Orb-MQ-Jb7"/>
+                        <outlet property="saveSettings" destination="aFM-s7-aLe" id="T3g-ed-dch"/>
                         <outlet property="settingsTableView" destination="OUG-59-yD4" id="MCV-QQ-zZ3"/>
                     </connections>
                 </viewController>

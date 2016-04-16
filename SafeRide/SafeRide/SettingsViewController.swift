@@ -33,10 +33,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var UOID:String = "";
     
     
-
+    // MARK: Properties (IBAction)
+    @IBAction func saveSettings(sender: AnyObject) {
+    }
+    
 
     // MARK: Properties (IBOutlet)
     @IBOutlet weak var settingsTableView: UITableView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+
     
     //MARK: Table View Delegate
     
