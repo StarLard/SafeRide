@@ -53,25 +53,25 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell", forIndexPath: indexPath) as! SettingsCell
         
         if indexPath == NSIndexPath(forRow: 0, inSection: 0){
-            cell.settingsLabel.text = First;
+            cell.settingsLabel.text = "First";
             cell.settingsField.placeholder = "ex. John"
             cell.settingsField.returnKeyType = UIReturnKeyType.Done
         }
         else if indexPath == NSIndexPath(forRow: 1, inSection: 0){
-            cell.settingsLabel.text = Last;
+            cell.settingsLabel.text = "Last";
             cell.settingsField.placeholder = "ex. Smith"
             cell.settingsField.returnKeyType = UIReturnKeyType.Done
         }
         else if indexPath == NSIndexPath(forRow: 2, inSection: 0){
             cell.settingsField.keyboardType = .NumberPad
             addToolBarToTextField(cell.settingsField)
-            cell.settingsLabel.text = Phone;
+            cell.settingsLabel.text = "Phone number";
             cell.settingsField.placeholder = "ex. 5553995652"
         }
         else if indexPath == NSIndexPath(forRow: 3, inSection: 0){
             cell.settingsField.keyboardType = .NumberPad
             addToolBarToTextField(cell.settingsField)
-            cell.settingsLabel.text = UOID;
+            cell.settingsLabel.text = "UO ID";
             cell.settingsField.placeholder = "ex. 951555444"
         }
         
