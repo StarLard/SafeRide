@@ -21,6 +21,7 @@
 		854D39851CAC70BA00C72EE0 /* SafeRideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39841CAC70BA00C72EE0 /* SafeRideUITests.swift */; };
 		CE66C46C1CBC13BC00A17900 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C46B1CBC13BC00A17900 /* SetViewController.swift */; };
 		DB52298E1CB5F8E800736E73 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52298D1CB5F8E800736E73 /* SettingsCell.swift */; };
+		DB9DB6C51CC2EE4C00D331B6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB9DB6C31CC2EE4C00D331B6 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		854D39861CAC70BA00C72EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE66C46B1CBC13BC00A17900 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		DB52298D1CB5F8E800736E73 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		DB9DB6C41CC2EE4C00D331B6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				854D396D1CAC70BA00C72EE0 /* LaunchScreen.storyboard */,
 				854D39701CAC70BA00C72EE0 /* Info.plist */,
 				854D396B1CAC70BA00C72EE0 /* Assets.xcassets */,
+				DB9DB6C31CC2EE4C00D331B6 /* Model.xcdatamodeld */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				854D39631CAC70BA00C72EE0 /* AppDelegate.swift in Sources */,
 				851599691CB31D830075C656 /* AddressCell.swift in Sources */,
 				854D39651CAC70BA00C72EE0 /* MapViewController.swift in Sources */,
+				DB9DB6C51CC2EE4C00D331B6 /* Model.xcdatamodeld in Sources */,
 				DB52298E1CB5F8E800736E73 /* SettingsCell.swift in Sources */,
 				8515996B1CB31D9C0075C656 /* InfoCell.swift in Sources */,
 			);
@@ -566,6 +570,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DB9DB6C31CC2EE4C00D331B6 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DB9DB6C41CC2EE4C00D331B6 /* Model.xcdatamodel */,
+			);
+			currentVersion = DB9DB6C41CC2EE4C00D331B6 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 854D39571CAC70B900C72EE0 /* Project object */;
 }
