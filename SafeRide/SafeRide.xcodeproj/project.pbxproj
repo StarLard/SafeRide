@@ -19,6 +19,15 @@
 		854D396F1CAC70BA00C72EE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 854D396D1CAC70BA00C72EE0 /* LaunchScreen.storyboard */; };
 		854D397A1CAC70BA00C72EE0 /* SafeRideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39791CAC70BA00C72EE0 /* SafeRideTests.swift */; };
 		854D39851CAC70BA00C72EE0 /* SafeRideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39841CAC70BA00C72EE0 /* SafeRideUITests.swift */; };
+		85EDC48D1CC2FDA1000BB637 /* CoreDataService.h in Headers */ = {isa = PBXBuildFile; fileRef = 85EDC48C1CC2FDA1000BB637 /* CoreDataService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		85EDC4941CC2FDA1000BB637 /* CoreDataService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */; };
+		85EDC49B1CC2FDA1000BB637 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC49A1CC2FDA1000BB637 /* CoreDataServiceTests.swift */; };
+		85EDC49F1CC2FDA1000BB637 /* CoreDataService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */; };
+		85EDC4A01CC2FDA1000BB637 /* CoreDataService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		85EDC4AA1CC2FDEC000BB637 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC4A91CC2FDEC000BB637 /* CoreDataService.swift */; };
+		85EDC4AD1CC2FE43000BB637 /* NSEntityDescription_Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC4AC1CC2FE43000BB637 /* NSEntityDescription_Service.swift */; };
+		85EDC4AF1CC2FE64000BB637 /* NSFetchRequest_Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC4AE1CC2FE64000BB637 /* NSFetchRequest_Service.swift */; };
+		85EDC4B21CC2FEBA000BB637 /* NamedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC4B11CC2FEBA000BB637 /* NamedEntity.swift */; };
 		CE66C46C1CBC13BC00A17900 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C46B1CBC13BC00A17900 /* SetViewController.swift */; };
 		DB52298E1CB5F8E800736E73 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52298D1CB5F8E800736E73 /* SettingsCell.swift */; };
 		DB9DB6C51CC2EE4C00D331B6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB9DB6C31CC2EE4C00D331B6 /* Model.xcdatamodeld */; };
@@ -41,7 +50,42 @@
 			remoteGlobalIDString = 854D395E1CAC70B900C72EE0;
 			remoteInfo = SafeRide;
 		};
+		85EDC4951CC2FDA1000BB637 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 854D39571CAC70B900C72EE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85EDC4891CC2FDA1000BB637;
+			remoteInfo = CoreDataService;
+		};
+		85EDC4971CC2FDA1000BB637 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 854D39571CAC70B900C72EE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 854D395E1CAC70B900C72EE0;
+			remoteInfo = SafeRide;
+		};
+		85EDC49D1CC2FDA1000BB637 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 854D39571CAC70B900C72EE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85EDC4891CC2FDA1000BB637;
+			remoteInfo = CoreDataService;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		85EDC4A61CC2FDA1000BB637 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				85EDC4A01CC2FDA1000BB637 /* CoreDataService.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		851599621CB2DA3B0075C656 /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +106,16 @@
 		854D39801CAC70BA00C72EE0 /* SafeRideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeRideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		854D39841CAC70BA00C72EE0 /* SafeRideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeRideUITests.swift; sourceTree = "<group>"; };
 		854D39861CAC70BA00C72EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreDataService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85EDC48C1CC2FDA1000BB637 /* CoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataService.h; sourceTree = "<group>"; };
+		85EDC48E1CC2FDA1000BB637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85EDC4931CC2FDA1000BB637 /* CoreDataServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85EDC49A1CC2FDA1000BB637 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
+		85EDC49C1CC2FDA1000BB637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85EDC4A91CC2FDEC000BB637 /* CoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		85EDC4AC1CC2FE43000BB637 /* NSEntityDescription_Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSEntityDescription_Service.swift; sourceTree = "<group>"; };
+		85EDC4AE1CC2FE64000BB637 /* NSFetchRequest_Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSFetchRequest_Service.swift; sourceTree = "<group>"; };
+		85EDC4B11CC2FEBA000BB637 /* NamedEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamedEntity.swift; sourceTree = "<group>"; };
 		CE66C46B1CBC13BC00A17900 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		DB52298D1CB5F8E800736E73 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		DB9DB6C41CC2EE4C00D331B6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -74,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85EDC49F1CC2FDA1000BB637 /* CoreDataService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +143,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85EDC4861CC2FDA1000BB637 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85EDC4901CC2FDA1000BB637 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85EDC4941CC2FDA1000BB637 /* CoreDataService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +192,8 @@
 				854D39611CAC70BA00C72EE0 /* SafeRide */,
 				854D39781CAC70BA00C72EE0 /* SafeRideTests */,
 				854D39831CAC70BA00C72EE0 /* SafeRideUITests */,
+				85EDC48B1CC2FDA1000BB637 /* CoreDataService */,
+				85EDC4991CC2FDA1000BB637 /* CoreDataServiceTests */,
 				854D39601CAC70B900C72EE0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -132,6 +204,8 @@
 				854D395F1CAC70B900C72EE0 /* SafeRide.app */,
 				854D39751CAC70BA00C72EE0 /* SafeRideTests.xctest */,
 				854D39801CAC70BA00C72EE0 /* SafeRideUITests.xctest */,
+				85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */,
+				85EDC4931CC2FDA1000BB637 /* CoreDataServiceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +260,52 @@
 			name = Source;
 			sourceTree = "<group>";
 		};
+		85EDC48B1CC2FDA1000BB637 /* CoreDataService */ = {
+			isa = PBXGroup;
+			children = (
+				85EDC4B01CC2FEA7000BB637 /* Protocol */,
+				85EDC4AB1CC2FE28000BB637 /* Extension */,
+				85EDC4A81CC2FDD9000BB637 /* Source */,
+				85EDC48E1CC2FDA1000BB637 /* Info.plist */,
+			);
+			path = CoreDataService;
+			sourceTree = "<group>";
+		};
+		85EDC4991CC2FDA1000BB637 /* CoreDataServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				85EDC49A1CC2FDA1000BB637 /* CoreDataServiceTests.swift */,
+				85EDC49C1CC2FDA1000BB637 /* Info.plist */,
+			);
+			path = CoreDataServiceTests;
+			sourceTree = "<group>";
+		};
+		85EDC4A81CC2FDD9000BB637 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				85EDC48C1CC2FDA1000BB637 /* CoreDataService.h */,
+				85EDC4A91CC2FDEC000BB637 /* CoreDataService.swift */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		85EDC4AB1CC2FE28000BB637 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				85EDC4AC1CC2FE43000BB637 /* NSEntityDescription_Service.swift */,
+				85EDC4AE1CC2FE64000BB637 /* NSFetchRequest_Service.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		85EDC4B01CC2FEA7000BB637 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				85EDC4B11CC2FEBA000BB637 /* NamedEntity.swift */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
 		DB9DB6C61CC2F0C700D331B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +317,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		85EDC4871CC2FDA1000BB637 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85EDC48D1CC2FDA1000BB637 /* CoreDataService.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		854D395E1CAC70B900C72EE0 /* SafeRide */ = {
 			isa = PBXNativeTarget;
@@ -205,10 +336,12 @@
 				854D395B1CAC70B900C72EE0 /* Sources */,
 				854D395C1CAC70B900C72EE0 /* Frameworks */,
 				854D395D1CAC70B900C72EE0 /* Resources */,
+				85EDC4A61CC2FDA1000BB637 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				85EDC49E1CC2FDA1000BB637 /* PBXTargetDependency */,
 			);
 			name = SafeRide;
 			productName = SafeRide;
@@ -251,6 +384,43 @@
 			productReference = 854D39801CAC70BA00C72EE0 /* SafeRideUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		85EDC4891CC2FDA1000BB637 /* CoreDataService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85EDC4A51CC2FDA1000BB637 /* Build configuration list for PBXNativeTarget "CoreDataService" */;
+			buildPhases = (
+				85EDC4851CC2FDA1000BB637 /* Sources */,
+				85EDC4861CC2FDA1000BB637 /* Frameworks */,
+				85EDC4871CC2FDA1000BB637 /* Headers */,
+				85EDC4881CC2FDA1000BB637 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreDataService;
+			productName = CoreDataService;
+			productReference = 85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		85EDC4921CC2FDA1000BB637 /* CoreDataServiceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85EDC4A71CC2FDA1000BB637 /* Build configuration list for PBXNativeTarget "CoreDataServiceTests" */;
+			buildPhases = (
+				85EDC48F1CC2FDA1000BB637 /* Sources */,
+				85EDC4901CC2FDA1000BB637 /* Frameworks */,
+				85EDC4911CC2FDA1000BB637 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				85EDC4961CC2FDA1000BB637 /* PBXTargetDependency */,
+				85EDC4981CC2FDA1000BB637 /* PBXTargetDependency */,
+			);
+			name = CoreDataServiceTests;
+			productName = CoreDataServiceTests;
+			productReference = 85EDC4931CC2FDA1000BB637 /* CoreDataServiceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -275,6 +445,15 @@
 						DevelopmentTeam = 2524DUVEAT;
 						TestTargetID = 854D395E1CAC70B900C72EE0;
 					};
+					85EDC4891CC2FDA1000BB637 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 2524DUVEAT;
+					};
+					85EDC4921CC2FDA1000BB637 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 2524DUVEAT;
+						TestTargetID = 854D395E1CAC70B900C72EE0;
+					};
 				};
 			};
 			buildConfigurationList = 854D395A1CAC70B900C72EE0 /* Build configuration list for PBXProject "SafeRide" */;
@@ -293,6 +472,8 @@
 				854D395E1CAC70B900C72EE0 /* SafeRide */,
 				854D39741CAC70BA00C72EE0 /* SafeRideTests */,
 				854D397F1CAC70BA00C72EE0 /* SafeRideUITests */,
+				85EDC4891CC2FDA1000BB637 /* CoreDataService */,
+				85EDC4921CC2FDA1000BB637 /* CoreDataServiceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -316,6 +497,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		854D397E1CAC70BA00C72EE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85EDC4881CC2FDA1000BB637 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85EDC4911CC2FDA1000BB637 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -360,6 +555,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		85EDC4851CC2FDA1000BB637 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85EDC4AD1CC2FE43000BB637 /* NSEntityDescription_Service.swift in Sources */,
+				85EDC4AA1CC2FDEC000BB637 /* CoreDataService.swift in Sources */,
+				85EDC4B21CC2FEBA000BB637 /* NamedEntity.swift in Sources */,
+				85EDC4AF1CC2FE64000BB637 /* NSFetchRequest_Service.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85EDC48F1CC2FDA1000BB637 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85EDC49B1CC2FDA1000BB637 /* CoreDataServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -372,6 +586,21 @@
 			isa = PBXTargetDependency;
 			target = 854D395E1CAC70B900C72EE0 /* SafeRide */;
 			targetProxy = 854D39811CAC70BA00C72EE0 /* PBXContainerItemProxy */;
+		};
+		85EDC4961CC2FDA1000BB637 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 85EDC4891CC2FDA1000BB637 /* CoreDataService */;
+			targetProxy = 85EDC4951CC2FDA1000BB637 /* PBXContainerItemProxy */;
+		};
+		85EDC4981CC2FDA1000BB637 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 854D395E1CAC70B900C72EE0 /* SafeRide */;
+			targetProxy = 85EDC4971CC2FDA1000BB637 /* PBXContainerItemProxy */;
+		};
+		85EDC49E1CC2FDA1000BB637 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 85EDC4891CC2FDA1000BB637 /* CoreDataService */;
+			targetProxy = 85EDC49D1CC2FDA1000BB637 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -482,6 +711,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SafeRide/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uoregon.SafeRide;
@@ -493,6 +723,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SafeRide/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uoregon.SafeRide;
@@ -546,6 +777,71 @@
 			};
 			name = Release;
 		};
+		85EDC4A11CC2FDA1000BB637 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CoreDataService/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uoregon.CoreDataService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		85EDC4A21CC2FDA1000BB637 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CoreDataService/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uoregon.CoreDataService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		85EDC4A31CC2FDA1000BB637 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CoreDataServiceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uoregon.CoreDataServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafeRide.app/SafeRide";
+			};
+			name = Debug;
+		};
+		85EDC4A41CC2FDA1000BB637 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CoreDataServiceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uoregon.CoreDataServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafeRide.app/SafeRide";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -584,6 +880,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		85EDC4A51CC2FDA1000BB637 /* Build configuration list for PBXNativeTarget "CoreDataService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85EDC4A11CC2FDA1000BB637 /* Debug */,
+				85EDC4A21CC2FDA1000BB637 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		85EDC4A71CC2FDA1000BB637 /* Build configuration list for PBXNativeTarget "CoreDataServiceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85EDC4A31CC2FDA1000BB637 /* Debug */,
+				85EDC4A41CC2FDA1000BB637 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
