@@ -6,6 +6,7 @@
 //  Copyright © 2016 University of Oregon. All rights reserved.
 //
 
+import CoreData
 import UIKit
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
@@ -38,6 +39,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
+    // MARK: Properties
+    private var resultsController : NSFetchedResultsController?
+    
 
     // MARK: Properties (IBOutlet)
     @IBOutlet weak var settingsTableView: UITableView!
@@ -57,6 +61,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell", forIndexPath: indexPath) as! SettingsCell
+        
+        let userInfo = resultsController
         
         if indexPath == NSIndexPath(forRow: 0, inSection: 0){
             cell.settingsLabel.text = "First";
