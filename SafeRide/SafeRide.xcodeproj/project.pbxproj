@@ -28,6 +28,7 @@
 		85EDC4AD1CC2FE43000BB637 /* NSEntityDescription_Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC4AC1CC2FE43000BB637 /* NSEntityDescription_Service.swift */; };
 		85EDC4AF1CC2FE64000BB637 /* NSFetchRequest_Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC4AE1CC2FE64000BB637 /* NSFetchRequest_Service.swift */; };
 		85EDC4B21CC2FEBA000BB637 /* NamedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC4B11CC2FEBA000BB637 /* NamedEntity.swift */; };
+		85EDC4B51CC2FF1D000BB637 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC4B41CC2FF1D000BB637 /* SettingsService.swift */; };
 		CE66C46C1CBC13BC00A17900 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C46B1CBC13BC00A17900 /* SetViewController.swift */; };
 		DB52298E1CB5F8E800736E73 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52298D1CB5F8E800736E73 /* SettingsCell.swift */; };
 		DB9DB6C51CC2EE4C00D331B6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB9DB6C31CC2EE4C00D331B6 /* Model.xcdatamodeld */; };
@@ -116,6 +117,7 @@
 		85EDC4AC1CC2FE43000BB637 /* NSEntityDescription_Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSEntityDescription_Service.swift; sourceTree = "<group>"; };
 		85EDC4AE1CC2FE64000BB637 /* NSFetchRequest_Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSFetchRequest_Service.swift; sourceTree = "<group>"; };
 		85EDC4B11CC2FEBA000BB637 /* NamedEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamedEntity.swift; sourceTree = "<group>"; };
+		85EDC4B41CC2FF1D000BB637 /* SettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		CE66C46B1CBC13BC00A17900 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		DB52298D1CB5F8E800736E73 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		DB9DB6C41CC2EE4C00D331B6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 		854D39931CAC7E8700C72EE0 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				85EDC4B31CC2FEE7000BB637 /* Service */,
 				DB9DB6C61CC2F0C700D331B6 /* Model */,
 				851599651CB3198E0075C656 /* Extensions */,
 				851599641CB3197E0075C656 /* View */,
@@ -304,6 +307,14 @@
 				85EDC4B11CC2FEBA000BB637 /* NamedEntity.swift */,
 			);
 			name = Protocol;
+			sourceTree = "<group>";
+		};
+		85EDC4B31CC2FEE7000BB637 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				85EDC4B41CC2FF1D000BB637 /* SettingsService.swift */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 		DB9DB6C61CC2F0C700D331B6 /* Model */ = {
@@ -532,6 +543,7 @@
 				851599691CB31D830075C656 /* AddressCell.swift in Sources */,
 				854D39651CAC70BA00C72EE0 /* MapViewController.swift in Sources */,
 				DB9DB6C91CC2F10700D331B6 /* User+CoreDataProperties.swift in Sources */,
+				85EDC4B51CC2FF1D000BB637 /* SettingsService.swift in Sources */,
 				DB9DB6CA1CC2F10700D331B6 /* User.swift in Sources */,
 				DB9DB6C51CC2EE4C00D331B6 /* Model.xcdatamodeld in Sources */,
 				DB52298E1CB5F8E800736E73 /* SettingsCell.swift in Sources */,
