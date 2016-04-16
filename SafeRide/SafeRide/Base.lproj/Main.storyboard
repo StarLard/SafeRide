@@ -318,14 +318,14 @@
                     <navigationItem key="navigationItem" title="Confirm Ride Details" id="lEP-YC-fqG">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Send Request" id="5z0-Zc-kxK">
                             <connections>
-                                <action selector="sendButtonPressed:" destination="4Ws-Sp-SGe" id="ydz-6y-ZVx"/>
-                                <segue destination="uct-Td-rCi" kind="show" id="aSt-20-iVe"/>
+                                <action selector="sendButtonPressed:" destination="4Ws-Sp-SGe" id="el0-Qa-ezS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="infoTableView" destination="q6W-Eh-B0n" id="yGs-yQ-a3Q"/>
                         <outlet property="sendRequestButton" destination="5z0-Zc-kxK" id="N9L-k8-miJ"/>
+                        <segue destination="uct-Td-rCi" kind="show" identifier="confirmSegue" id="Zcc-H1-9Qm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K7w-UL-pcm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -344,17 +344,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kLD-gD-iKe">
-                                <rect key="frame" x="179" y="239" width="242" height="122"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kLD-gD-iKe">
+                                <rect key="frame" x="150" y="230" width="300" height="140"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your Request Has Been Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqT-mX-D0y">
-                                        <rect key="frame" x="0.0" y="0.0" width="242" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Request Has Been Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqT-mX-D0y">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="deg-R7-TfM"/>
+                                            <constraint firstAttribute="width" constant="300" id="sNL-Tc-VX7"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRE-Rr-gcy">
-                                        <rect key="frame" x="0.0" y="31" width="242" height="61"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRE-Rr-gcy">
+                                        <rect key="frame" x="0.0" y="35" width="300" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="EPA-vV-YMF"/>
+                                            <constraint firstAttribute="height" constant="70" id="s4G-Sr-0XD"/>
+                                        </constraints>
                                         <string key="text">You will receive a text message 
 with a confirmation once your
 request has been processed.</string>
@@ -362,8 +370,12 @@ request has been processed.</string>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Thank you for using SafeRide!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uer-Xt-o14">
-                                        <rect key="frame" x="0.0" y="102" width="242" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for using SafeRide!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uer-Xt-o14">
+                                        <rect key="frame" x="0.0" y="115" width="300" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="H0u-gE-hmz"/>
+                                            <constraint firstAttribute="height" constant="25" id="OZ5-3Q-N8Y"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>

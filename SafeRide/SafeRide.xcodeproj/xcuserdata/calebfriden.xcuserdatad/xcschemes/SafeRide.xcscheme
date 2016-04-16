@@ -48,6 +48,16 @@
                ReferencedContainer = "container:SafeRide.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "85EDC4921CC2FDA1000BB637"
+               BuildableName = "CoreDataServiceTests.xctest"
+               BlueprintName = "CoreDataServiceTests"
+               ReferencedContainer = "container:SafeRide.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
