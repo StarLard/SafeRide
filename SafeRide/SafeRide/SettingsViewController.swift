@@ -6,6 +6,7 @@
 //  Copyright © 2016 University of Oregon. All rights reserved.
 //
 
+import CoreData
 import UIKit
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
@@ -16,7 +17,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let resultsController = SettingsService.sharedSettingsService.user()
+        
+        try! resultsController.performFetch()
+        
+        self.resultsController = resultsController
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,23 +33,33 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-    // MARK: CoreData Variables
-    
-    var First:String = "";
-    var Last:String = "";
-    var Phone:String = "";
-    var UOID:String = "";
-    
     
     // MARK: Properties (IBAction)
-    @IBAction func saveSettings(sender: AnyObject) {
+
+    @IBAction func updateSettings(sender: UITextField) {
+        for user in resultsController as! [User]{
+            if sender.tag == 1{
+                user.firstName = sender.text
+            }
+            else if sender.tag == 2{
+                user.lastName = sender.text
+            }
+            else if sender.tag == 3{
+                user.phoneNumber = sender.text
+            }
+            else if sender.tag == 4{
+                user.uoid = sender.text
+            }
+        }
         
     }
+    
+    // MARK: Properties
+    private var resultsController : NSFetchedResultsController?
     
 
     // MARK: Properties (IBOutlet)
     @IBOutlet weak var settingsTableView: UITableView!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
 
     
     //MARK: Table View Delegate
@@ -58,39 +76,40 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell", forIndexPath: indexPath) as! SettingsCell
         
+        let userInfo = resultsController!.objectAtIndexPath(indexPath) as! User
+        
         if indexPath == NSIndexPath(forRow: 0, inSection: 0){
             cell.settingsLabel.text = "First";
+            cell.settingsField.tag = 1;
             cell.settingsField.placeholder = "ex. John"
             cell.settingsField.returnKeyType = UIReturnKeyType.Done
-            if (First != ""){
-                cell.settingsField.text = First;
-            }
+            cell.settingsField.text = userInfo.firstName;
+
         }
         else if indexPath == NSIndexPath(forRow: 1, inSection: 0){
             cell.settingsLabel.text = "Last";
+            cell.settingsField.tag = 2;
             cell.settingsField.placeholder = "ex. Smith"
             cell.settingsField.returnKeyType = UIReturnKeyType.Done
-            if (Last != ""){
-                cell.settingsField.text = Last;
-            }
+            cell.settingsField.text = userInfo.lastName;
+
         }
         else if indexPath == NSIndexPath(forRow: 2, inSection: 0){
             cell.settingsField.keyboardType = .NumberPad
             addToolBarToTextField(cell.settingsField)
             cell.settingsLabel.text = "Phone number";
+            cell.settingsField.tag = 3;
             cell.settingsField.placeholder = "ex. 5553995652"
-            if (Phone != ""){
-                cell.settingsField.text = Phone;
-            }
+            cell.settingsField.text = userInfo.phoneNumber;
+
         }
         else if indexPath == NSIndexPath(forRow: 3, inSection: 0){
             cell.settingsField.keyboardType = .NumberPad
             addToolBarToTextField(cell.settingsField)
             cell.settingsLabel.text = "UO ID";
+            cell.settingsField.tag = 4;
             cell.settingsField.placeholder = "ex. 951555444"
-            if (UOID != ""){
-                cell.settingsField.text = UOID;
-            }
+            cell.settingsField.text = userInfo.uoid;
             
         }
         

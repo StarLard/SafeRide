@@ -28,12 +28,12 @@ class SettingsService {
             let fetchRequest = NSFetchRequest(namedEntity: User.self)
             if context.countForFetchRequest(fetchRequest, error: nil) == 0 {
                 
-                var user = NSEntityDescription.insertNewObjectForNamedEntity(Food.self, inManagedObjectContext: context)
+                let user = NSEntityDescription.insertNewObjectForNamedEntity(User.self, inManagedObjectContext: context)
                 user.firstName = ""
                 user.lastName = ""
                 user.phoneNumber = ""
                 user.uoid = ""
-                user.home = ""
+                //user.home = ""
                 
                 try! context.save()
                 CoreDataService.sharedCoreDataService.saveRootContext {
