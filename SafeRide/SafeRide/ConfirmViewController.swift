@@ -29,6 +29,15 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
     
     // MARK: Properties (IBAction)
     @IBAction func sendButtonPressed(sender: AnyObject) {
+        let url: NSURL = NSURL(string: "http://saferide.meteorapp.com/test.php")!
+        let request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        let data = "testDataTitle=testData"
+        request.HTTPMethod = "POST"
+        request.HTTPBody = data.dataUsingEncoding(NSUTF8StringEncoding)
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
+            (response, data, error) in
+            print(response)
+        }
     }
     
     @IBAction func textFieldChanged(sender: UITextField) {
