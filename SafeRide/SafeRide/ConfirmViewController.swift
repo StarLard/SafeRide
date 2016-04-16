@@ -31,13 +31,25 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
     @IBAction func sendButtonPressed(sender: AnyObject) {
         let url: NSURL = NSURL(string: "http://saferide.meteorapp.com/test.php")!
         let request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
-        let data = "testDataTitle=testData"
+        let rideInfo = ["pickUpAddress" : self.pickUpAddress,
+                        "dropOffAddress" : self.dropOffAddress,
+                        "nuberOfRiders" : self.numberOfRiders,
+                        "rideTime" : self.rideTime,
+                        "phoneNumber" : self.phoneNumber,
+                        "UOID": UOID] as Dictionary<String, String>
+        let session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
-        request.HTTPBody = data.dataUsingEncoding(NSUTF8StringEncoding)
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
-            (response, data, error) in
-            print(response)
-        }
+        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(rideInfo, options: [])
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            print("Response: \(response)")})
+        
+        task.resume()
+        performSegueWithIdentifier("confirmSegue", sender: nil)
+
+        print("should have recieved response\n")
     }
     
     @IBAction func textFieldChanged(sender: UITextField) {
