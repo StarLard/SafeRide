@@ -1,37 +1,38 @@
 Pending = new Mongo.Collection('pending');
 Scheduled = new Mongo.Collection('scheduled');
 
+var socket = io('http://159.203.237.54/:443');
+
 
 if (Meteor.isServer) {
 
   Meteor.startup(function() {
 
-    // Seed databases if empty
-    // if (Pending.find().count() === 0) {
-    //   Pending.insert({
-    //     name: "John Doe",
-    //     phone: "555-555-5555",
-    //     uoid: 951111111,
-    //     pickup: "[Pickup Address]",
-    //     dropoff: "[Dropoff Address]",
-    //     riders: 1,
-    //     pickupTime: "8:21pm",
-    //     createdTime: moment().format('h:mm a')
-    //   });
-    // }
-    // if (Scheduled.find().count() === 0) {
-    //   Scheduled.insert({
-    //     name: "Jane Doe",
-    //     phone: "555-555-5555",
-    //     uoid: 952222222,
-    //     pickup: "[Pickup Address]",
-    //     dropoff: "[Dropoff Address]",
-    //     riders: 2,
-    //     pickupTime: "9:22pm",
-    //   });
-    // }
+    socket.on('connect', Meteor.bindEnvironment(function() {
+      console.log('Connected to the websocket!');
+      //Meteor.call('methodName1');
 
-  }); // end .startup()
+      // on data event
+      socket.on('insert', Meteor.bindEnvironment(function(data) {
+        console.log(data);
+        //Meteor.call('methodName2');
+      }, function(e) {
+        throw e;
+      }));
+
+      // on disconnect
+      socket.on('disconnect', Meteor.bindEnvironment(function() {
+        console.log('Disconnected from the websocket!');
+        //Meteor.call('methodName3');
+      }, function(e) {
+        throw e;
+      }));
+
+  }, function(e) {
+    throw e;
+  }));
+
+}); // end .startup()
 
 
   // Server permissions
