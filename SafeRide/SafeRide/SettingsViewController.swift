@@ -34,6 +34,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
     
     
@@ -57,6 +58,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         CoreDataService.sharedCoreDataService.saveRootContext {
             print("Successfully saved user data")
         }
+        
     }
     
     // MARK: Properties
