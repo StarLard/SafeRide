@@ -1,7 +1,7 @@
 Pending = new Mongo.Collection('pending');
 Scheduled = new Mongo.Collection('scheduled');
 
-var socket = io('http://159.203.237.54/:443');
+var socket = io('http://159.203.237.54:443');
 
 
 if (Meteor.isServer) {
