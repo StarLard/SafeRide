@@ -66,12 +66,32 @@ if (Meteor.isServer) {
     purgeAll: function() {
         Pending.remove({});
         Scheduled.remove({});
+    },
+    insertPending: function(name, uoid, phone, pickup, dropoff, riders, pickuptime)
+        Pending.insert({
+          name: name,
+          phone: phone,
+          uoid: uoid,
+          pickup: pickup,
+          dropoff: dropoff,
+          riders: riders,
+          pickupTime: pickuptime,
+          createdTime: moment().format('h:mm a')
+        });
+    },
+    insertScheduled: function(name, uoid, phone, pickup, dropoff, riders, pickuptime) {
+        Scheduled.insert({
+          name: name,
+          phone: phone,
+          uoid: uoid,
+          pickup: pickup,
+          dropoff: dropoff,
+          riders: riders,
+          pickupTime: pickuptime,
+        });
     }
 
-
-
-
-  });
+  }); // end server methods
 
 
 } // end .isServer()
