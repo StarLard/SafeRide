@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftDDP
 
 class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate,UITableViewDataSource, UITableViewDelegate {
     // MARK: Properties
@@ -29,27 +30,32 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
     
     // MARK: Properties (IBAction)
     @IBAction func sendButtonPressed(sender: AnyObject) {
-        let url: NSURL = NSURL(string: "http://saferide.meteorapp.com/test.php")!
-        let request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
-        let rideInfo = ["pickUpAddress" : self.pickUpAddress,
-                        "dropOffAddress" : self.dropOffAddress,
-                        "nuberOfRiders" : self.numberOfRiders,
-                        "rideTime" : self.rideTime,
-                        "phoneNumber" : self.phoneNumber,
-                        "UOID": UOID] as Dictionary<String, String>
-        let session = NSURLSession.sharedSession()
-        request.HTTPMethod = "POST"
-        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(rideInfo, options: [])
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            print("Response: \(response)")})
-        
-        task.resume()
-        performSegueWithIdentifier("confirmSegue", sender: nil)
-
-        print("should have recieved response\n")
+        // HTTP Method:
+//        let url: NSURL = NSURL(string: "http://saferide.meteorapp.com/test.php")!
+//        let request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
+//        let rideInfo = ["pickUpAddress" : self.pickUpAddress,
+//                        "dropOffAddress" : self.dropOffAddress,
+//                        "nuberOfRiders" : self.numberOfRiders,
+//                        "rideTime" : self.rideTime,
+//                        "phoneNumber" : self.phoneNumber,
+//                        "UOID": UOID] as Dictionary<String, String>
+//        let session = NSURLSession.sharedSession()
+//        request.HTTPMethod = "POST"
+//        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(rideInfo, options: [])
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.addValue("application/json", forHTTPHeaderField: "Accept")
+//        
+//        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+//            print("Response: \(response)")})
+//        
+//        task.resume()
+//        performSegueWithIdentifier("confirmSegue", sender: nil)
+//
+//        print("should have recieved response\n")
+        // Using Meteor plug ins:
+        Meteor.connect("wss://todos.meteor.com/websocket") {
+            // do something after the client connects
+        }
     }
     
     @IBAction func textFieldChanged(sender: UITextField) {
@@ -96,6 +102,8 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
         // Do any additional setup after loading the view.
         
         riderPickerView.delegate = self
+        Meteor.client.allowSelfSignedSSL = false     // Connect to a server that uses a self signed ssl certificate
+        Meteor.client.logLevel = .Info
         
         registerForNotifications()
     }
