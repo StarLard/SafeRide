@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import SwiftDDP
 
 class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate,UITableViewDataSource, UITableViewDelegate {
@@ -57,9 +58,14 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
 //
 //        print("should have recieved response\n")
         // Using Meteor plug ins:
-        Meteor.connect("wss://todos.meteor.com/websocket") {
-            // do something after the client connects
+        Meteor.connect("wss://http//159.203.237.54:443/websocket") {
+//            // do something after the client connects
+//            Meteor.call("insertPending", params: ["John Doe", "951111111", "555-555-5555", "123 Pickup St.", "456 DropOff St.", "3", "9:00 pm"]) { result, error in
+//                // Do something with the method result
+//            }
+            print("Attempted to connect\n")
         }
+        performSegueWithIdentifier("confirmSegue", sender: nil)
     }
     
     
@@ -124,9 +130,12 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
         // Do any additional setup after loading the view.
         
         riderPickerView.delegate = self
+        
+        // Meteor Stuff
         Meteor.client.allowSelfSignedSSL = false     // Connect to a server that uses a self signed ssl certificate
         Meteor.client.logLevel = .Info
         
+        // Listen for keyboard show/hide notifications
         registerForNotifications()
     }
     deinit {
