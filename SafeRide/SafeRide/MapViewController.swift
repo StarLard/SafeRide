@@ -21,6 +21,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
     @IBOutlet weak var dropOffSearchBar: UISearchBar!
     
     // MARK: Properties (IBAction)
+    @IBAction func useMyLocation(sender: AnyObject) {
+        if let loc = self.userLocation {
+            updateAddressFromCoordinates(loc, addressType: "pick up")
+        }
+        else {
+            print("Error using current location: User location is not set")
+        }
+    }
     @IBAction func setPickUp(sender: UITapGestureRecognizer) {
         if (numberOfPins < 2) {
             let tapLocation = sender.locationInView(self.mapView)
@@ -74,6 +82,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
     private var boundaryOverlay: MKCircle?
     private var pickUpAddress = ""
     private var dropOffAddress = ""
+    private var userLocation: CLLocation?
     
     // MARK: Methods (Private)
     private func updateAddressFromCoordinates(location: CLLocation, addressType: String){
@@ -154,6 +163,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
     // MARK: CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
+        self.userLocation = location
         let center = CLLocationCoordinate2DMake(location!.coordinate.latitude, location!.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
         

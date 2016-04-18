@@ -7,6 +7,7 @@
 //
 
 import CoreData
+import CoreDataService
 import UIKit
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
@@ -24,38 +25,45 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.resultsController = resultsController
         
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         
+        self.user = self.resultsController!.objectAtIndexPath(indexPath) as? User
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
     
     
     // MARK: Properties (IBAction)
 
     @IBAction func updateSettings(sender: UITextField) {
-        for user in resultsController as! [User]{
-            if sender.tag == 1{
-                user.firstName = sender.text
-            }
-            else if sender.tag == 2{
-                user.lastName = sender.text
-            }
-            else if sender.tag == 3{
-                user.phoneNumber = sender.text
-            }
-            else if sender.tag == 4{
-                user.uoid = sender.text
-            }
+        if sender.tag == 1{
+            user!.firstName = sender.text
+        }
+        else if sender.tag == 2{
+            user!.lastName = sender.text
+        }
+        else if sender.tag == 3{
+            user!.phoneNumber = sender.text
+        }
+        else if sender.tag == 4{
+            user!.uoid = sender.text
+        }
+        let context = CoreDataService.sharedCoreDataService.mainQueueContext
+        try! context.save()
+        CoreDataService.sharedCoreDataService.saveRootContext {
+            print("Successfully saved user data")
         }
         
     }
     
     // MARK: Properties
     private var resultsController : NSFetchedResultsController?
+    private var user : User?
     
 
     // MARK: Properties (IBOutlet)
@@ -76,14 +84,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell", forIndexPath: indexPath) as! SettingsCell
         
-        let userInfo = resultsController!.objectAtIndexPath(indexPath) as! User
         
         if indexPath == NSIndexPath(forRow: 0, inSection: 0){
             cell.settingsLabel.text = "First";
             cell.settingsField.tag = 1;
             cell.settingsField.placeholder = "ex. John"
             cell.settingsField.returnKeyType = UIReturnKeyType.Done
-            cell.settingsField.text = userInfo.firstName;
+            cell.settingsField.text = user!.firstName;
 
         }
         else if indexPath == NSIndexPath(forRow: 1, inSection: 0){
@@ -91,7 +98,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             cell.settingsField.tag = 2;
             cell.settingsField.placeholder = "ex. Smith"
             cell.settingsField.returnKeyType = UIReturnKeyType.Done
-            cell.settingsField.text = userInfo.lastName;
+            cell.settingsField.text = user!.lastName;
 
         }
         else if indexPath == NSIndexPath(forRow: 2, inSection: 0){
@@ -100,7 +107,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             cell.settingsLabel.text = "Phone number";
             cell.settingsField.tag = 3;
             cell.settingsField.placeholder = "ex. 5553995652"
-            cell.settingsField.text = userInfo.phoneNumber;
+            cell.settingsField.text = user!.phoneNumber;
 
         }
         else if indexPath == NSIndexPath(forRow: 3, inSection: 0){
@@ -109,7 +116,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             cell.settingsLabel.text = "UO ID";
             cell.settingsField.tag = 4;
             cell.settingsField.placeholder = "ex. 951555444"
-            cell.settingsField.text = userInfo.uoid;
+            cell.settingsField.text = user!.uoid;
             
         }
         

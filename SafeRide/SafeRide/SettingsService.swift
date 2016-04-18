@@ -14,7 +14,7 @@ class SettingsService {
     // MARK: Service
     func user() -> NSFetchedResultsController {
         let fetchRequest = NSFetchRequest(namedEntity: User.self)
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "firstName", ascending: true)]
         
         let context = CoreDataService.sharedCoreDataService.mainQueueContext
         return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)

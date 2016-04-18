@@ -11,6 +11,8 @@ import SwiftDDP
 
 class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate,UITableViewDataSource, UITableViewDelegate {
     // MARK: Properties
+    private var resultsController : NSFetchedResultsController?
+    private var user : User?
     var pickUpAddress: String = ""
     var dropOffAddress: String = ""
     
@@ -27,6 +29,8 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
     private var phoneNumber = ""
     private var UOID = ""
     private var rideTime = ""
+    private var firstName = ""
+    private var lastName = ""
     
     // MARK: Properties (IBAction)
     @IBAction func sendButtonPressed(sender: AnyObject) {
@@ -58,9 +62,17 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
         }
     }
     
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(false)
+        infoTableView.reloadData()
+    }
+
+    
     @IBAction func textFieldChanged(sender: UITextField) {
         // Called whenever a text field changes
-        // phone field has tag 1, UO ID has tag 2, time has tag 3
+        // phone field has tag 1, UO ID has tag 2, time has tag 3, first name has tag 4, last name has tag 5
         if sender.tag == 1 {
             self.phoneNumber = sender.text!
         }
@@ -98,6 +110,16 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
     // MARK: View Management
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let resultsController = SettingsService.sharedSettingsService.user()
+        
+        try! resultsController.performFetch()
+        
+        self.resultsController = resultsController
+        
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        
+        self.user = self.resultsController!.objectAtIndexPath(indexPath) as? User
 
         // Do any additional setup after loading the view.
         
@@ -116,7 +138,7 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: UITableViewDataSource
+    // MARK: UITableViewDelegate
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
@@ -126,7 +148,7 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
             return 4
         }
         else {
-            return 2
+            return 4
         }
     }
     
@@ -175,15 +197,42 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         }
-        else {
+        else if indexPath == NSIndexPath(forRow: 0, inSection: 1) || indexPath == NSIndexPath(forRow: 1, inSection: 1){
             let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! InfoCell
             cell.infoLabel.text = "UO ID Number"
+
+            cell.infoField.text = user?.uoid
+            self.UOID = (user?.uoid)!
             cell.infoField.tag = 2
             if indexPath == NSIndexPath(forRow: 0, inSection: 1){
+
+                cell.infoField.text = user?.phoneNumber
+                self.phoneNumber = (user?.phoneNumber)!
+                readyToRequest()
                 cell.infoLabel.text = "Phone Number"
                 cell.infoField.tag = 1
             }
             cell.infoField.keyboardType = .NumberPad
+            addToolBarToTextField(cell.infoField)
+            cell.infoField.delegate = self
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! InfoCell
+            cell.infoLabel.text = "First Name"
+            
+            cell.infoField.text = user?.firstName
+            self.firstName = (user?.firstName)!
+            cell.infoField.tag = 4
+            if indexPath == NSIndexPath(forRow: 3, inSection: 1){
+                
+                cell.infoField.text = user?.lastName
+                self.lastName = (user?.lastName)!
+                readyToRequest()
+                cell.infoLabel.text = "Last Name"
+                cell.infoField.tag = 5
+            }
             addToolBarToTextField(cell.infoField)
             cell.infoField.delegate = self
             cell.selectionStyle = UITableViewCellSelectionStyle.None
@@ -263,7 +312,14 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
     
     func readyToRequest(){
         // Checks if all required info has been filled out before enable request button
-        let requiredInformation = [self.pickUpAddress, self.dropOffAddress, self.numberOfRiders, self.phoneNumber, self.UOID, self.rideTime]
+        let requiredInformation = [self.pickUpAddress,
+                                   self.dropOffAddress,
+                                   self.numberOfRiders,
+                                   self.phoneNumber,
+                                   self.UOID,
+                                   self.rideTime,
+                                   self.firstName,
+                                   self.lastName]
         for info in requiredInformation {
             if info == "" {
                 self.sendRequestButton.enabled = false

@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u7Y-5X-RR0" id="tMH-ei-dcG">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlL-LN-paW">
@@ -127,6 +127,10 @@
                                     <searchBar contentMode="redraw" placeholder="Pick Up Address..." translatesAutoresizingMaskIntoConstraints="NO" id="ecR-hH-csc" userLabel="Pick Up Search Bar">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
                                         <connections>
                                             <outlet property="delegate" destination="VA0-qc-6lI" id="Eh8-V0-VH7"/>
                                         </connections>
@@ -140,6 +144,14 @@
                                     </searchBar>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x20-2V-RaP">
+                                <rect key="frame" x="466" y="511" width="114" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Use My Location"/>
+                                <connections>
+                                    <action selector="useMyLocation:" destination="VA0-qc-6lI" eventType="touchUpInside" id="4Xv-dW-5dK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -149,7 +161,9 @@
                             <constraint firstItem="YxF-0w-HVI" firstAttribute="top" secondItem="Q3c-1C-4GF" secondAttribute="bottom" id="YqL-Pv-tEo"/>
                             <constraint firstAttribute="trailing" secondItem="3Xn-GU-fmX" secondAttribute="trailing" id="Z8t-3o-2Ie"/>
                             <constraint firstItem="3Xn-GU-fmX" firstAttribute="top" secondItem="Q3c-1C-4GF" secondAttribute="bottom" id="cAu-CZ-L48"/>
+                            <constraint firstAttribute="trailing" secondItem="x20-2V-RaP" secondAttribute="trailing" constant="20" id="g65-9u-l9b"/>
                             <constraint firstItem="3Xn-GU-fmX" firstAttribute="leading" secondItem="4Oc-3T-Yx1" secondAttribute="leading" id="nj3-rx-Rlh"/>
+                            <constraint firstItem="R8e-2N-c1L" firstAttribute="top" secondItem="x20-2V-RaP" secondAttribute="bottom" constant="10" id="oUn-2E-dQZ"/>
                             <constraint firstAttribute="trailing" secondItem="YxF-0w-HVI" secondAttribute="trailing" id="uUL-3S-OcP"/>
                         </constraints>
                         <variation key="default">
@@ -208,7 +222,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qi0-qB-INg" id="1wz-S4-v55">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkX-3e-Dkh">
@@ -246,7 +260,7 @@
                                         <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uza-Zc-4PF" id="IKX-K1-CiP">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmO-Yu-xNd">
