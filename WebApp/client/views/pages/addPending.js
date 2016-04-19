@@ -4,7 +4,7 @@ Template.addPending.rendered = function(){
     $('.modal').appendTo("body");
 };
 
-storeRequest = function(name, uoid, phone, pickup, dropoff, riders, pickuptime) {
+storeRequest = function(name, uoid, phone, pickup, dropoff, riders, pickupTime) {
   Pending.insert({
     name: name,
     phone: phone,
@@ -12,7 +12,7 @@ storeRequest = function(name, uoid, phone, pickup, dropoff, riders, pickuptime) 
     pickup: pickup,
     dropoff: dropoff,
     riders: riders,
-    pickupTime: pickuptime,
+    pickupTime: pickupTime,
     createdTime: moment().format('h:mm a')
   });
 }
