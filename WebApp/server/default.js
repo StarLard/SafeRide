@@ -1,38 +1,19 @@
+//   DEPLOY_HOSTNAME=galaxy.meteor.com meteor deploy saferide.meteorapp.com --settings settings.json
+
+
 Pending = new Mongo.Collection('pending');
 Scheduled = new Mongo.Collection('scheduled');
-
-var socket = io('http://159.203.237.54:443');
 
 
 if (Meteor.isServer) {
 
   Meteor.startup(function() {
 
-    socket.on('connect', Meteor.bindEnvironment(function() {
-      console.log('Connected to the websocket!');
-      //Meteor.call('methodName1');
-
-      // on data event
-      socket.on('insert', Meteor.bindEnvironment(function(data) {
-        console.log(data);
-        //Meteor.call('methodName2');
-      }, function(e) {
-        throw e;
-      }));
-
-      // on disconnect
-      socket.on('disconnect', Meteor.bindEnvironment(function() {
-        console.log('Disconnected from the websocket!');
-        //Meteor.call('methodName3');
-      }, function(e) {
-        throw e;
-      }));
-
-  }, function(e) {
-    throw e;
-  }));
+  }
 
 }); // end .startup()
+
+
 
 
   // Server permissions
