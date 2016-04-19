@@ -3,6 +3,7 @@
   <script>
     $('#{{_id}}').on('click', function(e) {
       e.preventDefault(); // To prevent following the link (optional)
+      
       var name = "{{name}}";
       var uoid = "{{uoid}}";
       var phone = "{{phone}}";
@@ -10,8 +11,10 @@
       var dropoff = "{{dropoff}}";
       var riders = "{{riders}}";
       var pickupTime = "{{pickupTime}}";
-      Scheduled.insert({name: name, uoid: uoid, phone: phone, pickup: pickup, dropoff: dropoff, riders: riders, pickupTime: pickupTime});
-      Pending.remove("{{_id}}");
+
+      schedulePending(name, uoid, phone, pickup, dropoff, riders, pickupTime);
+      removePending("{{_id}}");
+
       toastr.success("Successfully scheduled " + name + " at " + pickupTime);
     });
   </script>
