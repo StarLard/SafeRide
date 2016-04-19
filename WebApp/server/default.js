@@ -9,9 +9,7 @@ if (Meteor.isServer) {
 
   Meteor.startup(function() {
 
-  }
-
-}); // end .startup()
+  }); // end .startup()
 
 
 
@@ -36,7 +34,7 @@ if (Meteor.isServer) {
   });
 
 
-  // Server Methods
+  // Server Methodz
   return Meteor.methods({
     purgePending: function() {
         Pending.remove({});
