@@ -35,36 +35,8 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
     
     // MARK: Properties (IBAction)
     @IBAction func sendButtonPressed(sender: AnyObject) {
-        // HTTP Method:
-//        let url: NSURL = NSURL(string: "http://saferide.meteorapp.com/test.php")!
-//        let request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
-//        let rideInfo = ["pickUpAddress" : self.pickUpAddress,
-//                        "dropOffAddress" : self.dropOffAddress,
-//                        "nuberOfRiders" : self.numberOfRiders,
-//                        "rideTime" : self.rideTime,
-//                        "phoneNumber" : self.phoneNumber,
-//                        "UOID": UOID] as Dictionary<String, String>
-//        let session = NSURLSession.sharedSession()
-//        request.HTTPMethod = "POST"
-//        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(rideInfo, options: [])
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.addValue("application/json", forHTTPHeaderField: "Accept")
-//        
-//        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-//            print("Response: \(response)")})
-//        
-//        task.resume()
-//        performSegueWithIdentifier("confirmSegue", sender: nil)
-//
-//        print("should have recieved response\n")
-        // Using Meteor plug ins:
-        Meteor.connect("wss://http//159.203.237.54:443/websocket") {
-//            // do something after the client connects
-//            Meteor.call("insertPending", params: ["John Doe", "951111111", "555-555-5555", "123 Pickup St.", "456 DropOff St.", "3", "9:00 pm"]) { result, error in
-//                // Do something with the method result
-//            }
-            print("Attempted to connect\n")
-        }
+        Meteor.call("insertPending", params: [firstName + " " + lastName, UOID, phoneNumber, pickUpAddress, dropOffAddress, numberOfRiders, rideTime], callback: {result, error in
+        })
         performSegueWithIdentifier("confirmSegue", sender: nil)
     }
     
@@ -133,7 +105,9 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
         
         // Meteor Stuff
         Meteor.client.allowSelfSignedSSL = false     // Connect to a server that uses a self signed ssl certificate
-        Meteor.client.logLevel = .Info
+        Meteor.client.logLevel = .None
+        Meteor.connect("wss://saferide.meteorapp.com/websocket")
+        
         
         // Listen for keyboard show/hide notifications
         registerForNotifications()

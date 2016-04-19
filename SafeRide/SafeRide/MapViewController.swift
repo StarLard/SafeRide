@@ -24,6 +24,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
     @IBAction func useMyLocation(sender: AnyObject) {
         if let loc = self.userLocation {
             updateAddressFromCoordinates(loc, addressType: "pick up")
+            numberOfPins += 1
         }
         else {
             print("Error using current location: User location is not set")
