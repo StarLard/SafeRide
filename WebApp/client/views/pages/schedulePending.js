@@ -13,19 +13,17 @@ Template.schedulePending.helpers({
   }
 });
 
-
-schedulePending = function(name, uoid, phone, pickup, dropoff, riders, pickupTime) {
-  Scheduled.insert({
-    name: name,
-    phone: phone,
-    uoid: uoid,
-    pickup: pickup,
-    dropoff: dropoff,
-    riders: riders,
-    pickupTime: pickupTime,
-  });
-}
-
-removePending = function(id) {
-  Pending.remove(id);
-}
+Template.schedulePending.events({
+  'click .btn-normal': function() {
+    Scheduled.insert({
+      name: this.name,
+      phone: this.phone,
+      uoid: this.uoid,
+      pickup: this.pickup,
+      dropoff: this.dropoff,
+      riders: this.riders,
+      pickupTime: this.pickupTime
+    });
+    Pending.remove(this._id);
+  }
+});

@@ -1,21 +1,3 @@
 <template name="schedulePending">
-  <button id="{{_id}}" type="button" class="btn btn-normal btn-xs btn-success">Schedule</button>
-  <script>
-    $('#{{_id}}').on('click', function(e) {
-      e.preventDefault(); // To prevent following the link (optional)
-      
-      var name = "{{name}}";
-      var uoid = "{{uoid}}";
-      var phone = "{{phone}}";
-      var pickup = "{{pickup}}";
-      var dropoff = "{{dropoff}}";
-      var riders = "{{riders}}";
-      var pickupTime = "{{pickupTime}}";
-
-      schedulePending(name, uoid, phone, pickup, dropoff, riders, pickupTime);
-      removePending("{{_id}}");
-
-      toastr.success("Successfully scheduled " + name + " at " + pickupTime);
-    });
-  </script>
+  <button type="button" class="btn btn-normal btn-xs btn-success">Schedule</button>
 </template>
