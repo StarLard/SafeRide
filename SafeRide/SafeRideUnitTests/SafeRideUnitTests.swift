@@ -1,15 +1,14 @@
 //
-//  SafeRideTests.swift
-//  SafeRideTests
+//  SafeRideUnitTests.swift
+//  SafeRideUnitTests
 //
-//  Created by Caleb Friden on 3/30/16.
+//  Created by Zachary Jones on 4/20/16.
 //  Copyright © 2016 University of Oregon. All rights reserved.
 //
 
 import XCTest
-@testable import SafeRide
 
-class SafeRideTests: XCTestCase {
+class SafeRideUnitTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

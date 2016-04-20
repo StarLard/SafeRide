@@ -17,7 +17,6 @@
 		854D396A1CAC70BA00C72EE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 854D39681CAC70BA00C72EE0 /* Main.storyboard */; };
 		854D396C1CAC70BA00C72EE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 854D396B1CAC70BA00C72EE0 /* Assets.xcassets */; };
 		854D396F1CAC70BA00C72EE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 854D396D1CAC70BA00C72EE0 /* LaunchScreen.storyboard */; };
-		854D397A1CAC70BA00C72EE0 /* SafeRideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39791CAC70BA00C72EE0 /* SafeRideTests.swift */; };
 		854D39851CAC70BA00C72EE0 /* SafeRideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39841CAC70BA00C72EE0 /* SafeRideUITests.swift */; };
 		85EDC48D1CC2FDA1000BB637 /* CoreDataService.h in Headers */ = {isa = PBXBuildFile; fileRef = 85EDC48C1CC2FDA1000BB637 /* CoreDataService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		85EDC4941CC2FDA1000BB637 /* CoreDataService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */; };
@@ -32,19 +31,13 @@
 		B45CFC71F0894CBCC5D4C372 /* Pods_SafeRide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D1D2C9E2DA07ADE342EAD7 /* Pods_SafeRide.framework */; };
 		CE66C46C1CBC13BC00A17900 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C46B1CBC13BC00A17900 /* SetViewController.swift */; };
 		DB52298E1CB5F8E800736E73 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52298D1CB5F8E800736E73 /* SettingsCell.swift */; };
+		DB7A78B91CC80FD800FB3A0B /* SafeRideUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7A78B81CC80FD800FB3A0B /* SafeRideUnitTests.swift */; };
 		DB9DB6C51CC2EE4C00D331B6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB9DB6C31CC2EE4C00D331B6 /* Model.xcdatamodeld */; };
 		DB9DB6C91CC2F10700D331B6 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9DB6C71CC2F10700D331B6 /* User+CoreDataProperties.swift */; };
 		DB9DB6CA1CC2F10700D331B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9DB6C81CC2F10700D331B6 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		854D39761CAC70BA00C72EE0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 854D39571CAC70B900C72EE0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 854D395E1CAC70B900C72EE0;
-			remoteInfo = SafeRide;
-		};
 		854D39811CAC70BA00C72EE0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 854D39571CAC70B900C72EE0 /* Project object */;
@@ -72,6 +65,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 85EDC4891CC2FDA1000BB637;
 			remoteInfo = CoreDataService;
+		};
+		DB7A78BB1CC80FD800FB3A0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 854D39571CAC70B900C72EE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 854D395E1CAC70B900C72EE0;
+			remoteInfo = SafeRide;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -105,9 +105,6 @@
 		854D396B1CAC70BA00C72EE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		854D396E1CAC70BA00C72EE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		854D39701CAC70BA00C72EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		854D39751CAC70BA00C72EE0 /* SafeRideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeRideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		854D39791CAC70BA00C72EE0 /* SafeRideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeRideTests.swift; sourceTree = "<group>"; };
-		854D397B1CAC70BA00C72EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		854D39801CAC70BA00C72EE0 /* SafeRideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeRideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		854D39841CAC70BA00C72EE0 /* SafeRideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeRideUITests.swift; sourceTree = "<group>"; };
 		854D39861CAC70BA00C72EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,6 +121,9 @@
 		85EDC4B41CC2FF1D000BB637 /* SettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		CE66C46B1CBC13BC00A17900 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		DB52298D1CB5F8E800736E73 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		DB7A78B61CC80FD800FB3A0B /* SafeRideUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeRideUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB7A78B81CC80FD800FB3A0B /* SafeRideUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeRideUnitTests.swift; sourceTree = "<group>"; };
+		DB7A78BA1CC80FD800FB3A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB9DB6C41CC2EE4C00D331B6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DB9DB6C71CC2F10700D331B6 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DB9DB6C81CC2F10700D331B6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -136,13 +136,6 @@
 			files = (
 				85EDC49F1CC2FDA1000BB637 /* CoreDataService.framework in Frameworks */,
 				B45CFC71F0894CBCC5D4C372 /* Pods_SafeRide.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		854D39721CAC70BA00C72EE0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +158,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				85EDC4941CC2FDA1000BB637 /* CoreDataService.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB7A78B31CC80FD800FB3A0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,10 +206,10 @@
 			isa = PBXGroup;
 			children = (
 				854D39611CAC70BA00C72EE0 /* SafeRide */,
-				854D39781CAC70BA00C72EE0 /* SafeRideTests */,
 				854D39831CAC70BA00C72EE0 /* SafeRideUITests */,
 				85EDC48B1CC2FDA1000BB637 /* CoreDataService */,
 				85EDC4991CC2FDA1000BB637 /* CoreDataServiceTests */,
+				DB7A78B71CC80FD800FB3A0B /* SafeRideUnitTests */,
 				854D39601CAC70B900C72EE0 /* Products */,
 				43574556B3863199E96C1708 /* Pods */,
 				AC65F3B5F44A18BC0CDD556B /* Frameworks */,
@@ -220,10 +220,10 @@
 			isa = PBXGroup;
 			children = (
 				854D395F1CAC70B900C72EE0 /* SafeRide.app */,
-				854D39751CAC70BA00C72EE0 /* SafeRideTests.xctest */,
 				854D39801CAC70BA00C72EE0 /* SafeRideUITests.xctest */,
 				85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */,
 				85EDC4931CC2FDA1000BB637 /* CoreDataServiceTests.xctest */,
+				DB7A78B61CC80FD800FB3A0B /* SafeRideUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -235,15 +235,6 @@
 				854D39921CAC7E6B00C72EE0 /* Resources */,
 			);
 			path = SafeRide;
-			sourceTree = "<group>";
-		};
-		854D39781CAC70BA00C72EE0 /* SafeRideTests */ = {
-			isa = PBXGroup;
-			children = (
-				854D39791CAC70BA00C72EE0 /* SafeRideTests.swift */,
-				854D397B1CAC70BA00C72EE0 /* Info.plist */,
-			);
-			path = SafeRideTests;
 			sourceTree = "<group>";
 		};
 		854D39831CAC70BA00C72EE0 /* SafeRideUITests */ = {
@@ -341,6 +332,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DB7A78B71CC80FD800FB3A0B /* SafeRideUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				DB7A78B81CC80FD800FB3A0B /* SafeRideUnitTests.swift */,
+				DB7A78BA1CC80FD800FB3A0B /* Info.plist */,
+			);
+			path = SafeRideUnitTests;
+			sourceTree = "<group>";
+		};
 		DB9DB6C61CC2F0C700D331B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,24 +385,6 @@
 			productName = SafeRide;
 			productReference = 854D395F1CAC70B900C72EE0 /* SafeRide.app */;
 			productType = "com.apple.product-type.application";
-		};
-		854D39741CAC70BA00C72EE0 /* SafeRideTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 854D398C1CAC70BA00C72EE0 /* Build configuration list for PBXNativeTarget "SafeRideTests" */;
-			buildPhases = (
-				854D39711CAC70BA00C72EE0 /* Sources */,
-				854D39721CAC70BA00C72EE0 /* Frameworks */,
-				854D39731CAC70BA00C72EE0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				854D39771CAC70BA00C72EE0 /* PBXTargetDependency */,
-			);
-			name = SafeRideTests;
-			productName = SafeRideTests;
-			productReference = 854D39751CAC70BA00C72EE0 /* SafeRideTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		854D397F1CAC70BA00C72EE0 /* SafeRideUITests */ = {
 			isa = PBXNativeTarget;
@@ -459,6 +441,24 @@
 			productReference = 85EDC4931CC2FDA1000BB637 /* CoreDataServiceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		DB7A78B51CC80FD800FB3A0B /* SafeRideUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB7A78BD1CC80FD800FB3A0B /* Build configuration list for PBXNativeTarget "SafeRideUnitTests" */;
+			buildPhases = (
+				DB7A78B21CC80FD800FB3A0B /* Sources */,
+				DB7A78B31CC80FD800FB3A0B /* Frameworks */,
+				DB7A78B41CC80FD800FB3A0B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB7A78BC1CC80FD800FB3A0B /* PBXTargetDependency */,
+			);
+			name = SafeRideUnitTests;
+			productName = SafeRideUnitTests;
+			productReference = DB7A78B61CC80FD800FB3A0B /* SafeRideUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -473,11 +473,6 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 2524DUVEAT;
 					};
-					854D39741CAC70BA00C72EE0 = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 2524DUVEAT;
-						TestTargetID = 854D395E1CAC70B900C72EE0;
-					};
 					854D397F1CAC70BA00C72EE0 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 2524DUVEAT;
@@ -490,6 +485,10 @@
 					85EDC4921CC2FDA1000BB637 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 2524DUVEAT;
+						TestTargetID = 854D395E1CAC70B900C72EE0;
+					};
+					DB7A78B51CC80FD800FB3A0B = {
+						CreatedOnToolsVersion = 7.3;
 						TestTargetID = 854D395E1CAC70B900C72EE0;
 					};
 				};
@@ -508,10 +507,10 @@
 			projectRoot = "";
 			targets = (
 				854D395E1CAC70B900C72EE0 /* SafeRide */,
-				854D39741CAC70BA00C72EE0 /* SafeRideTests */,
 				854D397F1CAC70BA00C72EE0 /* SafeRideUITests */,
 				85EDC4891CC2FDA1000BB637 /* CoreDataService */,
 				85EDC4921CC2FDA1000BB637 /* CoreDataServiceTests */,
+				DB7A78B51CC80FD800FB3A0B /* SafeRideUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -524,13 +523,6 @@
 				854D396F1CAC70BA00C72EE0 /* LaunchScreen.storyboard in Resources */,
 				854D396C1CAC70BA00C72EE0 /* Assets.xcassets in Resources */,
 				854D396A1CAC70BA00C72EE0 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		854D39731CAC70BA00C72EE0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +541,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		85EDC4911CC2FDA1000BB637 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB7A78B41CC80FD800FB3A0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -626,14 +625,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		854D39711CAC70BA00C72EE0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				854D397A1CAC70BA00C72EE0 /* SafeRideTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		854D397C1CAC70BA00C72EE0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -661,14 +652,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DB7A78B21CC80FD800FB3A0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB7A78B91CC80FD800FB3A0B /* SafeRideUnitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		854D39771CAC70BA00C72EE0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 854D395E1CAC70B900C72EE0 /* SafeRide */;
-			targetProxy = 854D39761CAC70BA00C72EE0 /* PBXContainerItemProxy */;
-		};
 		854D39821CAC70BA00C72EE0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 854D395E1CAC70B900C72EE0 /* SafeRide */;
@@ -688,6 +682,11 @@
 			isa = PBXTargetDependency;
 			target = 85EDC4891CC2FDA1000BB637 /* CoreDataService */;
 			targetProxy = 85EDC49D1CC2FDA1000BB637 /* PBXContainerItemProxy */;
+		};
+		DB7A78BC1CC80FD800FB3A0B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 854D395E1CAC70B900C72EE0 /* SafeRide */;
+			targetProxy = DB7A78BB1CC80FD800FB3A0B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -800,6 +799,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = SafeRide/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uoregon.SafeRide;
@@ -813,34 +813,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = SafeRide/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uoregon.SafeRide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		854D398D1CAC70BA00C72EE0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = SafeRideTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.uoregon.SafeRideTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafeRide.app/SafeRide";
-			};
-			name = Debug;
-		};
-		854D398E1CAC70BA00C72EE0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = SafeRideTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.uoregon.SafeRideTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafeRide.app/SafeRide";
 			};
 			name = Release;
 		};
@@ -931,6 +908,30 @@
 			};
 			name = Release;
 		};
+		DB7A78BE1CC80FD800FB3A0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SafeRideUnitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "CIS-422.SafeRideUnitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafeRide.app/SafeRide";
+			};
+			name = Debug;
+		};
+		DB7A78BF1CC80FD800FB3A0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SafeRideUnitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "CIS-422.SafeRideUnitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafeRide.app/SafeRide";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -948,15 +949,6 @@
 			buildConfigurations = (
 				854D398A1CAC70BA00C72EE0 /* Debug */,
 				854D398B1CAC70BA00C72EE0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		854D398C1CAC70BA00C72EE0 /* Build configuration list for PBXNativeTarget "SafeRideTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				854D398D1CAC70BA00C72EE0 /* Debug */,
-				854D398E1CAC70BA00C72EE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -987,6 +979,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		DB7A78BD1CC80FD800FB3A0B /* Build configuration list for PBXNativeTarget "SafeRideUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB7A78BE1CC80FD800FB3A0B /* Debug */,
+				DB7A78BF1CC80FD800FB3A0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
