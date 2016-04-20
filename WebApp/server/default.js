@@ -3,6 +3,7 @@
 
 Pending = new Mongo.Collection('pending');
 Scheduled = new Mongo.Collection('scheduled');
+Denied = new Mongo.Collection('denied');
 
 
 if (Meteor.isServer) {
@@ -33,6 +34,15 @@ if (Meteor.isServer) {
     }
   });
 
+  Denied.allow({
+    insert: function(userId, doc) {
+      return true;
+    },
+    remove: function(userId, doc) {
+      return true;
+    }
+  });
+
 
   // Server Methodz
   return Meteor.methods({
@@ -42,15 +52,22 @@ if (Meteor.isServer) {
     purgeScheduled: function() {
         Scheduled.remove({});
     },
+    purgeDenied: function() {
+        Denied.remove({});
+    },
     purgeAll: function() {
         Pending.remove({});
         Scheduled.remove({});
+        Denied.remove({});
     },
     removePending: function(id) {
         Pending.remove(id);
     },
     removeScheduled: function(id) {
         Scheduled.remove(id);
+    },
+    removeDenied: function(id) {
+        Denied.remove(id);
     },
     insertPending: function(name, uoid, phone, pickup, dropoff, riders, pickuptime) {
         Pending.insert({
