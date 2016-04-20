@@ -8,6 +8,11 @@
       <td>{{dropoff}}</td>
       <td>{{riders}}</td>
       <td>{{pickupTime}}</td>
+      <td><button class="btn btn-danger  btn-sm" type="button"><i class="fa fa-times"></i></button></td>
     </tr>
+    <script>
+      var markerContent = "{{name}} @ {{pickupTime}}<br>{{pickup}}";
+      addScheduledMarker("{{pickup}}", markerContent);
+    </script>
   {{/each}}
 </template>
