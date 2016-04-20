@@ -25,5 +25,6 @@ Template.schedulePending.events({
       pickupTime: this.pickupTime
     });
     Pending.remove(this._id);
+    toastr.success("Successfully scheduled " + this.name + " for " + this.pickupTime);
   }
 });
