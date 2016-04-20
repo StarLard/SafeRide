@@ -12,7 +12,7 @@ Template.pageTwo.helpers({
 
 Template.pageTwo.events({
   // Purge Pending Queue
-  'click .btn-primary': function() {
+  'click .btn-success': function() {
     swal({
         title: "Are you sure?",
         text: "You are about to delete the 'Pending Requests' database. All data will be forever lost. Are you sure you want to continue?",
@@ -27,7 +27,7 @@ Template.pageTwo.events({
     });
   },
   // Purge Schedule Queue
-  'click .btn-info': function() {
+  'click .btn-primary': function() {
     swal({
         title: "Are you sure?",
         text: "You are about to delete the 'Scheduled Rides' database. All data will be forever lost. Are you sure you want to continue?",
