@@ -23,8 +23,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
     // MARK: Properties (IBAction)
     @IBAction func useMyLocation(sender: AnyObject) {
         if let loc = self.userLocation {
+            self.mapView.removeAnnotations(mapView.annotations)
+            self.nextButton.enabled = false
+            self.dropOffSearchBar.text = ""
             updateAddressFromCoordinates(loc, addressType: "pick up")
-            numberOfPins += 1
+            self.navigationBar.title = "Set Dropoff Location"
+            self.dropOffSearchBar.userInteractionEnabled = true
+            numberOfPins = 1
         }
         else {
             print("Error using current location: User location is not set")
