@@ -46,6 +46,12 @@ if (Meteor.isServer) {
         Pending.remove({});
         Scheduled.remove({});
     },
+    removePending: function(id) {
+        Pending.remove(id);
+    },
+    removeScheduled: function(id) {
+        Scheduled.remove(id);
+    },
     insertPending: function(name, uoid, phone, pickup, dropoff, riders, pickuptime) {
         Pending.insert({
           name: name,
