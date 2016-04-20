@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import SafeRide
 
 class CoreDataServiceTests: XCTestCase {
     
@@ -32,9 +33,9 @@ class CoreDataServiceTests: XCTestCase {
         }
     }
     
-//    func testCoreDataServiceMainQueueContextExists() {
-//        let settingsService = SettingsService.sharedSettingsService
-//        XCTAssertNotNil(settingsService, "SettingsService singleton should not be nil")
-//    }
+    func testCoreDataServiceMainQueueContextExists() {
+        let settingsService = SettingsService.sharedSettingsService
+        XCTAssertNotNil(settingsService, "SettingsService singleton should not be nil")
+    }
     
 }
