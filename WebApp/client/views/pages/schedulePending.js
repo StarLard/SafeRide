@@ -14,7 +14,7 @@ Template.schedulePending.helpers({
 });
 
 Template.schedulePending.events({
-  'click .btn-normal': function() {
+  'click .btn-primary': function() {
     Scheduled.insert({
       name: this.name,
       phone: this.phone,
@@ -26,5 +26,9 @@ Template.schedulePending.events({
     });
     Pending.remove(this._id);
     toastr.success("Successfully scheduled " + this.name + " for " + this.pickupTime);
+  },
+  'click .btn-danger': function() {
+    Pending.remove(this._id);
+    toastr.warning("Denied " + this.name + "'s request");
   }
 });
