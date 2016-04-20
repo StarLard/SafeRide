@@ -39,3 +39,15 @@ Template.topNavbar.events({
     }
 
 });
+
+Template.topNavbar.helpers({
+  pendingCount: function() {
+    return Pending.find().count();
+  },
+  scheduledCount: function() {
+    return Scheduled.find().count();
+  },
+  deniedCount: function() {
+    return Denied.find().count();
+  }
+})
