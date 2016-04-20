@@ -19,8 +19,6 @@
 		854D396F1CAC70BA00C72EE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 854D396D1CAC70BA00C72EE0 /* LaunchScreen.storyboard */; };
 		854D39851CAC70BA00C72EE0 /* SafeRideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39841CAC70BA00C72EE0 /* SafeRideUITests.swift */; };
 		85EDC48D1CC2FDA1000BB637 /* CoreDataService.h in Headers */ = {isa = PBXBuildFile; fileRef = 85EDC48C1CC2FDA1000BB637 /* CoreDataService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		85EDC4941CC2FDA1000BB637 /* CoreDataService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */; };
-		85EDC49B1CC2FDA1000BB637 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC49A1CC2FDA1000BB637 /* CoreDataServiceTests.swift */; };
 		85EDC49F1CC2FDA1000BB637 /* CoreDataService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */; };
 		85EDC4A01CC2FDA1000BB637 /* CoreDataService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		85EDC4AA1CC2FDEC000BB637 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC4A91CC2FDEC000BB637 /* CoreDataService.swift */; };
@@ -32,6 +30,8 @@
 		CE66C46C1CBC13BC00A17900 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C46B1CBC13BC00A17900 /* SetViewController.swift */; };
 		DB52298E1CB5F8E800736E73 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52298D1CB5F8E800736E73 /* SettingsCell.swift */; };
 		DB7A78B91CC80FD800FB3A0B /* SafeRideUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7A78B81CC80FD800FB3A0B /* SafeRideUnitTests.swift */; };
+		DB7A78C71CC810F300FB3A0B /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7A78C61CC810F300FB3A0B /* CoreDataServiceTests.swift */; };
+		DB7A78C91CC810F300FB3A0B /* CoreDataService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */; };
 		DB9DB6C51CC2EE4C00D331B6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB9DB6C31CC2EE4C00D331B6 /* Model.xcdatamodeld */; };
 		DB9DB6C91CC2F10700D331B6 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9DB6C71CC2F10700D331B6 /* User+CoreDataProperties.swift */; };
 		DB9DB6CA1CC2F10700D331B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9DB6C81CC2F10700D331B6 /* User.swift */; };
@@ -39,20 +39,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		854D39811CAC70BA00C72EE0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 854D39571CAC70B900C72EE0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 854D395E1CAC70B900C72EE0;
-			remoteInfo = SafeRide;
-		};
-		85EDC4951CC2FDA1000BB637 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 854D39571CAC70B900C72EE0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 85EDC4891CC2FDA1000BB637;
-			remoteInfo = CoreDataService;
-		};
-		85EDC4971CC2FDA1000BB637 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 854D39571CAC70B900C72EE0 /* Project object */;
 			proxyType = 1;
@@ -67,6 +53,20 @@
 			remoteInfo = CoreDataService;
 		};
 		DB7A78BB1CC80FD800FB3A0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 854D39571CAC70B900C72EE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 854D395E1CAC70B900C72EE0;
+			remoteInfo = SafeRide;
+		};
+		DB7A78CA1CC810F300FB3A0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 854D39571CAC70B900C72EE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85EDC4891CC2FDA1000BB637;
+			remoteInfo = CoreDataService;
+		};
+		DB7A78CF1CC8118B00FB3A0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 854D39571CAC70B900C72EE0 /* Project object */;
 			proxyType = 1;
@@ -111,9 +111,6 @@
 		85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreDataService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EDC48C1CC2FDA1000BB637 /* CoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataService.h; sourceTree = "<group>"; };
 		85EDC48E1CC2FDA1000BB637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85EDC4931CC2FDA1000BB637 /* CoreDataServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		85EDC49A1CC2FDA1000BB637 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
-		85EDC49C1CC2FDA1000BB637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85EDC4A91CC2FDEC000BB637 /* CoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		85EDC4AC1CC2FE43000BB637 /* NSEntityDescription_Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSEntityDescription_Service.swift; sourceTree = "<group>"; };
 		85EDC4AE1CC2FE64000BB637 /* NSFetchRequest_Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSFetchRequest_Service.swift; sourceTree = "<group>"; };
@@ -124,6 +121,9 @@
 		DB7A78B61CC80FD800FB3A0B /* SafeRideUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeRideUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7A78B81CC80FD800FB3A0B /* SafeRideUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeRideUnitTests.swift; sourceTree = "<group>"; };
 		DB7A78BA1CC80FD800FB3A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB7A78C41CC810F300FB3A0B /* CoreDataServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB7A78C61CC810F300FB3A0B /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
+		DB7A78C81CC810F300FB3A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB9DB6C41CC2EE4C00D331B6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DB9DB6C71CC2F10700D331B6 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DB9DB6C81CC2F10700D331B6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -153,18 +153,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		85EDC4901CC2FDA1000BB637 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				85EDC4941CC2FDA1000BB637 /* CoreDataService.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DB7A78B31CC80FD800FB3A0B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB7A78C11CC810F300FB3A0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB7A78C91CC810F300FB3A0B /* CoreDataService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,8 +208,8 @@
 				854D39611CAC70BA00C72EE0 /* SafeRide */,
 				854D39831CAC70BA00C72EE0 /* SafeRideUITests */,
 				85EDC48B1CC2FDA1000BB637 /* CoreDataService */,
-				85EDC4991CC2FDA1000BB637 /* CoreDataServiceTests */,
 				DB7A78B71CC80FD800FB3A0B /* SafeRideUnitTests */,
+				DB7A78C51CC810F300FB3A0B /* CoreDataServiceTests */,
 				854D39601CAC70B900C72EE0 /* Products */,
 				43574556B3863199E96C1708 /* Pods */,
 				AC65F3B5F44A18BC0CDD556B /* Frameworks */,
@@ -222,8 +222,8 @@
 				854D395F1CAC70B900C72EE0 /* SafeRide.app */,
 				854D39801CAC70BA00C72EE0 /* SafeRideUITests.xctest */,
 				85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */,
-				85EDC4931CC2FDA1000BB637 /* CoreDataServiceTests.xctest */,
 				DB7A78B61CC80FD800FB3A0B /* SafeRideUnitTests.xctest */,
+				DB7A78C41CC810F300FB3A0B /* CoreDataServiceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -281,15 +281,6 @@
 			path = CoreDataService;
 			sourceTree = "<group>";
 		};
-		85EDC4991CC2FDA1000BB637 /* CoreDataServiceTests */ = {
-			isa = PBXGroup;
-			children = (
-				85EDC49A1CC2FDA1000BB637 /* CoreDataServiceTests.swift */,
-				85EDC49C1CC2FDA1000BB637 /* Info.plist */,
-			);
-			path = CoreDataServiceTests;
-			sourceTree = "<group>";
-		};
 		85EDC4A81CC2FDD9000BB637 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +330,15 @@
 				DB7A78BA1CC80FD800FB3A0B /* Info.plist */,
 			);
 			path = SafeRideUnitTests;
+			sourceTree = "<group>";
+		};
+		DB7A78C51CC810F300FB3A0B /* CoreDataServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				DB7A78C61CC810F300FB3A0B /* CoreDataServiceTests.swift */,
+				DB7A78C81CC810F300FB3A0B /* Info.plist */,
+			);
+			path = CoreDataServiceTests;
 			sourceTree = "<group>";
 		};
 		DB9DB6C61CC2F0C700D331B6 /* Model */ = {
@@ -422,25 +422,6 @@
 			productReference = 85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		85EDC4921CC2FDA1000BB637 /* CoreDataServiceTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 85EDC4A71CC2FDA1000BB637 /* Build configuration list for PBXNativeTarget "CoreDataServiceTests" */;
-			buildPhases = (
-				85EDC48F1CC2FDA1000BB637 /* Sources */,
-				85EDC4901CC2FDA1000BB637 /* Frameworks */,
-				85EDC4911CC2FDA1000BB637 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				85EDC4961CC2FDA1000BB637 /* PBXTargetDependency */,
-				85EDC4981CC2FDA1000BB637 /* PBXTargetDependency */,
-			);
-			name = CoreDataServiceTests;
-			productName = CoreDataServiceTests;
-			productReference = 85EDC4931CC2FDA1000BB637 /* CoreDataServiceTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		DB7A78B51CC80FD800FB3A0B /* SafeRideUnitTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB7A78BD1CC80FD800FB3A0B /* Build configuration list for PBXNativeTarget "SafeRideUnitTests" */;
@@ -457,6 +438,25 @@
 			name = SafeRideUnitTests;
 			productName = SafeRideUnitTests;
 			productReference = DB7A78B61CC80FD800FB3A0B /* SafeRideUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DB7A78C31CC810F300FB3A0B /* CoreDataServiceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB7A78CC1CC810F300FB3A0B /* Build configuration list for PBXNativeTarget "CoreDataServiceTests" */;
+			buildPhases = (
+				DB7A78C01CC810F300FB3A0B /* Sources */,
+				DB7A78C11CC810F300FB3A0B /* Frameworks */,
+				DB7A78C21CC810F300FB3A0B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB7A78CB1CC810F300FB3A0B /* PBXTargetDependency */,
+				DB7A78D01CC8118B00FB3A0B /* PBXTargetDependency */,
+			);
+			name = CoreDataServiceTests;
+			productName = CoreDataServiceTests;
+			productReference = DB7A78C41CC810F300FB3A0B /* CoreDataServiceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -482,12 +482,11 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 2524DUVEAT;
 					};
-					85EDC4921CC2FDA1000BB637 = {
+					DB7A78B51CC80FD800FB3A0B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 2524DUVEAT;
 						TestTargetID = 854D395E1CAC70B900C72EE0;
 					};
-					DB7A78B51CC80FD800FB3A0B = {
+					DB7A78C31CC810F300FB3A0B = {
 						CreatedOnToolsVersion = 7.3;
 						TestTargetID = 854D395E1CAC70B900C72EE0;
 					};
@@ -509,8 +508,8 @@
 				854D395E1CAC70B900C72EE0 /* SafeRide */,
 				854D397F1CAC70BA00C72EE0 /* SafeRideUITests */,
 				85EDC4891CC2FDA1000BB637 /* CoreDataService */,
-				85EDC4921CC2FDA1000BB637 /* CoreDataServiceTests */,
 				DB7A78B51CC80FD800FB3A0B /* SafeRideUnitTests */,
+				DB7A78C31CC810F300FB3A0B /* CoreDataServiceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -540,14 +539,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		85EDC4911CC2FDA1000BB637 /* Resources */ = {
+		DB7A78B41CC80FD800FB3A0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DB7A78B41CC80FD800FB3A0B /* Resources */ = {
+		DB7A78C21CC810F300FB3A0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -644,19 +643,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		85EDC48F1CC2FDA1000BB637 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				85EDC49B1CC2FDA1000BB637 /* CoreDataServiceTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DB7A78B21CC80FD800FB3A0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DB7A78B91CC80FD800FB3A0B /* SafeRideUnitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB7A78C01CC810F300FB3A0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB7A78C71CC810F300FB3A0B /* CoreDataServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,16 +667,6 @@
 			target = 854D395E1CAC70B900C72EE0 /* SafeRide */;
 			targetProxy = 854D39811CAC70BA00C72EE0 /* PBXContainerItemProxy */;
 		};
-		85EDC4961CC2FDA1000BB637 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 85EDC4891CC2FDA1000BB637 /* CoreDataService */;
-			targetProxy = 85EDC4951CC2FDA1000BB637 /* PBXContainerItemProxy */;
-		};
-		85EDC4981CC2FDA1000BB637 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 854D395E1CAC70B900C72EE0 /* SafeRide */;
-			targetProxy = 85EDC4971CC2FDA1000BB637 /* PBXContainerItemProxy */;
-		};
 		85EDC49E1CC2FDA1000BB637 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 85EDC4891CC2FDA1000BB637 /* CoreDataService */;
@@ -687,6 +676,16 @@
 			isa = PBXTargetDependency;
 			target = 854D395E1CAC70B900C72EE0 /* SafeRide */;
 			targetProxy = DB7A78BB1CC80FD800FB3A0B /* PBXContainerItemProxy */;
+		};
+		DB7A78CB1CC810F300FB3A0B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 85EDC4891CC2FDA1000BB637 /* CoreDataService */;
+			targetProxy = DB7A78CA1CC810F300FB3A0B /* PBXContainerItemProxy */;
+		};
+		DB7A78D01CC8118B00FB3A0B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 854D395E1CAC70B900C72EE0 /* SafeRide */;
+			targetProxy = DB7A78CF1CC8118B00FB3A0B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -886,28 +885,6 @@
 			};
 			name = Release;
 		};
-		85EDC4A31CC2FDA1000BB637 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = CoreDataServiceTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.uoregon.CoreDataServiceTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafeRide.app/SafeRide";
-			};
-			name = Debug;
-		};
-		85EDC4A41CC2FDA1000BB637 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = CoreDataServiceTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.uoregon.CoreDataServiceTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafeRide.app/SafeRide";
-			};
-			name = Release;
-		};
 		DB7A78BE1CC80FD800FB3A0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -927,6 +904,30 @@
 				INFOPLIST_FILE = SafeRideUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CIS-422.SafeRideUnitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafeRide.app/SafeRide";
+			};
+			name = Release;
+		};
+		DB7A78CD1CC810F300FB3A0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CoreDataServiceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "CIS-422.CoreDataServiceTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafeRide.app/SafeRide";
+			};
+			name = Debug;
+		};
+		DB7A78CE1CC810F300FB3A0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CoreDataServiceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "CIS-422.CoreDataServiceTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafeRide.app/SafeRide";
 			};
@@ -971,20 +972,19 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		85EDC4A71CC2FDA1000BB637 /* Build configuration list for PBXNativeTarget "CoreDataServiceTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				85EDC4A31CC2FDA1000BB637 /* Debug */,
-				85EDC4A41CC2FDA1000BB637 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		DB7A78BD1CC80FD800FB3A0B /* Build configuration list for PBXNativeTarget "SafeRideUnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB7A78BE1CC80FD800FB3A0B /* Debug */,
 				DB7A78BF1CC80FD800FB3A0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DB7A78CC1CC810F300FB3A0B /* Build configuration list for PBXNativeTarget "CoreDataServiceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB7A78CD1CC810F300FB3A0B /* Debug */,
+				DB7A78CE1CC810F300FB3A0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
