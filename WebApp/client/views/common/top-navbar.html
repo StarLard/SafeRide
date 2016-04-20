@@ -3,20 +3,27 @@
         <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <a id="navbar-minimalize" class="minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                <!-- <form role="search" class="navbar-form-custom" action="search_results">
-                    <div class="form-group">
-                        <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
-                    </div>
-                </form> -->
             </div>
+
             <ul class="nav navbar-top-links navbar-right">
-              <strong>Welcome to the UO SafeRide Portal</strong>
                 <li>
-                    <a href="#">
-                        <i class="fa fa-sign-out"></i> <!-- Logout -->
+                    <span class="m-r-sm text-muted welcome-message"> Welcome to the UO SafeRide Portal </span>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-calendar-plus-o"></i>  <span class="label label-success">{{pendingCount}}</span>
                     </a>
                 </li>
-
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-calendar-check-o"></i>  <span class="label label-primary">{{scheduledCount}}</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-calendar-times-o"></i>  <span class="label label-warning">{{deniedCount}}</span>
+                    </a>
+                </li>
             </ul>
 
         </nav>
