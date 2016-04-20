@@ -29,4 +29,3 @@ check
 standard-minifier-css
 standard-minifier-js
 momentjs:moment
-joncursi:socket-io-client
