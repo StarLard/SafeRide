@@ -42,6 +42,7 @@
           var pickuptime = $('#scheduledPickupTime').val();
 
           storeScheduled(name, uoid, phone, pickup, dropoff, riders, pickuptime);
+          addMapMarker(pickup);
           $('#scheduledModal').find("input,textarea,select").val('').end();
 
           toastr.options = {
@@ -63,13 +64,6 @@
 
           toastr.success("Successfully added " + name + " to Scheduled Rides queue.");
 
-          /*
-          $.post('http://path/to/post',
-             $('#scheduledForm').serialize(),
-             function(data, status, xhr){
-               // do something here with response;
-             });
-          */
     });
   </script>
 
