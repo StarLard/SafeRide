@@ -33,6 +33,8 @@ class CoreDataServiceTests: XCTestCase {
         }
     }
     
+    
+    // Tests to see if the core data construct is being initialized properly
     func testCoreDataServiceMainQueueContextExists() {
         let settingsService = SettingsService.sharedSettingsService
         XCTAssertNotNil(settingsService, "SettingsService singleton should not be nil")
