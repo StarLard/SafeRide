@@ -21,7 +21,6 @@ if (Meteor.isServer) {
       return true;
     }
   });
-
   Scheduled.allow({
     insert: function(userId, doc) {
       return true;
@@ -30,7 +29,6 @@ if (Meteor.isServer) {
       return true;
     }
   });
-
   Denied.allow({
     insert: function(userId, doc) {
       return true;
