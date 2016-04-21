@@ -25,7 +25,7 @@ Template.googleMaps.helpers({
           position: latLng,
           map: map1,
         });
-        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+        marker.setIcon('https://maps.google.com/mapfiles/ms/icons/green-dot.png');
         var infowWndow = new google.maps.InfoWindow({
           content: "<strong>" + name + " @ " + pickupTime + "</strong><br>" + pickupAddress
         });
