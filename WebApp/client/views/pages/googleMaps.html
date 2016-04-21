@@ -1,9 +1,14 @@
 <template name="googleMaps">
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDWVdGb9pumL0h19tAZs0xKpLwuBcXUcw&callback=initMap" type="text/javascript"></script>
   <!-- <div class="ibox-title">
-    <h5>Google Maps Title</h5>
+    <h5>Scheduled Pickup Locations</h5>
   </div> -->
   <div class="ibox-content">
     <div class="google-map" id="map1"></div>
   </div>
+
+  {{#each scheduled}}
+    {{addMapMarker this.pickup this.name this.pickupTime}}
+  {{/each}}
+
 </template>
