@@ -9,10 +9,7 @@ Denied = new Mongo.Collection('denied');
 if (Meteor.isServer) {
 
   Meteor.startup(function() {
-
   }); // end .startup()
-
-
 
 
   // Server permissions
@@ -44,7 +41,7 @@ if (Meteor.isServer) {
   });
 
 
-  // Server Methodz
+  // Server Methods
   return Meteor.methods({
     purgePending: function() {
         Pending.remove({});
