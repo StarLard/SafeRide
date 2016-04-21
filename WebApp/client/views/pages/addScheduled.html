@@ -42,7 +42,6 @@
           var pickuptime = $('#scheduledPickupTime').val();
 
           storeScheduled(name, uoid, phone, pickup, dropoff, riders, pickuptime);
-          addMapMarker(pickup);
           $('#scheduledModal').find("input,textarea,select").val('').end();
 
           toastr.options = {
