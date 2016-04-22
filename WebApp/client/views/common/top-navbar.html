@@ -13,16 +13,49 @@
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                         <i class="fa fa-calendar-plus-o"></i>  <span class="label label-success">{{pendingCount}}</span>
                     </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <i class="fa fa-calendar-plus-o fa-5x pull-left"></i>
+                                <div class="media-body">
+                                    <strong>Pending Requests</strong><br>
+                                    <p> Current count: <strong>{{pendingCount}}</strong></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                         <i class="fa fa-calendar-check-o"></i>  <span class="label label-primary">{{scheduledCount}}</span>
                     </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <i class="fa fa-calendar-check-o fa-5x pull-left"></i>
+                                <div class="media-body">
+                                    <strong>Scheduled Requests</strong><br>
+                                    <p> Current count: <strong>{{scheduledCount}}</strong></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                         <i class="fa fa-calendar-times-o"></i>  <span class="label label-warning">{{deniedCount}}</span>
                     </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <i class="fa fa-calendar-times-o fa-5x pull-left"></i>
+                                <div class="media-body">
+                                    <strong>Denied Requests</strong><br>
+                                    <p> Current count: <strong>{{deniedCount}}</strong></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </li>
             </ul>
 

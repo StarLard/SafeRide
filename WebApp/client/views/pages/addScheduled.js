@@ -3,6 +3,11 @@ Template.addScheduled.rendered = function(){
     // Fix Bootstrap backdrop issue with animation.css
     $('.modal').appendTo("body");
 };
+Template.scheduledQueue.helpers({
+  scheduled: function() {
+    return Scheduled.find({});
+  }
+});
 
 storeScheduled = function(name, uoid, phone, pickup, dropoff, riders, pickuptime) {
   Scheduled.insert({
