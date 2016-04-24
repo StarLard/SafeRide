@@ -2,12 +2,12 @@
 //  CoreDataServiceTests.swift
 //  CoreDataServiceTests
 //
-//  Created by Caleb Friden on 4/16/16.
+//  Created by Zachary Jones on 4/20/16.
 //  Copyright © 2016 University of Oregon. All rights reserved.
 //
 
 import XCTest
-@testable import CoreDataService
+@testable import SafeRide
 
 class CoreDataServiceTests: XCTestCase {
     
@@ -31,6 +31,13 @@ class CoreDataServiceTests: XCTestCase {
         self.measureBlock {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    
+    // Tests to see if the core data construct is being initialized properly
+    func testCoreDataServiceMainQueueContextExists() {
+        let settingsService = SettingsService.sharedSettingsService
+        XCTAssertNotNil(settingsService, "SettingsService singleton should not be nil")
     }
     
 }

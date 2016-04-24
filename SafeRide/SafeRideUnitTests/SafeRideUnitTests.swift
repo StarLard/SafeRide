@@ -1,15 +1,15 @@
 //
-//  SafeRideTests.swift
-//  SafeRideTests
+//  SafeRideUnitTests.swift
+//  SafeRideUnitTests
 //
-//  Created by Caleb Friden on 3/30/16.
+//  Created by Zachary Jones on 4/20/16.
 //  Copyright © 2016 University of Oregon. All rights reserved.
 //
 
 import XCTest
 @testable import SafeRide
 
-class SafeRideTests: XCTestCase {
+class SafeRideUnitTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -32,5 +32,24 @@ class SafeRideTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testTextFieldChanged(){
+//        let example = ConfirmViewController.textFieldChanged(sender:UITextField)
+        
+        
+    }
+    
+//    @IBAction func textFieldChanged(sender: UITextField) {
+//        // Called whenever a text field changes
+//        // phone field has tag 1, UO ID has tag 2, time has tag 3, first name has tag 4, last name has tag 5
+//        if sender.tag == 1 {
+//            self.phoneNumber = sender.text!
+//        }
+//        else {
+//            self.UOID = sender.text!
+//        }
+//        readyToRequest()
+//    }
+    
     
 }

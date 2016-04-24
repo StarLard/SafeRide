@@ -1,62 +1,51 @@
 <template name="pageTwo">
   {{> pageHeading title='Admin' }}
+
+  <br><br>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+          <div class="ibox-title">
+              <h5>Denied Requests</h5>
+              {{>iboxTools}}
+          </div>
+          <div class="ibox-content">
+
+              <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>UO ID</th>
+                    <th>Phone</th>
+                    <th>Pickup</th>
+                    <th>Dropoff</th>
+                    <th>Riders</th>
+                    <th>Pickup Time</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    {{> deniedQueue}}
+                  </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-md-12">
       <br>
       <div class="alert alert-danger">
-          <b>Warning:</b> Purging ANY or ALL database(s) is irreversible.
+        <b>Warning:</b> Purging ANY or ALL database(s) is irreversible.
+        <br><br>
+        <button type="button" class="btn btn-w-m btn-success">Purge 'Pending' Database</button>
+        <button type="button" class="btn btn-w-m btn-primary">Purge 'Scheduled' Database</button>
+        <button type="button" class="btn btn-w-m btn-warning">Purge 'Denied' Database</button>
+        <button type="button" class="btn btn-w-m btn-danger">Purge <b>ALL</b> Databases</button>
       </div>
-      <button id="purgePending" type="button" class="btn btn-w-m btn-warning">Purge 'Pending' Database</button>
-      <button id="purgeScheduled" type="button" class="btn btn-w-m btn-primary">Purge 'Scheduled' Database</button>
-      <button id="purgeAll" type="button" class="btn btn-w-m btn-danger">Purge <b>ALL</b> Databases</button>
     </div>
   </div>
-
-    <script>
-      $('#purgePending').click(function () {
-          swal({
-              title: "Are you sure?",
-              text: "You are about to delete the 'Pending Requests' database. All data will be forever lost. Are you sure you want to continue?",
-              type: "warning",
-              showCancelButton: true,
-              confirmButtonColor: "#DD6B55",
-              confirmButtonText: "Yes, purge away!",
-              closeOnConfirm: false
-          }, function () {
-              Meteor.call('purgePending');
-              swal("Database Deleted!", "The 'Pending Requests' database has been successfully purged.", "success");
-          });
-      });
-
-      $('#purgeScheduled').click(function () {
-          swal({
-              title: "Are you sure?",
-              text: "You are about to delete the 'Scheduled Rides' database. All data will be forever lost. Are you sure you want to continue?",
-              type: "warning",
-              showCancelButton: true,
-              confirmButtonColor: "#DD6B55",
-              confirmButtonText: "Yes, purge away!",
-              closeOnConfirm: false
-          }, function () {
-              Meteor.call('purgeScheduled');
-              swal("Database Deleted!", "The 'Scheduled Rides' database has been successfully purged.", "success");
-          });
-      });
-
-      $('#purgeAll').click(function () {
-          swal({
-              title: "Are you sure?",
-              text: "You are about to delete ALL databases. All data will be forever lost. Are you sure you want to continue?",
-              type: "warning",
-              showCancelButton: true,
-              confirmButtonColor: "#DD6B55",
-              confirmButtonText: "Yes, purge away!",
-              closeOnConfirm: false
-          }, function () {
-              Meteor.call('purgeAll');
-              swal("Databases Deleted!", "All databases have been successfully purged.", "success");
-          });
-      });
-    </script>
 
 </template>

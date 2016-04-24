@@ -24,6 +24,18 @@ if (Meteor.isClient) {
         result = "There are currently " + count + " scheduled rides";
       }
       return result;
+    },
+    deniedCount: function() {
+      var count = Denied.find().count();
+      var result = "";
+      if (count === 0) {
+        result = "There are currently NO denied requests";
+      } else if (count === 1) {
+        result = "There is currently 1 denied requests";
+      } else if (count > 1) {
+        result = "There are currently " + count + " denied requests";
+      }
+      return result;
     }
   });
 

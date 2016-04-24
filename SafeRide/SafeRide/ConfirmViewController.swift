@@ -272,7 +272,11 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
     // MARK: UITextFieldDelegate
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         // Ensures Only Valid characters have been entered in numerical fields
-        let invalidCharacters = NSCharacterSet(charactersInString: "0123456789").invertedSet
+        var invalidCharacters = NSCharacterSet(charactersInString: "0123456789").invertedSet
+        
+        if (textField.tag == 4 || textField.tag == 5){
+            invalidCharacters = NSCharacterSet(charactersInString: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ").invertedSet
+        }
         return string.rangeOfCharacterFromSet(invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
     }
     

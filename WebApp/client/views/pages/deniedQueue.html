@@ -1,5 +1,5 @@
-<template name="pendingQueue">
-  {{#each pending}}
+<template name="deniedQueue">
+  {{#each denied}}
     <tr>
       <td>{{name}}</td>
       <td>{{uoid}}</td>
@@ -8,8 +8,7 @@
       <td>{{dropoff}}</td>
       <td>{{riders}}</td>
       <td>{{pickupTime}}</td>
-      <!-- <td>{{createdTime}}</td> -->
-      <td>{{> schedulePending}}</td>
+      <td>{{> notifiedDenied}}</td>
     </tr>
   {{/each}}
 </template>
