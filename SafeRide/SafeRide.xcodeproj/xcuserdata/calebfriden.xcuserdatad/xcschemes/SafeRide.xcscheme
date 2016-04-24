@@ -52,9 +52,19 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "85EDC4921CC2FDA1000BB637"
+               BlueprintIdentifier = "DB7A78C31CC810F300FB3A0B"
                BuildableName = "CoreDataServiceTests.xctest"
                BlueprintName = "CoreDataServiceTests"
+               ReferencedContainer = "container:SafeRide.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DB7A78B51CC80FD800FB3A0B"
+               BuildableName = "SafeRideUnitTests.xctest"
+               BlueprintName = "SafeRideUnitTests"
                ReferencedContainer = "container:SafeRide.xcodeproj">
             </BuildableReference>
          </TestableReference>

@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u7Y-5X-RR0" id="tMH-ei-dcG">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlL-LN-paW">
@@ -55,6 +55,7 @@
                                                 <constraint firstItem="BlL-LN-paW" firstAttribute="leading" secondItem="tMH-ei-dcG" secondAttribute="leading" constant="20" id="V0d-sw-ZGk"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="settingsField" destination="jf3-fN-KOh" id="E8U-Ld-ZVg"/>
                                             <outlet property="settingsLabel" destination="BlL-LN-paW" id="Gag-Ea-dGn"/>
@@ -172,7 +173,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="AeK-1x-2P7"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="AeK-1x-2P7"/>
                     <navigationItem key="navigationItem" title="Set Pickup Location" id="Dhc-vX-1qP">
                         <barButtonItem key="leftBarButtonItem" title="Clear" id="8tq-1h-CB8">
                             <connections>
@@ -222,7 +223,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qi0-qB-INg" id="1wz-S4-v55">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkX-3e-Dkh">
@@ -251,6 +252,7 @@
                                                 <constraint firstItem="K3x-Bz-9xm" firstAttribute="centerY" secondItem="1wz-S4-v55" secondAttribute="centerY" id="eiE-ua-Go0"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="infoField" destination="K3x-Bz-9xm" id="S8c-EJ-2RD"/>
                                             <outlet property="infoLabel" destination="RkX-3e-Dkh" id="79v-7z-16J"/>
@@ -260,7 +262,7 @@
                                         <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uza-Zc-4PF" id="IKX-K1-CiP">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmO-Yu-xNd">
@@ -298,6 +300,7 @@
                                                 <constraint firstItem="nmO-Yu-xNd" firstAttribute="centerY" secondItem="IKX-K1-CiP" secondAttribute="centerY" id="bew-os-wa9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="addressField" destination="gMI-Ph-Dau" id="Wrm-zL-yJQ"/>
                                             <outlet property="addressLabel" destination="nmO-Yu-xNd" id="uaw-ov-YBQ"/>
@@ -347,6 +350,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="ULS-Jt-qQA">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kLD-gD-iKe">
                                 <rect key="frame" x="150" y="230" width="300" height="140"/>
                                 <subviews>
@@ -357,7 +363,7 @@
                                             <constraint firstAttribute="width" constant="300" id="sNL-Tc-VX7"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRE-Rr-gcy">
@@ -370,7 +376,7 @@
 with a confirmation once your
 request has been processed.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for using SafeRide!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uer-Xt-o14">
@@ -380,7 +386,7 @@ request has been processed.</string>
                                             <constraint firstAttribute="height" constant="25" id="OZ5-3Q-N8Y"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -388,8 +394,12 @@ request has been processed.</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ULS-Jt-qQA" secondAttribute="trailing" id="Joh-DK-GFi"/>
+                            <constraint firstItem="ULS-Jt-qQA" firstAttribute="leading" secondItem="dfW-Jq-ACT" secondAttribute="leading" id="SVu-qr-cgQ"/>
+                            <constraint firstItem="2s3-45-YXV" firstAttribute="top" secondItem="ULS-Jt-qQA" secondAttribute="bottom" id="Tgj-LB-xcV"/>
                             <constraint firstItem="kLD-gD-iKe" firstAttribute="centerX" secondItem="dfW-Jq-ACT" secondAttribute="centerX" id="eUk-aS-H8b"/>
                             <constraint firstItem="kLD-gD-iKe" firstAttribute="centerY" secondItem="dfW-Jq-ACT" secondAttribute="centerY" id="gym-jk-7ok"/>
+                            <constraint firstItem="ULS-Jt-qQA" firstAttribute="top" secondItem="UkE-Tb-DDI" secondAttribute="bottom" id="yEg-xN-Nrj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Confirmation" id="phA-rL-mIQ"/>
@@ -421,7 +431,7 @@ request has been processed.</string>
         <scene sceneID="0ZK-cc-k3k">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="82M-aj-NS0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="AHJ-Gn-MvI"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="SettingsIcon" id="AHJ-Gn-MvI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tU5-Qe-2uM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -437,4 +447,9 @@ request has been processed.</string>
             <point key="canvasLocation" x="544" y="-127"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="621" height="1104"/>
+        <image name="MapIcon" width="25" height="25"/>
+        <image name="SettingsIcon" width="25" height="25"/>
+    </resources>
 </document>

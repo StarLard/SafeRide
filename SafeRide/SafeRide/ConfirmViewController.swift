@@ -89,6 +89,11 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let background = UIImageView(image: UIImage(named: "Background"))
+        background.alpha = 0.5
+        
+        self.infoTableView.backgroundView = background
+        
         let resultsController = SettingsService.sharedSettingsService.user()
         
         try! resultsController.performFetch()
@@ -135,6 +140,11 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
         }
     }
     
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.backgroundView?.backgroundColor = UIColor.clearColor()
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath == NSIndexPath(forRow: 0, inSection: 0) || indexPath == NSIndexPath(forRow: 1, inSection: 0) {
             let cell = tableView.dequeueReusableCellWithIdentifier("AddressCell", forIndexPath: indexPath) as! AddressCell
@@ -146,6 +156,11 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
                 cell.addressField.text = dropOffAddress
                 cell.addressField.tag = 2
             }
+            let borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).CGColor
+            
+            cell.addressField.layer.borderColor = borderColor
+            cell.addressField.layer.borderWidth = 1.0
+            cell.addressField.layer.cornerRadius = 5.0
             addToolBarToTextView(cell.addressField)
             cell.addressField.delegate = self
             cell.selectionStyle = UITableViewCellSelectionStyle.None

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8503AF081CCD649F001E0835 /* mapicon6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8503AF041CCD649F001E0835 /* mapicon6.png */; };
+		8503AF091CCD649F001E0835 /* mapicon6+.png in Resources */ = {isa = PBXBuildFile; fileRef = 8503AF051CCD649F001E0835 /* mapicon6+.png */; };
+		8503AF0A1CCD649F001E0835 /* settingsgear6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8503AF061CCD649F001E0835 /* settingsgear6.png */; };
+		8503AF0D1CCD6958001E0835 /* settingsgear6+.png in Resources */ = {isa = PBXBuildFile; fileRef = 8503AF0C1CCD6958001E0835 /* settingsgear6+.png */; };
 		851599631CB2DA3B0075C656 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851599621CB2DA3B0075C656 /* ConfirmViewController.swift */; };
 		851599671CB319DE0075C656 /* UITableView_Keyboard_Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851599661CB319DE0075C656 /* UITableView_Keyboard_Notification.swift */; };
 		851599691CB31D830075C656 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851599681CB31D830075C656 /* AddressCell.swift */; };
@@ -22,7 +26,6 @@
 		854D39671CAC70BA00C72EE0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39661CAC70BA00C72EE0 /* SettingsViewController.swift */; };
 		854D396A1CAC70BA00C72EE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 854D39681CAC70BA00C72EE0 /* Main.storyboard */; };
 		854D396C1CAC70BA00C72EE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 854D396B1CAC70BA00C72EE0 /* Assets.xcassets */; };
-		854D397A1CAC70BA00C72EE0 /* SafeRideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39791CAC70BA00C72EE0 /* SafeRideTests.swift */; };
 		854D39851CAC70BA00C72EE0 /* SafeRideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39841CAC70BA00C72EE0 /* SafeRideUITests.swift */; };
 		85EDC48D1CC2FDA1000BB637 /* CoreDataService.h in Headers */ = {isa = PBXBuildFile; fileRef = 85EDC48C1CC2FDA1000BB637 /* CoreDataService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		85EDC49F1CC2FDA1000BB637 /* CoreDataService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */; };
@@ -99,6 +102,10 @@
 		31FF99BB0D93F915BC032B6F /* Pods-SafeRide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeRide.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeRide/Pods-SafeRide.release.xcconfig"; sourceTree = "<group>"; };
 		39284A9546FA75740DC88EAB /* Pods-SafeRide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeRide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafeRide/Pods-SafeRide.debug.xcconfig"; sourceTree = "<group>"; };
 		55D1D2C9E2DA07ADE342EAD7 /* Pods_SafeRide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeRide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8503AF041CCD649F001E0835 /* mapicon6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapicon6.png; sourceTree = "<group>"; };
+		8503AF051CCD649F001E0835 /* mapicon6+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapicon6+.png"; sourceTree = "<group>"; };
+		8503AF061CCD649F001E0835 /* settingsgear6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsgear6.png; sourceTree = "<group>"; };
+		8503AF0C1CCD6958001E0835 /* settingsgear6+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsgear6+.png"; sourceTree = "<group>"; };
 		851599621CB2DA3B0075C656 /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		851599661CB319DE0075C656 /* UITableView_Keyboard_Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView_Keyboard_Notification.swift; sourceTree = "<group>"; };
 		851599681CB31D830075C656 /* AddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
@@ -216,6 +223,10 @@
 		853695EE1CCCC814003A4594 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8503AF0C1CCD6958001E0835 /* settingsgear6+.png */,
+				8503AF041CCD649F001E0835 /* mapicon6.png */,
+				8503AF051CCD649F001E0835 /* mapicon6+.png */,
+				8503AF061CCD649F001E0835 /* settingsgear6.png */,
 				853695FF1CCCCD85003A4594 /* saferideiphone5.png */,
 				853695F91CCCCC2A003A4594 /* saferideiphone6appicon.png */,
 				853695FA1CCCCC2A003A4594 /* saferideiphone6plusappicon.png */,
@@ -543,11 +554,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8503AF0D1CCD6958001E0835 /* settingsgear6+.png in Resources */,
 				854D396C1CAC70BA00C72EE0 /* Assets.xcassets in Resources */,
 				853695FC1CCCCC2A003A4594 /* saferideiphone6plusappicon.png in Resources */,
+				8503AF081CCD649F001E0835 /* mapicon6.png in Resources */,
 				853695F01CCCC87D003A4594 /* saferideiphone6.png in Resources */,
+				8503AF0A1CCD649F001E0835 /* settingsgear6.png in Resources */,
 				853696001CCCCD85003A4594 /* saferideiphone5.png in Resources */,
 				854D396A1CAC70BA00C72EE0 /* Main.storyboard in Resources */,
+				8503AF091CCD649F001E0835 /* mapicon6+.png in Resources */,
 				853695F41CCCC8A2003A4594 /* saferideappstore.png in Resources */,
 				853695F21CCCC88B003A4594 /* saferideiphone6+.png in Resources */,
 				853695FB1CCCCC2A003A4594 /* saferideiphone6appicon.png in Resources */,
@@ -1002,6 +1017,7 @@
 				DB7A78BF1CC80FD800FB3A0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DB7A78CC1CC810F300FB3A0B /* Build configuration list for PBXNativeTarget "CoreDataServiceTests" */ = {
 			isa = XCConfigurationList;
@@ -1010,6 +1026,7 @@
 				DB7A78CE1CC810F300FB3A0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

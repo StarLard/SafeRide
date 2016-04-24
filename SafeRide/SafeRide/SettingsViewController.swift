@@ -19,6 +19,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let background = UIImageView(image: UIImage(named: "Background"))
+        background.alpha = 0.5
+        
+        self.settingsTableView.backgroundView = background
+        
         let resultsController = SettingsService.sharedSettingsService.user()
         
         try! resultsController.performFetch()
