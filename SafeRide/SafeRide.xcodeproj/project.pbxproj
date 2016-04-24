@@ -11,12 +11,17 @@
 		851599671CB319DE0075C656 /* UITableView_Keyboard_Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851599661CB319DE0075C656 /* UITableView_Keyboard_Notification.swift */; };
 		851599691CB31D830075C656 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851599681CB31D830075C656 /* AddressCell.swift */; };
 		8515996B1CB31D9C0075C656 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8515996A1CB31D9C0075C656 /* InfoCell.swift */; };
+		853695F01CCCC87D003A4594 /* saferideiphone6.png in Resources */ = {isa = PBXBuildFile; fileRef = 853695EF1CCCC87D003A4594 /* saferideiphone6.png */; };
+		853695F21CCCC88B003A4594 /* saferideiphone6+.png in Resources */ = {isa = PBXBuildFile; fileRef = 853695F11CCCC88B003A4594 /* saferideiphone6+.png */; };
+		853695F41CCCC8A2003A4594 /* saferideappstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 853695F31CCCC8A2003A4594 /* saferideappstore.png */; };
+		853695FB1CCCCC2A003A4594 /* saferideiphone6appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 853695F91CCCCC2A003A4594 /* saferideiphone6appicon.png */; };
+		853695FC1CCCCC2A003A4594 /* saferideiphone6plusappicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 853695FA1CCCCC2A003A4594 /* saferideiphone6plusappicon.png */; };
+		853696001CCCCD85003A4594 /* saferideiphone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 853695FF1CCCCD85003A4594 /* saferideiphone5.png */; };
 		854D39631CAC70BA00C72EE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39621CAC70BA00C72EE0 /* AppDelegate.swift */; };
 		854D39651CAC70BA00C72EE0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39641CAC70BA00C72EE0 /* MapViewController.swift */; };
 		854D39671CAC70BA00C72EE0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39661CAC70BA00C72EE0 /* SettingsViewController.swift */; };
 		854D396A1CAC70BA00C72EE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 854D39681CAC70BA00C72EE0 /* Main.storyboard */; };
 		854D396C1CAC70BA00C72EE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 854D396B1CAC70BA00C72EE0 /* Assets.xcassets */; };
-		854D396F1CAC70BA00C72EE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 854D396D1CAC70BA00C72EE0 /* LaunchScreen.storyboard */; };
 		854D397A1CAC70BA00C72EE0 /* SafeRideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39791CAC70BA00C72EE0 /* SafeRideTests.swift */; };
 		854D39851CAC70BA00C72EE0 /* SafeRideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39841CAC70BA00C72EE0 /* SafeRideUITests.swift */; };
 		85EDC48D1CC2FDA1000BB637 /* CoreDataService.h in Headers */ = {isa = PBXBuildFile; fileRef = 85EDC48C1CC2FDA1000BB637 /* CoreDataService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -97,13 +102,18 @@
 		851599661CB319DE0075C656 /* UITableView_Keyboard_Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView_Keyboard_Notification.swift; sourceTree = "<group>"; };
 		851599681CB31D830075C656 /* AddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 		8515996A1CB31D9C0075C656 /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		853695EF1CCCC87D003A4594 /* saferideiphone6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saferideiphone6.png; sourceTree = "<group>"; };
+		853695F11CCCC88B003A4594 /* saferideiphone6+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "saferideiphone6+.png"; sourceTree = "<group>"; };
+		853695F31CCCC8A2003A4594 /* saferideappstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saferideappstore.png; sourceTree = "<group>"; };
+		853695F91CCCCC2A003A4594 /* saferideiphone6appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saferideiphone6appicon.png; sourceTree = "<group>"; };
+		853695FA1CCCCC2A003A4594 /* saferideiphone6plusappicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saferideiphone6plusappicon.png; sourceTree = "<group>"; };
+		853695FF1CCCCD85003A4594 /* saferideiphone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saferideiphone5.png; sourceTree = "<group>"; };
 		854D395F1CAC70B900C72EE0 /* SafeRide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeRide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		854D39621CAC70BA00C72EE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		854D39641CAC70BA00C72EE0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		854D39661CAC70BA00C72EE0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		854D39691CAC70BA00C72EE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		854D396B1CAC70BA00C72EE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		854D396E1CAC70BA00C72EE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		854D39701CAC70BA00C72EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		854D39751CAC70BA00C72EE0 /* SafeRideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeRideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		854D39791CAC70BA00C72EE0 /* SafeRideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeRideTests.swift; sourceTree = "<group>"; };
@@ -202,6 +212,19 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		853695EE1CCCC814003A4594 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				853695FF1CCCCD85003A4594 /* saferideiphone5.png */,
+				853695F91CCCCC2A003A4594 /* saferideiphone6appicon.png */,
+				853695FA1CCCCC2A003A4594 /* saferideiphone6plusappicon.png */,
+				853695F31CCCC8A2003A4594 /* saferideappstore.png */,
+				853695F11CCCC88B003A4594 /* saferideiphone6+.png */,
+				853695EF1CCCC87D003A4594 /* saferideiphone6.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		854D39561CAC70B900C72EE0 = {
 			isa = PBXGroup;
 			children = (
@@ -258,8 +281,8 @@
 		854D39921CAC7E6B00C72EE0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				853695EE1CCCC814003A4594 /* Images */,
 				854D39681CAC70BA00C72EE0 /* Main.storyboard */,
-				854D396D1CAC70BA00C72EE0 /* LaunchScreen.storyboard */,
 				854D39701CAC70BA00C72EE0 /* Info.plist */,
 				854D396B1CAC70BA00C72EE0 /* Assets.xcassets */,
 				DB9DB6C31CC2EE4C00D331B6 /* Model.xcdatamodeld */,
@@ -521,9 +544,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				854D396F1CAC70BA00C72EE0 /* LaunchScreen.storyboard in Resources */,
 				854D396C1CAC70BA00C72EE0 /* Assets.xcassets in Resources */,
+				853695FC1CCCCC2A003A4594 /* saferideiphone6plusappicon.png in Resources */,
+				853695F01CCCC87D003A4594 /* saferideiphone6.png in Resources */,
+				853696001CCCCD85003A4594 /* saferideiphone5.png in Resources */,
 				854D396A1CAC70BA00C72EE0 /* Main.storyboard in Resources */,
+				853695F41CCCC8A2003A4594 /* saferideappstore.png in Resources */,
+				853695F21CCCC88B003A4594 /* saferideiphone6+.png in Resources */,
+				853695FB1CCCCC2A003A4594 /* saferideiphone6appicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,14 +728,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		854D396D1CAC70BA00C72EE0 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				854D396E1CAC70BA00C72EE0 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -799,6 +819,7 @@
 			baseConfigurationReference = 39284A9546FA75740DC88EAB /* Pods-SafeRide.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				INFOPLIST_FILE = SafeRide/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -812,6 +833,7 @@
 			baseConfigurationReference = 31FF99BB0D93F915BC032B6F /* Pods-SafeRide.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				INFOPLIST_FILE = SafeRide/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
