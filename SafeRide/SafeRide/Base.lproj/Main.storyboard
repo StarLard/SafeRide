@@ -353,52 +353,24 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="ULS-Jt-qQA">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kLD-gD-iKe">
-                                <rect key="frame" x="150" y="230" width="300" height="140"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Request Has Been Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqT-mX-D0y">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="deg-R7-TfM"/>
-                                            <constraint firstAttribute="width" constant="300" id="sNL-Tc-VX7"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRE-Rr-gcy">
-                                        <rect key="frame" x="0.0" y="35" width="300" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="EPA-vV-YMF"/>
-                                            <constraint firstAttribute="height" constant="70" id="s4G-Sr-0XD"/>
-                                        </constraints>
-                                        <string key="text">You will receive a text message 
-with a confirmation once your
-request has been processed.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for using SafeRide!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uer-Xt-o14">
-                                        <rect key="frame" x="0.0" y="115" width="300" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="H0u-gE-hmz"/>
-                                            <constraint firstAttribute="height" constant="25" id="OZ5-3Q-N8Y"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Request Has Been Sent!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqT-mX-D0y">
+                                <rect key="frame" x="150" y="139" width="300" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="deg-R7-TfM"/>
+                                    <constraint firstAttribute="width" constant="300" id="sNL-Tc-VX7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="rqT-mX-D0y" firstAttribute="top" secondItem="UkE-Tb-DDI" secondAttribute="bottom" constant="75" id="FSf-1a-Lgm"/>
                             <constraint firstAttribute="trailing" secondItem="ULS-Jt-qQA" secondAttribute="trailing" id="Joh-DK-GFi"/>
+                            <constraint firstItem="rqT-mX-D0y" firstAttribute="centerX" secondItem="dfW-Jq-ACT" secondAttribute="centerX" id="QMD-5m-kIR"/>
                             <constraint firstItem="ULS-Jt-qQA" firstAttribute="leading" secondItem="dfW-Jq-ACT" secondAttribute="leading" id="SVu-qr-cgQ"/>
                             <constraint firstItem="2s3-45-YXV" firstAttribute="top" secondItem="ULS-Jt-qQA" secondAttribute="bottom" id="Tgj-LB-xcV"/>
-                            <constraint firstItem="kLD-gD-iKe" firstAttribute="centerX" secondItem="dfW-Jq-ACT" secondAttribute="centerX" id="eUk-aS-H8b"/>
-                            <constraint firstItem="kLD-gD-iKe" firstAttribute="centerY" secondItem="dfW-Jq-ACT" secondAttribute="centerY" id="gym-jk-7ok"/>
                             <constraint firstItem="ULS-Jt-qQA" firstAttribute="top" secondItem="UkE-Tb-DDI" secondAttribute="bottom" id="yEg-xN-Nrj"/>
                         </constraints>
                     </view>
