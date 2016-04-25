@@ -37,6 +37,9 @@
 		85EDC4B51CC2FF1D000BB637 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC4B41CC2FF1D000BB637 /* SettingsService.swift */; };
 		B45CFC71F0894CBCC5D4C372 /* Pods_SafeRide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D1D2C9E2DA07ADE342EAD7 /* Pods_SafeRide.framework */; };
 		CE66C46C1CBC13BC00A17900 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C46B1CBC13BC00A17900 /* SetViewController.swift */; };
+		CEBFC9BC1CCEBE0B008E4932 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFC9BB1CCEBE0B008E4932 /* HomeViewController.swift */; };
+		CEBFC9BE1CCED82C008E4932 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFC9BD1CCED82C008E4932 /* ScheduleViewController.swift */; };
+		CEBFC9C01CCED848008E4932 /* RideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFC9BF1CCED848008E4932 /* RideDetailsViewController.swift */; };
 		DB52298E1CB5F8E800736E73 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52298D1CB5F8E800736E73 /* SettingsCell.swift */; };
 		DB7A78B91CC80FD800FB3A0B /* SafeRideUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7A78B81CC80FD800FB3A0B /* SafeRideUnitTests.swift */; };
 		DB7A78C71CC810F300FB3A0B /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7A78C61CC810F300FB3A0B /* CoreDataServiceTests.swift */; };
@@ -135,6 +138,9 @@
 		85EDC4B11CC2FEBA000BB637 /* NamedEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamedEntity.swift; sourceTree = "<group>"; };
 		85EDC4B41CC2FF1D000BB637 /* SettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		CE66C46B1CBC13BC00A17900 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
+		CEBFC9BB1CCEBE0B008E4932 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CEBFC9BD1CCED82C008E4932 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		CEBFC9BF1CCED848008E4932 /* RideDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideDetailsViewController.swift; sourceTree = "<group>"; };
 		DB52298D1CB5F8E800736E73 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		DB7A78B61CC80FD800FB3A0B /* SafeRideUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeRideUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7A78B81CC80FD800FB3A0B /* SafeRideUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeRideUnitTests.swift; sourceTree = "<group>"; };
@@ -208,6 +214,9 @@
 				8515996A1CB31D9C0075C656 /* InfoCell.swift */,
 				DB52298D1CB5F8E800736E73 /* SettingsCell.swift */,
 				CE66C46B1CBC13BC00A17900 /* SetViewController.swift */,
+				CEBFC9BB1CCEBE0B008E4932 /* HomeViewController.swift */,
+				CEBFC9BD1CCED82C008E4932 /* ScheduleViewController.swift */,
+				CEBFC9BF1CCED848008E4932 /* RideDetailsViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -652,11 +661,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBFC9BE1CCED82C008E4932 /* ScheduleViewController.swift in Sources */,
 				851599631CB2DA3B0075C656 /* ConfirmViewController.swift in Sources */,
 				CE66C46C1CBC13BC00A17900 /* SetViewController.swift in Sources */,
+				CEBFC9C01CCED848008E4932 /* RideDetailsViewController.swift in Sources */,
 				854D39671CAC70BA00C72EE0 /* SettingsViewController.swift in Sources */,
 				851599671CB319DE0075C656 /* UITableView_Keyboard_Notification.swift in Sources */,
 				854D39631CAC70BA00C72EE0 /* AppDelegate.swift in Sources */,
+				CEBFC9BC1CCEBE0B008E4932 /* HomeViewController.swift in Sources */,
 				851599691CB31D830075C656 /* AddressCell.swift in Sources */,
 				854D39651CAC70BA00C72EE0 /* MapViewController.swift in Sources */,
 				DB9DB6C91CC2F10700D331B6 /* User+CoreDataProperties.swift in Sources */,

@@ -128,6 +128,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell.settingsField.delegate = self
         cell.selectionStyle = UITableViewCellSelectionStyle.None
+        
         return cell
         
     }
