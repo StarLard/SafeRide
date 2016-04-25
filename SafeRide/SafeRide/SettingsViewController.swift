@@ -21,6 +21,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         let background = UIImageView(image: UIImage(named: "Background"))
         background.alpha = 0.5
+        background.contentMode = UIViewContentMode.ScaleAspectFill
         
         self.settingsTableView.backgroundView = background
         

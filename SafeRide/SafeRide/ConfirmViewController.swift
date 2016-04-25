@@ -91,6 +91,7 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
         
         let background = UIImageView(image: UIImage(named: "Background"))
         background.alpha = 0.5
+        background.contentMode = UIViewContentMode.ScaleAspectFill
         
         self.infoTableView.backgroundView = background
         
