@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  LoginViewController.swift
 //  SafeRide
 //
 //  Created by Advancement IT Student on 4/25/16.
@@ -8,17 +8,12 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-    
-    // MARK: Properties (Private)
-    
-    private let defaults = NSUserDefaults.standardUserDefaults()
+class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,17 +22,19 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: Properties (IBAction)
+    
+    @IBAction func goHomeButton(sender: AnyObject) {
+        // delete the user's role
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.removeObjectForKey("userRole")
+        
+        
+        // go back to home page
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let home = storyboard.instantiateViewControllerWithIdentifier("homeViewController") as! HomeViewController
+        presentViewController(home, animated: true, completion: nil)
+    }
 
-    @IBAction func riderPressed(sender: AnyObject) {
-        defaults.setObject("rider", forKey: "userRole")
-        performSegueWithIdentifier("riderSegue", sender: nil)
-    }
-    
-    @IBAction func employeePressed(sender: AnyObject) {
-        defaults.setObject("employee", forKey: "userRole")
-        performSegueWithIdentifier("employeeSegue", sender: nil)
-    }
-    
     /*
     // MARK: - Navigation
 

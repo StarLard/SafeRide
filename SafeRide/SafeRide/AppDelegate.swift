@@ -16,6 +16,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        if let userRole = NSUserDefaults.standardUserDefaults().objectForKey("userRole") {
+            let role = userRole as! String
+            print("role: " + role + "\n")
+            if (role == "rider") {
+                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                self.window?.rootViewController = storyboard.instantiateInitialViewController()
+            }
+            else if (role == "employee") {
+                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewController = storyboard.instantiateViewControllerWithIdentifier("loginViewController")
+                self.window?.rootViewController = viewController
+            }
+        }
+        else {
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("homeViewController")
+            self.window?.rootViewController = viewController
+        }
         return true
     }
 

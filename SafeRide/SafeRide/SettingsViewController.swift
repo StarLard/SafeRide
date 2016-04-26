@@ -67,6 +67,18 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
+    @IBAction func goHome(sender: AnyObject) {
+        // delete the user's role
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.removeObjectForKey("userRole")
+        
+        
+        // go back to home page
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let home = storyboard.instantiateViewControllerWithIdentifier("homeViewController") as! HomeViewController
+        presentViewController(home, animated: true, completion: nil)
+    }
+    
     // MARK: Properties
     private var resultsController : NSFetchedResultsController?
     private var user : User?
