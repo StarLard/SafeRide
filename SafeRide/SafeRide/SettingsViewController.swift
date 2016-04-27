@@ -15,6 +15,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: Properties (Private)
     private var observationTokens = Array<AnyObject>()
+    
+    // MARK: View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.settingsTableView.backgroundView = background
         
-        let resultsController = SettingsService.sharedSettingsService.user()
+        let resultsController = SafeRideDataService.sharedSafeRideDataService.user()
         
         try! resultsController.performFetch()
         

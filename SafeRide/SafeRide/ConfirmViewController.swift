@@ -85,7 +85,7 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
         observationTokens.removeAll()
     }
 
-    // MARK: View Management
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -95,7 +95,7 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
         
         self.infoTableView.backgroundView = background
         
-        let resultsController = SettingsService.sharedSettingsService.user()
+        let resultsController = SafeRideDataService.sharedSafeRideDataService.user()
         
         try! resultsController.performFetch()
         

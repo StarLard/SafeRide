@@ -10,11 +10,19 @@ import CoreData
 import CoreDataService
 import Foundation
 
-class SettingsService {
+class SafeRideDataService {
     // MARK: Service
     func user() -> NSFetchedResultsController {
         let fetchRequest = NSFetchRequest(namedEntity: User.self)
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "firstName", ascending: true)]
+        
+        let context = CoreDataService.sharedCoreDataService.mainQueueContext
+        return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+    }
+    
+    func rides() -> NSFetchedResultsController {
+        let fetchRequest = NSFetchRequest(namedEntity: Ride.self)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "time", ascending: true)]
         
         let context = CoreDataService.sharedCoreDataService.mainQueueContext
         return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
@@ -44,5 +52,5 @@ class SettingsService {
     }
     
     // MARK: Properties (Static)
-    static let sharedSettingsService = SettingsService()
+    static let sharedSafeRideDataService = SafeRideDataService()
 }

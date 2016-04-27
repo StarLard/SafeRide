@@ -13,6 +13,8 @@ class HomeViewController: UIViewController {
     // MARK: Properties (Private)
     
     private let defaults = NSUserDefaults.standardUserDefaults()
+    
+    // MARK: View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
