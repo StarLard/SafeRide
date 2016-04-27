@@ -1,0 +1,70 @@
+<template name="customerRequest">
+
+  <button type="button" class="btn btn-block btn-lg btn-warning center-block" data-toggle="modal" data-target="#requestModal">Request Ride</button>
+
+  <div class="modal inmodal" id="requestModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content animated bounceInRight">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <i class="fa fa-car modal-icon"></i>
+                  <h4 class="modal-title">Ride Request</h4>
+                  <small class="font-bold">Enter the following information to request a reservation</small>
+              </div>
+              <div class="modal-body">
+                <form id="requestForm" method="post">
+                  <div class="form-group"><input id="requestName" type="normal" placeholder="Requester's Name" class="form-control"></div>
+                  <div class="form-group"><input id="requestUOID" type="normal" placeholder=" UO ID 95#" class="form-control"></div>
+                  <div class="form-group"><input id="requestPhone" type="normal" placeholder="Phone Number" class="form-control"></div>
+                  <div class="form-group"><input id="requestPickup" type="normal" placeholder="Pickup Address" class="form-control"></div>
+                  <div class="form-group"><input id="requestDropoff" type="normal" placeholder="Dropoff Address" class="form-control"></div>
+                  <div class="form-group"><input id="requestPickupTime" type="normal" placeholder="Pickup Time" class="form-control"></div>
+                  <div class="form-group"><input id="requestRiders" type="normal" placeholder="# Riders" class="form-control"></div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button> <!-- TODO: clear form on cancel button click -->
+                  <button id="submitRequest" type="submit" class="btn btn-primary">Submit Request</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script>
+    $('#submitRequest').click(function(e){
+          e.preventDefault();
+          $('#requestModal').modal('hide');
+
+          var name = $('#requestName').val();
+          var uoid = $('#requestUOID').val();
+          var phone = $('#requestPhone').val();
+          var pickup = $('#requestPickup').val();
+          var dropoff = $('#requestDropoff').val();
+          var riders = $('#requestRiders').val();
+          var pickuptime = $('#requestPickupTime').val();
+
+          storeRequest(name, uoid, phone, pickup, dropoff, riders, pickuptime);
+          $('#requestModal').find("input,textarea,select").val('').end();
+
+          toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "progressBar": true,
+            "preventDuplicates": false,
+            "positionClass": "toast-top-right",
+            "onclick": null,
+            "showDuration": "400",
+            "hideDuration": "1000",
+            "timeOut": "7000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          }
+
+          toastr.info("Successfully added " + name + " to Pending Requests queue.");
+    });
+  </script>
+
+</template>
