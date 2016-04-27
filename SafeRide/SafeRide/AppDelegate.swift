@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         if let userRole = NSUserDefaults.standardUserDefaults().objectForKey("userRole") {
             let role = userRole as! String
-            print("role: " + role + "\n")
             if (role == "rider") {
                 self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

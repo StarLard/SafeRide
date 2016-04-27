@@ -585,7 +585,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="sGY-02-gLf" kind="show" id="AoD-2Q-VKG"/>
+                                    <action selector="loginButton:" destination="fK1-Lw-yRX" eventType="touchUpInside" id="wgu-0q-e9n"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGb-eb-QNr">
@@ -632,6 +632,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="KZd-G3-DDr"/>
+                    <connections>
+                        <segue destination="sGY-02-gLf" kind="show" identifier="scheduleSegue" id="0qo-mk-FJv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEw-Ve-9dx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import SwiftDDP
 
 class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
