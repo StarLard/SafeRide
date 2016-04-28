@@ -8,7 +8,7 @@
               <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                   <i class="fa fa-info-circle modal-icon"></i>
-                  <h4 class="modal-title">Check Reservation Status</h4>
+                  <h4 class="modal-title">View Reservation Status</h4>
                   <small class="font-bold">If you have previously requested a reservation, enter the following information to verify its status</small>
               </div>
               <div class="modal-body">
@@ -25,7 +25,7 @@
                 <div id="pendingResult" class="alert alert-info hidden">
                   <p class="text-center">
                     <i class="fa fa-calendar-plus-o fa-3x"></i><br>
-                    <b>Your reservation request is still pending</b><br>
+                    <b>Your reservation request is pending</b><br>
                     For help, please call 541-346-RIDE ex. 2
                   </p>
                 </div>
@@ -46,7 +46,7 @@
                 <div id="errorResult" class="alert alert-danger hidden">
                   <p class="text-center">
                     <i class="fa fa-exclamation fa-3x"></i><br>
-                    <b>Error attempting to retrieve reservation confirmation</b><br>
+                    <b>Error attempting to retrieve reservation status</b><br>
                     For help, please call 541-346-RIDE ex. 2
                   </p>
                 </div>
@@ -66,13 +66,9 @@
         resetHiddenElement();
         var uoid = $('#statusUOID').val();
         checkReservationStatus(uoid);
-
-        // $('#reservationStatusModal').find("input,textarea,select").val('').end();
-
-        // $('#scheduledModal').modal('hide');
     });
 
-    $('#cancelStatus').click(function(e){
+    $('#reservationStatusModal').on('hidden.bs.modal', function () {
       $('#reservationStatusModal').find("input,textarea,select").val('').end();
       resetHiddenElement();
     });

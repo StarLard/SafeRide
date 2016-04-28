@@ -21,17 +21,25 @@
                         </ul>
                     </div>
                     <div class="logo-element">
-                        <!-- <a href="{{pathFor route='pageOne'}}">SR</a> -->
-                        <a href="{{pathFor route='pageOne'}}">
+                        <a href="{{pathFor route='home'}}">
                           <i class="fa fa-car fa-2x"></i>
                         </a>
-
                     </div>
                 </li>
-                <li class="{{isActiveRoute regex='pageOne'}}">
-                    <a href="{{pathFor route='pageOne'}}"><i class="fa fa-users"></i> <span class="nav-label">Queue</span> </a>
-                </li>          <li class="{{isActiveRoute regex='pageTwo'}}">
-                    <a href="{{pathFor route='pageTwo'}}"><i class="fa fa-lock"></i> <span class="nav-label">Admin</span> </a>
+                <li class="{{isActiveRoute regex='home'}}">
+                    <a href="{{pathFor route='home'}}"><i class="fa fa-home"></i> <span class="nav-label">Home</span> </a>
+                </li>
+                <li class="{{isActiveRoute regex='pending'}}">
+                    <a href="{{pathFor route='pending'}}"><i class="fa fa-calendar-plus-o"></i> <span class="nav-label">Pending</span> </a>
+                </li>
+                <li class="{{isActiveRoute regex='scheduled'}}">
+                    <a href="{{pathFor route='scheduled'}}"><i class="fa fa-calendar-check-o"></i> <span class="nav-label">Scheduled</span> </a>
+                </li>
+                <li class="{{isActiveRoute regex='denied'}}">
+                    <a href="{{pathFor route='denied'}}"><i class="fa fa-calendar-times-o"></i> <span class="nav-label">Denied</span> </a>
+                </li>
+                <li class="{{isActiveRoute regex='admin'}}">
+                    <a href="{{pathFor route='admin'}}"><i class="fa fa-lock"></i> <span class="nav-label">Admin</span> </a>
                 </li>
 
 

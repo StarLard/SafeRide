@@ -1,6 +1,6 @@
 if (Meteor.isClient) {
 
-  Template.pageOne.helpers({
+  Template.pending.helpers({
     pendingCount: function() {
       var count = Pending.find().count();
       var result = "";
