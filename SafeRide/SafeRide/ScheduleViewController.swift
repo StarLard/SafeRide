@@ -28,6 +28,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         self.scheduleTableView.backgroundView = background
         
         let resultsControllerFetch = SafeRideDataService.sharedSafeRideDataService.rides()
+        try! resultsControllerFetch.performFetch()
         self.resultsController = resultsControllerFetch
     }
 
@@ -45,12 +46,10 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     //MARK: Table View Delegate
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        print("NUMBER OF SECTIONS IN RIDES CORE DATA: " + String(resultsController?.sections?.count))
         return resultsController?.sections?.count ?? 0
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("NUMBER OF RIDES IN CORE DATA: " + String(resultsController!.sections![section].numberOfObjects))
         return resultsController!.sections![section].numberOfObjects
     }
     

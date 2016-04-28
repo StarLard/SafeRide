@@ -40,13 +40,14 @@ class LoginViewController: UIViewController {
     @IBAction func loginButton(sender: AnyObject) {
         SafeRideDataService.sharedSafeRideDataService.loadRidesFromMeteor() { success in
             if success {
-                self.performSegueWithIdentifier("scheduleSegue", sender: nil)
+                self.performSegueWithIdentifier("scheduleSegue", sender: self)
             }
             else {
                 print("Error: Unable to login\n")
             }
         }
     }
+    
     /*
     // MARK: - Navigation
 

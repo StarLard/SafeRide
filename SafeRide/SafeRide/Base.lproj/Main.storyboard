@@ -818,10 +818,14 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2da-oL-RMg" id="1CF-0o-tsP"/>
+                                    <outlet property="delegate" destination="2da-oL-RMg" id="VFL-g0-fCZ"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dk4-Ec-49a">
-                                <rect key="frame" x="455" y="550" width="125" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="237.5" y="550" width="125" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="IRq-ic-q9q"/>
                                     <constraint firstAttribute="height" constant="30" id="NsN-6G-uRd"/>
@@ -836,35 +840,22 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XjT-eJ-a3t">
-                                <rect key="frame" x="20" y="550" width="125" height="30"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="125" id="DEn-fn-Obf"/>
-                                    <constraint firstAttribute="height" constant="30" id="ndG-Zc-DPe"/>
-                                </constraints>
-                                <state key="normal" title="Deny">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2He-zD-Lll" secondAttribute="trailing" id="1w0-r2-1kG"/>
-                            <constraint firstItem="XjT-eJ-a3t" firstAttribute="leading" secondItem="E35-gR-2oB" secondAttribute="leading" constant="20" id="7ld-q1-RYW"/>
                             <constraint firstItem="jeK-Lj-5l1" firstAttribute="top" secondItem="2He-zD-Lll" secondAttribute="bottom" id="AjI-qd-kKh"/>
                             <constraint firstItem="jeK-Lj-5l1" firstAttribute="top" secondItem="dk4-Ec-49a" secondAttribute="bottom" constant="20" id="ORp-7i-2gF"/>
-                            <constraint firstItem="jeK-Lj-5l1" firstAttribute="top" secondItem="XjT-eJ-a3t" secondAttribute="bottom" constant="20" id="RGF-AY-GMf"/>
                             <constraint firstItem="2He-zD-Lll" firstAttribute="top" secondItem="SNo-BF-6Ku" secondAttribute="bottom" id="WPy-It-0lm"/>
                             <constraint firstAttribute="trailing" secondItem="dk4-Ec-49a" secondAttribute="trailing" constant="20" id="hRG-Q9-cKK"/>
                             <constraint firstItem="2He-zD-Lll" firstAttribute="leading" secondItem="E35-gR-2oB" secondAttribute="leading" id="naL-v0-Zwo"/>
+                            <constraint firstItem="dk4-Ec-49a" firstAttribute="centerX" secondItem="E35-gR-2oB" secondAttribute="centerX" id="qwA-Rx-8ml"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hRG-Q9-cKK"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Ride Details" id="Bab-Tx-PWu">
                         <barButtonItem key="rightBarButtonItem" title="Route" id="9ba-hF-deq"/>

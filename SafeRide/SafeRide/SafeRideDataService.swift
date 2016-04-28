@@ -29,63 +29,103 @@ class SafeRideDataService {
         return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
     }
     
+    private func wipeRides(completionHandler: (success:Bool) -> Void) {
+        let resultsController = self.rides()
+        let context = CoreDataService.sharedCoreDataService.mainQueueContext
+        do {
+            try resultsController.performFetch()
+            try resultsController.performFetch()
+            
+            let sections = resultsController.sections?.count ?? 0
+            for i in 0 ..< sections {
+                let rows = resultsController.sections![i].numberOfObjects
+                for j in 0 ..< rows {
+                    let indexPath = NSIndexPath(forRow: j, inSection: i)
+                    let ride = resultsController.objectAtIndexPath(indexPath) as! Ride
+                    context.deleteObject(ride)
+                }
+            }
+            try! context.save()
+            CoreDataService.sharedCoreDataService.saveRootContext {
+                print("Successfully wiped rides data")
+                completionHandler(success: true)
+            }
+
+        }
+        catch {
+            print("Error: could not fetch rides")
+            completionHandler(success: false)
+            return
+        }
+    }
+    
     // MARK: Meteor Service
     
     func loadRidesFromMeteor(completionHandler: (success:Bool) -> Void) {
         
         let context = CoreDataService.sharedCoreDataService.mainQueueContext
         
-        Meteor.client.allowSelfSignedSSL = false     // Connect to a server that uses a self signed ssl certificate
-        Meteor.client.logLevel = .None
+        // Wipe outdated rides from device
         
-        
-        context.performBlockAndWait {
-            Meteor.connect("wss://saferide.meteorapp.com/websocket") {
-                Meteor.call("getScheduled", params: [], callback: {result, error in
-                    if let rides = result {
-                        let numberOfRides = rides.count
-                        var numberInserted = 0
-                        for i in 0 ..< numberOfRides {
-                            guard let meteorID = rides[i]["_id"],
-                                let dropoff = rides[i]["dropoff"],
-                                let name = rides[i]["name"],
-                                let phone = rides[i]["phone"],
-                                let time = rides[i]["pickupTime"],
-                                let pickup = rides[i]["pickup"],
-                                let numberOfRiders = rides[i]["riders"],
-                                let uoid = rides[i]["uoid"] else {
-                                    print("Error: Unable to get unwrap ride info.\n")
-                                    return
-                            }
-                            let ride = NSEntityDescription.insertNewObjectForNamedEntity(Ride.self, inManagedObjectContext: context)
-                            
-                            ride.meteorID = meteorID as? String
-                            ride.dropoff = dropoff as? String
-                            ride.rider = name as? String
-                            ride.phone = phone as? String
-                            ride.time = time as? String
-                            ride.pickup = pickup as? String
-                            ride.numberOfRiders = numberOfRiders as? String
-                            ride.uoid = uoid as? String
-                            
-                            try! context.save()
-                            CoreDataService.sharedCoreDataService.saveRootContext {
-                                print("Successfully saved ride data")
-                                numberInserted += 1
-                                if numberInserted == numberOfRides {
+        self.wipeRides(){ success in
+            if success {
+                
+                // Get rides from server
+                
+                Meteor.client.allowSelfSignedSSL = false     // Connect to a server that uses a self signed ssl certificate
+                Meteor.client.logLevel = .None
+                
+                
+                context.performBlockAndWait {
+                    Meteor.connect("wss://saferide.meteorapp.com/websocket") {
+                        Meteor.call("getScheduled", params: [], callback: {result, error in
+                            if let rides = result {
+                                let numberOfRides = rides.count
+                                for i in 0 ..< numberOfRides {
+                                    guard let meteorID = rides[i]["_id"],
+                                        let dropoff = rides[i]["dropoff"],
+                                        let name = rides[i]["name"],
+                                        let phone = rides[i]["phone"],
+                                        let time = rides[i]["pickupTime"],
+                                        let pickup = rides[i]["pickup"],
+                                        let numberOfRiders = rides[i]["riders"],
+                                        let uoid = rides[i]["uoid"] else {
+                                            print("Error: Unable to get unwrap ride info.\n")
+                                            return
+                                    }
+                                    let ride = NSEntityDescription.insertNewObjectForNamedEntity(Ride.self, inManagedObjectContext: context)
+                                    
+                                    ride.meteorID = meteorID as? String
+                                    ride.dropoff = dropoff as? String
+                                    ride.rider = name as? String
+                                    ride.phone = phone as? String
+                                    ride.time = time as? String
+                                    ride.pickup = pickup as? String
+                                    ride.numberOfRiders = numberOfRiders as? String
+                                    ride.uoid = uoid as? String
+                                    
+                                }
+                                
+                                try! context.save()
+                                CoreDataService.sharedCoreDataService.saveRootContext {
+                                    print("Successfully saved rides data")
                                     completionHandler(success: true)
                                 }
                             }
-                            
-                        }
+                            else {
+                                print("Unable to get rides from server")
+                                completionHandler(success: false)
+                                return
+                            }
+                        })
                     }
-                    else {
-                        print("Unable to get rides from server")
-                        completionHandler(success: false)
-                        return
-                    }
-                })
+                }
+                
             }
+            else {
+                print("Error: could not wipe data")
+            }
+            
         }
     }
     
