@@ -38,6 +38,40 @@ class RideDetailsViewController: UIViewController, UITableViewDelegate, UITableV
 
     @IBOutlet weak var rideDetailsTableView: UITableView!
     
+    // MARK: Properties (IBAction)
+    
+    @IBAction func completePressed(sender: AnyObject) {
+        if let unwrappedRide = ride {
+            SafeRideDataService.sharedSafeRideDataService.removeSheduled(unwrappedRide.meteorID!) { success in
+                if success {
+                    // Reload updated meteor data
+                    SafeRideDataService.sharedSafeRideDataService.loadRidesFromMeteor() { success in
+                        if success {
+                            let alert = UIAlertController(title: "Ride Completed!", message: "Dispatch has been notified.", preferredStyle: .Alert)
+                            let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {
+                                (_)in
+                                self.performSegueWithIdentifier("unwindToSchedule", sender: self)
+                            })
+                            
+                            alert.addAction(OKAction)
+                            self.presentViewController(alert, animated: true, completion: nil)
+                        }
+                        else {
+                            print("Error: Unable to reload meteor data")
+                        }
+                    }
+                }
+                else {
+                    print("Error: Unable to delete scheduled ride")
+                }
+            }
+        }
+        else {
+            print("Error: ride not set")
+        }
+    }
+    
+    
     // MARK: UITableViewDelegate
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2

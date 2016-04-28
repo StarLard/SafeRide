@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             else if (role == "employee") {
                 self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewController = storyboard.instantiateViewControllerWithIdentifier("loginViewController")
+                let viewController = storyboard.instantiateViewControllerWithIdentifier("employeeNavigationController")
                 self.window?.rootViewController = viewController
             }
         }

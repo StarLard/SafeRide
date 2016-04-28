@@ -129,18 +129,28 @@ class SafeRideDataService {
         }
     }
     
-    func insertPending(name: String, universityID uoid: String, phoneNumber phone: String, pickupAddress pickup: String, dropoffAddress dropoff: String, numberofRiders numOfRiders: String, timeOfRide rideTime: String) {
+    func insertPending(name: String, universityID uoid: String, phoneNumber phone: String, pickupAddress pickup: String, dropoffAddress dropoff: String, numberofRiders numOfRiders: String, timeOfRide rideTime: String, completionHandler: (success:Bool) -> Void) {
         // Meteor Stuff
         Meteor.client.allowSelfSignedSSL = false     // Connect to a server that uses a self signed ssl certificate
         Meteor.client.logLevel = .None
 
+        Meteor.connect("wss://saferide.meteorapp.com/websocket") {
+            Meteor.call("insertPending", params: [name, uoid, phone, pickup, dropoff, numOfRiders, rideTime], callback: {result, error in
+                completionHandler(success: true)
+            })
+        }
+    }
+    
+    func removeSheduled(meteorID: String, completionHandler: (success:Bool) -> Void) {
+        // Meteor Stuff
+        Meteor.client.allowSelfSignedSSL = false     // Connect to a server that uses a self signed ssl certificate
+        Meteor.client.logLevel = .None
         
-        dispatch_async(dispatch_get_main_queue(), {
-            Meteor.connect("wss://saferide.meteorapp.com/websocket") {
-                Meteor.call("insertPending", params: [name, uoid, phone, pickup, dropoff, numOfRiders, rideTime], callback: {result, error in
-                })
-            }
-        })
+        Meteor.connect("wss://saferide.meteorapp.com/websocket") {
+            Meteor.call("removeScheduled", params: [meteorID], callback: {result, error in
+                completionHandler(success: true)
+            })
+        }
     }
     
     // MARK: Initialization
