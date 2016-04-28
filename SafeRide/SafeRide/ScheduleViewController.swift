@@ -45,10 +45,12 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     //MARK: Table View Delegate
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        print("NUMBER OF SECTIONS IN RIDES CORE DATA: " + String(resultsController?.sections?.count))
         return resultsController?.sections?.count ?? 0
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("NUMBER OF RIDES IN CORE DATA: " + String(resultsController!.sections![section].numberOfObjects))
         return resultsController!.sections![section].numberOfObjects
     }
     
