@@ -8,16 +8,15 @@
 
 import UIKit
 import CoreData
-import SwiftDDP
 
 class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate,UITableViewDataSource, UITableViewDelegate {
     // MARK: Properties
-    private var resultsController : NSFetchedResultsController?
-    private var user : User?
     var pickUpAddress: String = ""
     var dropOffAddress: String = ""
     
     // MARK: Properties (Private)
+    private var resultsController : NSFetchedResultsController?
+    private var user : User?
     private var observationTokens = Array<AnyObject>()
     private var numberOfRidersField = UITextField()
     private var timeField = UITextField()
@@ -35,8 +34,8 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
     
     // MARK: Properties (IBAction)
     @IBAction func sendButtonPressed(sender: AnyObject) {
-        Meteor.call("insertPending", params: [firstName + " " + lastName, UOID, phoneNumber, pickUpAddress, dropOffAddress, numberOfRiders, rideTime], callback: {result, error in
-        })
+        let fullName = firstName + " " + lastName
+        SafeRideDataService.sharedSafeRideDataService.insertPending(fullName, universityID: UOID, phoneNumber: phoneNumber, pickupAddress: pickUpAddress, dropoffAddress: dropOffAddress, numberofRiders: numberOfRiders, timeOfRide: rideTime)
         performSegueWithIdentifier("confirmSegue", sender: nil)
     }
     
@@ -85,7 +84,7 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
         observationTokens.removeAll()
     }
 
-    // MARK: View Management
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -95,7 +94,7 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
         
         self.infoTableView.backgroundView = background
         
-        let resultsController = SettingsService.sharedSettingsService.user()
+        let resultsController = SafeRideDataService.sharedSafeRideDataService.user()
         
         try! resultsController.performFetch()
         
@@ -108,11 +107,6 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
         // Do any additional setup after loading the view.
         
         riderPickerView.delegate = self
-        
-        // Meteor Stuff
-        Meteor.client.allowSelfSignedSSL = false     // Connect to a server that uses a self signed ssl certificate
-        Meteor.client.logLevel = .None
-        Meteor.connect("wss://saferide.meteorapp.com/websocket")
         
         
         // Listen for keyboard show/hide notifications

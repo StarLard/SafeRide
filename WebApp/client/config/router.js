@@ -20,3 +20,10 @@ Router.route('/', function () {
     Router.go('pageOne');
 });
 
+Router.route('/customerRequest',  {
+    layoutTemplate: 'blankLayout'
+});
+
+Router.route('/splashPage', {
+    layoutTemplate: 'blankLayout'
+})

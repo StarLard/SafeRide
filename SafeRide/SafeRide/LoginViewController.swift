@@ -9,6 +9,8 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    // MARK: View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,10 @@ class LoginViewController: UIViewController {
         presentViewController(home, animated: true, completion: nil)
     }
 
+    @IBAction func loginButton(sender: AnyObject) {
+        SafeRideDataService.sharedSafeRideDataService.loadRidesFromMeteor()
+        performSegueWithIdentifier("scheduleSegue", sender: nil)
+    }
     /*
     // MARK: - Navigation
 
