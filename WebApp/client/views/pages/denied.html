@@ -1,0 +1,39 @@
+<template name="denied">
+  {{> pageHeading title='Denied Queue' }}
+
+  <div class="wrapper wrapper-content animated fadeInRight">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Denied Requests</h5>
+                {{>iboxTools}}
+            </div>
+            <div class="ibox-content">
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>UO ID</th>
+                      <th>Phone</th>
+                      <th>Pickup</th>
+                      <th>Dropoff</th>
+                      <th>Riders</th>
+                      <th>Pickup Time</th>
+                      <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      {{> deniedQueue}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</template>

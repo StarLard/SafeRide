@@ -4,6 +4,10 @@ Template.customerRequest.rendered = function(){
     $('.modal').appendTo("body");
 };
 
+validateForm = function() {
+
+}
+
 storeRequest = function(name, uoid, phone, pickup, dropoff, riders, pickupTime) {
   Pending.insert({
     name: name,
@@ -15,8 +19,4 @@ storeRequest = function(name, uoid, phone, pickup, dropoff, riders, pickupTime) 
     pickupTime: pickupTime,
     createdTime: moment().format('h:mm a')
   });
-}
-
-validateForm = function() {
-  
 }

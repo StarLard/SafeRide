@@ -1,4 +1,4 @@
-<template name="splashPage">
+<template name="portal">
   <div class="loginColumns animated fadeInDown">
 
     <div class="row">
@@ -35,7 +35,6 @@
 
   <div class="footer">
       <div class="pull-left">
-        <!-- <button type="button" class="btn btn-normal btn-xs btn-default" data-toggle="modal" data-target="#myModal">View Reservation Status</button> -->
         {{> reservationStatus}}
         <img src="images/spacer.png">
         <a class="text-warning" href="#"><b>About Us</b></a>
@@ -49,6 +48,8 @@
         <a class="text-warning" href="#"><b>Volunteer & Intern</b></a>
         <img src="images/spacer.png">
         <a class="text-warning" href="#"><b>Contact Us</b></a>
+        <img src="images/spacer.png">
+        <a class="text-warning" href="{{pathFor route='home'}}"><b>Login</b></a>
       </div>
       <div class="pull-right">
         <small>&copy; 2016 University of Oregon</small>
