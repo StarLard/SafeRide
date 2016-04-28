@@ -32,7 +32,16 @@ class SafeRideDataService {
     // MARK: Meteor Service
     
     func loadRidesFromMeteor() -> Void {
+        Meteor.client.allowSelfSignedSSL = false     // Connect to a server that uses a self signed ssl certificate
+        Meteor.client.logLevel = .Debug
         
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            Meteor.connect("wss://saferide.meteorapp.com/websocket") {
+                Meteor.call("Scheduled.find().fetch()", params: [], callback: {result, error in
+                })
+            }
+        })
     }
     
     func insertPending(name: String, universityID uoid: String, phoneNumber phone: String, pickupAddress pickup: String, dropoffAddress dropoff: String, numberofRiders numOfRiders: String, timeOfRide rideTime: String) {
