@@ -7,27 +7,76 @@
           <div class="modal-content animated bounceInRight">
               <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                  <i class="fa fa-car modal-icon"></i>
+                  <i class="fa fa-info-circle modal-icon"></i>
                   <h4 class="modal-title">Check Reservation Status</h4>
                   <small class="font-bold">If you have previously requested a reservation, enter the following information to verify its status</small>
               </div>
               <div class="modal-body">
                 <form id="reservationStatusForm" method="post">
-                  <div class="form-group"><input id="requestName" type="text" placeholder="Requester's Name" class="form-control"></div>
-                  <div class="form-group"><input id="requestUOID" type="text" placeholder=" UO ID 95#" class="form-control"></div>
-                  <div class="form-group"><input id="requestPhone" type="text" placeholder="Phone Number" class="form-control"></div>
-                  <div class="form-group"><input id="requestPickup" type="text" placeholder="Pickup Address" class="form-control"></div>
-                  <div class="form-group"><input id="requestDropoff" type="text" placeholder="Dropoff Address" class="form-control"></div>
-                  <div class="form-group"><input id="requestPickupTime" type="text" placeholder="Pickup Time" class="form-control"></div>
-                  <div class="form-group"><input id="requestRiders" type="text" placeholder="# Riders" class="form-control"></div>
+                  <div class="form-group"><input id="statusUOID" type="text" placeholder="UO ID 95#" class="form-control"></div>
                 </form>
+                <div id="invalidResult" class="alert alert-danger hidden">
+                  <p class="text-center">
+                    <i class="fa fa-exclamation fa-3x"></i><br>
+                    <b>Invalid UO ID, please try again</b><br>
+                    For help, please call 541-346-RIDE ex. 2
+                  </p>
+                </div>
+                <div id="pendingResult" class="alert alert-info hidden">
+                  <p class="text-center">
+                    <i class="fa fa-calendar-plus-o fa-3x"></i><br>
+                    <b>Your reservation request is still pending</b><br>
+                    For help, please call 541-346-RIDE ex. 2
+                  </p>
+                </div>
+                <div id="scheduledResult" class="alert alert-success hidden">
+                  <p class="text-center">
+                    <i class="fa fa-calendar-check-o fa-3x"></i><br>
+                    <b>Your reservation request has been approved and scheduled</b><br>
+                    For help, please call 541-346-RIDE ex. 2
+                  </p>
+                </div>
+                <div id="deniedResult" class="alert alert-warning hidden">
+                  <p class="text-center">
+                    <i class="fa fa-calendar-times-o fa-3x"></i><br>
+                    <b>Your reservation has been denied</b><br>
+                    For help, please call 541-346-RIDE ex. 2
+                  </p>
+                </div>
+                <div id="errorResult" class="alert alert-danger hidden">
+                  <p class="text-center">
+                    <i class="fa fa-exclamation fa-3x"></i><br>
+                    <b>Error attempting to retrieve reservation confirmation</b><br>
+                    For help, please call 541-346-RIDE ex. 2
+                  </p>
+                </div>
               </div>
               <div class="modal-footer">
-                  <button id="cancelRequest" type="button" class="btn btn-white" data-dismiss="modal">Cancel</button> <!-- TODO: clear form on cancel button click -->
-                  <button id="submitRequest" type="submit" class="btn btn-primary" data-dismiss="modal">Submit Request</button>
+                  <button id="cancelStatus" type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+                  <button id="checkStatus" type="submit" class="btn btn-primary">Check Status</button>
               </div>
           </div>
       </div>
   </div>
+
+
+  <script>
+    $('#checkStatus').click(function(e){
+        e.preventDefault();
+        resetHiddenElement();
+        var uoid = $('#statusUOID').val();
+        checkReservationStatus(uoid);
+
+        // $('#reservationStatusModal').find("input,textarea,select").val('').end();
+
+        // $('#scheduledModal').modal('hide');
+    });
+
+    $('#cancelStatus').click(function(e){
+      $('#reservationStatusModal').find("input,textarea,select").val('').end();
+      resetHiddenElement();
+    });
+
+  </script>
 
 </template>
