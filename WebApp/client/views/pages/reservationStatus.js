@@ -8,7 +8,7 @@ checkReservationStatus = function(uoid) {
   var status = '';
 
   // Verify valid UO ID
-  if (uoid.length < 9 || Math.round(uoid) != uoid || String(uoid).charAt(0) != '9' || String(uoid).charAt(1) != '5') {
+  if (String(uoid).charAt(0) != '9' || String(uoid).charAt(1) != '5') {
     $('#reservationStatusModal').find("input,textarea,select").val('').end();
     status = "invalid";
   }
