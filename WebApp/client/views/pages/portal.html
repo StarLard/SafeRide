@@ -4,6 +4,7 @@
     <div class="row">
 
       <div class="col-md-6">
+        <br><br>
         <img src="logos/splashPageLogo.png">
       </div>
 
@@ -21,6 +22,8 @@
         <br>
         {{> customerRequest}}
         <br>
+        {{> reservationStatus}}
+        <br>
         <small>
           <p class="text-center text-white">
             <b>Sun-Thu:</b> 7pm-12am
@@ -35,19 +38,17 @@
 
   <div class="footer">
       <div class="pull-left">
-        {{> reservationStatus}}
+        {{> aboutUs}}
         <img src="images/spacer.png">
-        <a class="text-warning" href="#"><b>About Us</b></a>
+        {{> boundaries}}
         <img src="images/spacer.png">
-        <a class="text-warning" href="#"><b>Boundaries</b></a>
+        {{> staff}}
         <img src="images/spacer.png">
-        <a class="text-warning" href="#"><b>Staff</b></a>
+        {{> rulesPolicies}}
         <img src="images/spacer.png">
-        <a class="text-warning" href="#"><b>Rules & Policies</b></a>
+        {{> volunteerIntern}}
         <img src="images/spacer.png">
-        <a class="text-warning" href="#"><b>Volunteer & Intern</b></a>
-        <img src="images/spacer.png">
-        <a class="text-warning" href="#"><b>Contact Us</b></a>
+        {{> contactUs}}
         <img src="images/spacer.png">
         <a class="text-warning" href="{{pathFor route='home'}}"><b>Login</b></a>
       </div>
