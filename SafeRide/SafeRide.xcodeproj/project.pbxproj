@@ -36,6 +36,7 @@
 		85EDC4B21CC2FEBA000BB637 /* NamedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC4B11CC2FEBA000BB637 /* NamedEntity.swift */; };
 		85EDC4B51CC2FF1D000BB637 /* SafeRideDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC4B41CC2FF1D000BB637 /* SafeRideDataService.swift */; };
 		B45CFC71F0894CBCC5D4C372 /* Pods_SafeRide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D1D2C9E2DA07ADE342EAD7 /* Pods_SafeRide.framework */; };
+		CE3247721CE3AC1D00A8117F /* RouteAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3247711CE3AC1D00A8117F /* RouteAddressCell.swift */; };
 		CE66C46C1CBC13BC00A17900 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C46B1CBC13BC00A17900 /* SetViewController.swift */; };
 		CEB9D9D71CD160E50083BBC9 /* RideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9D9D61CD160E50083BBC9 /* RideCell.swift */; };
 		CEB9D9DA1CD164DA0083BBC9 /* Ride+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9D9D81CD164DA0083BBC9 /* Ride+CoreDataProperties.swift */; };
@@ -141,6 +142,7 @@
 		85EDC4AE1CC2FE64000BB637 /* NSFetchRequest_Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSFetchRequest_Service.swift; sourceTree = "<group>"; };
 		85EDC4B11CC2FEBA000BB637 /* NamedEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamedEntity.swift; sourceTree = "<group>"; };
 		85EDC4B41CC2FF1D000BB637 /* SafeRideDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeRideDataService.swift; sourceTree = "<group>"; };
+		CE3247711CE3AC1D00A8117F /* RouteAddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteAddressCell.swift; sourceTree = "<group>"; };
 		CE66C46B1CBC13BC00A17900 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		CEB9D9D61CD160E50083BBC9 /* RideCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideCell.swift; sourceTree = "<group>"; };
 		CEB9D9D81CD164DA0083BBC9 /* Ride+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ride+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				8515996A1CB31D9C0075C656 /* InfoCell.swift */,
 				CEB9D9D61CD160E50083BBC9 /* RideCell.swift */,
 				DB52298D1CB5F8E800736E73 /* SettingsCell.swift */,
+				CE3247711CE3AC1D00A8117F /* RouteAddressCell.swift */,
 			);
 			name = Prototype;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				DB9DB6CA1CC2F10700D331B6 /* User.swift in Sources */,
 				CEBFC9C21CCEDB7D008E4932 /* LoginViewController.swift in Sources */,
 				DB9DB6C51CC2EE4C00D331B6 /* Model.xcdatamodeld in Sources */,
+				CE3247721CE3AC1D00A8117F /* RouteAddressCell.swift in Sources */,
 				DB52298E1CB5F8E800736E73 /* SettingsCell.swift in Sources */,
 				8515996B1CB31D9C0075C656 /* InfoCell.swift in Sources */,
 			);

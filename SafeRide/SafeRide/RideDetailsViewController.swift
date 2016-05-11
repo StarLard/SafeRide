@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MapKit
 
 class RideDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -39,27 +38,6 @@ class RideDetailsViewController: UIViewController, UITableViewDelegate, UITableV
 
     @IBOutlet weak var rideDetailsTableView: UITableView!
     
-    // MARK: Properties (IBAction)
-    
-    @IBAction func routeButtonPressed(sender: UIBarButtonItem) {
-        
-        let geocoder = CLGeocoder()
-        
-        if let dropoff = self.ride!.dropoff {
-            geocoder.geocodeAddressString(dropoff, completionHandler: {(placemarks, error) -> Void in
-                if((error) != nil){
-                    print("Error", error)
-                }
-                if let clDropoffPlacemark = placemarks?.first {
-                    if let addressDict = clDropoffPlacemark.addressDictionary as! [String:AnyObject]?, coordinate = clDropoffPlacemark.location?.coordinate {
-                        let mapItem = MKMapItem(placemark:MKPlacemark(coordinate: coordinate, addressDictionary: addressDict))
-                        let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
-                        mapItem.openInMapsWithLaunchOptions(launchOptions)
-                    }
-                }
-            })
-        }
-    }
     // MARK: UITableViewDelegate
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
@@ -81,7 +59,7 @@ class RideDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath == NSIndexPath(forRow: 0, inSection: 0) || indexPath == NSIndexPath(forRow: 1, inSection: 0) {
-            let cell = tableView.dequeueReusableCellWithIdentifier("AddressCell", forIndexPath: indexPath) as! AddressCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("RouteAddressCell", forIndexPath: indexPath) as! RouteAddressCell
             cell.addressLabel.text = "Pick Up Address"
             cell.addressField.text = self.ride?.pickup
             if indexPath == NSIndexPath(forRow: 1, inSection: 0) {
