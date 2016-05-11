@@ -10,6 +10,8 @@ import UIKit
 import MapKit
 
 class RouteAddressCell: UITableViewCell {
+    // MARK: Properties
+    var parentViewController: UIViewController!
 
     // MARK: Properties (IBOutlet)
     @IBOutlet weak var addressLabel: UILabel!
@@ -24,7 +26,12 @@ class RouteAddressCell: UITableViewCell {
         if let destination = self.addressField.text {
             geocoder.geocodeAddressString(destination, completionHandler: {(placemarks, error) -> Void in
                 if((error) != nil){
-                    print("Error", error)
+                    print("Error occured while geocoding address: \"" + destination + "\", error: ", error)
+                    let alert = UIAlertController(title: "Unable to Route", message: "\"" + destination + "\" is not a routable address",preferredStyle: .Alert)
+                    let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(_)in
+                    })
+                    alert.addAction(OKAction)
+                    self.parentViewController.presentViewController(alert, animated: true, completion: nil)
                 }
                 if let clDropoffPlacemark = placemarks?.first {
                     if let addressDict = clDropoffPlacemark.addressDictionary as! [String:AnyObject]?, coordinate = clDropoffPlacemark.location?.coordinate {
@@ -32,8 +39,17 @@ class RouteAddressCell: UITableViewCell {
                         let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
                         mapItem.openInMapsWithLaunchOptions(launchOptions)
                     }
+                    else {
+                        print("Error: Could not unwrap either placemark.addressdictionary or placemark.location\n")
+                    }
+                }
+                else {
+                    print("Error: Could not unwrap placemarks\n")
                 }
             })
+        }
+        else {
+            print("Error: Destination Address Not Set\n")
         }
     }
 

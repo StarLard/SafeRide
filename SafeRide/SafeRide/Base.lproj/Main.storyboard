@@ -860,7 +860,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="completePressed:" destination="2da-oL-RMg" eventType="touchUpInside" id="nEb-8D-YEJ"/>
+                                    <action selector="completePressed:" destination="2da-oL-RMg" eventType="touchUpInside" id="e2q-QO-z7C"/>
                                 </connections>
                             </button>
                         </subviews>

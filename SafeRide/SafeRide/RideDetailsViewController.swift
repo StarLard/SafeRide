@@ -34,6 +34,37 @@ class RideDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: Properties (IBAction)
+    
+    @IBAction func completePressed(sender: AnyObject) {
+        if let unwrappedRide = ride {
+            SafeRideDataService.sharedSafeRideDataService.removeSheduled(unwrappedRide.meteorID!) { success in
+                if success {
+                    // Reload updated meteor data
+                    SafeRideDataService.sharedSafeRideDataService.loadRidesFromMeteor() { success in
+                        if success {
+                            let alert = UIAlertController(title: "Ride Completed!", message: "Dispatch has been notified.",preferredStyle: .Alert)
+                            let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(_)in
+                                self.performSegueWithIdentifier("unwindToSchedule", sender: self)
+                            })
+                            alert.addAction(OKAction)
+                            self.presentViewController(alert, animated: true, completion: nil)
+                        }
+                        else {
+                            print("Error: Unable to reload meteor data")
+                        }
+                    }
+                }
+                else {
+                    print("Error: Unable to delete scheduled ride")
+                }
+            }
+        }
+        else {
+            print("Error: ride not set")
+        }
+    }
+    
     // MARK: Properties (IBOutlet)
 
     @IBOutlet weak var rideDetailsTableView: UITableView!
@@ -68,6 +99,7 @@ class RideDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             }
             let borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).CGColor
             
+            cell.parentViewController = self
             cell.addressField.layer.borderColor = borderColor
             cell.addressField.layer.borderWidth = 1.0
             cell.addressField.layer.cornerRadius = 5.0
