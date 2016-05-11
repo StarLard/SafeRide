@@ -28,7 +28,19 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         self.scheduleTableView.backgroundView = background
         
         let resultsControllerFetch = SafeRideDataService.sharedSafeRideDataService.rides()
+        try! resultsControllerFetch.performFetch()
         self.resultsController = resultsControllerFetch
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        try! resultsController!.performFetch()
+        
+        if let selectedIndexPath = scheduleTableView.indexPathForSelectedRow {
+            scheduleTableView.deselectRowAtIndexPath(selectedIndexPath, animated: false)
+        }
+        
+        scheduleTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +52,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var scheduleTableView: UITableView!
     
+    // MARK: Properties (IBAction)
     
+    @IBAction func unwindToSchedule(segue: UIStoryboardSegue) {}
     
     //MARK: Table View Delegate
     

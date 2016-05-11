@@ -50,4 +50,4 @@ Template.topNavbar.helpers({
   deniedCount: function() {
     return Denied.find().count();
   }
-})
+});

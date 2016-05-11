@@ -1,39 +1,46 @@
 <template name="customerRequest">
 
-  <button type="button" class="btn btn-block btn-lg btn-warning center-block" data-toggle="modal" data-target="#requestModal">Request Ride</button>
+  <button type="button" class="btn btn-block btn-lg btn-warning center-block" data-toggle="modal" data-target="#requestModal">Request Ride Reservation</button>
 
   <div class="modal inmodal" id="requestModal" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
           <div class="modal-content animated bounceInRight">
               <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                  <i class="fa fa-car modal-icon"></i>
+                  <i class="fa fa-bus modal-icon"></i>
                   <h4 class="modal-title">Ride Request</h4>
                   <small class="font-bold">Enter the following information to request a reservation</small>
               </div>
               <div class="modal-body">
                 <form id="requestForm" method="post">
-                  <div class="form-group"><input id="requestName" type="normal" placeholder="Requester's Name" class="form-control"></div>
-                  <div class="form-group"><input id="requestUOID" type="normal" placeholder=" UO ID 95#" class="form-control"></div>
-                  <div class="form-group"><input id="requestPhone" type="normal" placeholder="Phone Number" class="form-control"></div>
-                  <div class="form-group"><input id="requestPickup" type="normal" placeholder="Pickup Address" class="form-control"></div>
-                  <div class="form-group"><input id="requestDropoff" type="normal" placeholder="Dropoff Address" class="form-control"></div>
-                  <div class="form-group"><input id="requestPickupTime" type="normal" placeholder="Pickup Time" class="form-control"></div>
-                  <div class="form-group"><input id="requestRiders" type="normal" placeholder="# Riders" class="form-control"></div>
+                  <div class="form-group"><input id="requestName" type="text" placeholder="Full Name" class="form-control"></div>
+                  <div class="form-group"><input id="requestUOID" type="text" class="form-control" data-mask="999999999" placeholder="UO ID 95#"></div>
+                  <div class="form-group"><input id="requestPhone" type="text" class="form-control" data-mask="999-999-9999" placeholder="Phone Number"></div>
+                  <div class="form-group"><input id="requestPickup" type="text" placeholder="Pickup Location" class="form-control auto-complete-address"></div>
+                  <div class="form-group"><input id="requestDropoff" type="text" placeholder="Dropoff Location" class="form-control auto-complete-address"></div>
+                  <div class="form-group clockpicker" data-placement="top" data-autoclose="true"><input id="requestPickupTime" type="text" class="form-control" placeholder="Pickup Time"></div>
+                  <div class="form-group">
+                    <select class="form-control m-b" id="requestRiders">
+                      <option value="" selected disabled># Riders</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                    </select>
+                  </div>
                 </form>
               </div>
               <div class="modal-footer">
-                  <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button> <!-- TODO: clear form on cancel button click -->
-                  <button id="submitRequest" type="submit" class="btn btn-primary">Submit Request</button>
+                  <button id="cancelRequest" type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+                  <button id="submitRequest" type="submit" class="btn btn-primary" data-dismiss="modal">Submit Request</button>
               </div>
           </div>
       </div>
   </div>
 
+
   <script>
     $('#submitRequest').click(function(e){
           e.preventDefault();
-          $('#requestModal').modal('hide');
 
           var name = $('#requestName').val();
           var uoid = $('#requestUOID').val();
@@ -43,6 +50,7 @@
           var riders = $('#requestRiders').val();
           var pickuptime = $('#requestPickupTime').val();
 
+          // validateForm();  // TODO: Implement
           storeRequest(name, uoid, phone, pickup, dropoff, riders, pickuptime);
           $('#requestModal').find("input,textarea,select").val('').end();
 
@@ -63,8 +71,21 @@
             "hideMethod": "fadeOut"
           }
 
-          toastr.info("Successfully added " + name + " to Pending Requests queue.");
+          toastr.success("Successfully submitted reservation request for " + pickuptime);
     });
+
+    $('#requestModal').on('hidden.bs.modal', function () {
+      $('#requestModal').find("input,textarea,select").val('').end();
+    });
+
+    function initialize() {
+      var address = document.getElementsByClassName('form-control auto-complete-address');
+      for (var i = 0; i < address.length; i++) {
+        new google.maps.places.Autocomplete(address[i]);
+      }
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+
   </script>
 
 </template>

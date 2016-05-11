@@ -35,8 +35,14 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
     // MARK: Properties (IBAction)
     @IBAction func sendButtonPressed(sender: AnyObject) {
         let fullName = firstName + " " + lastName
-        SafeRideDataService.sharedSafeRideDataService.insertPending(fullName, universityID: UOID, phoneNumber: phoneNumber, pickupAddress: pickUpAddress, dropoffAddress: dropOffAddress, numberofRiders: numberOfRiders, timeOfRide: rideTime)
-        performSegueWithIdentifier("confirmSegue", sender: nil)
+        SafeRideDataService.sharedSafeRideDataService.insertPending(fullName, universityID: UOID, phoneNumber: phoneNumber, pickupAddress: pickUpAddress, dropoffAddress: dropOffAddress, numberofRiders: numberOfRiders, timeOfRide: rideTime) { success in
+            if success {
+                self.performSegueWithIdentifier("confirmSegue", sender: nil)
+            }
+            else {
+                print("Error: Unable to send ride request")
+            }
+        }
     }
     
     

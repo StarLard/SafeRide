@@ -119,6 +119,16 @@ video {
 }
 
 /* MODAL */
+// Make clockpicker plugin apper above bootstrap modal
+.clockpicker-popover {
+    z-index: 999999;
+}
+
+// Make Google maps autocomplete appear above bootstrap modal
+.pac-container {
+  z-index: 999999;
+}
+
 .modal-content {
   background-clip: padding-box;
   background-color: #FFFFFF;
@@ -135,6 +145,11 @@ video {
 
 .modal-body {
   padding: 20px 30px 30px 30px;
+}
+
+.modal .modal-body {
+    max-height: 350px;
+    overflow-y: auto;
 }
 
 .inmodal .modal-body {
@@ -814,7 +829,7 @@ table.table-mail tr td {
 }
 
 .text-green {
-  color: #476a5e;
+  color: #015234;
 }
 
 .simple_tag {

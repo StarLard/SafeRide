@@ -4,26 +4,30 @@ Router.configure({
 
 });
 
-//
-// Example pages routes
-//
-
-Router.route('/pageOne', function () {
-    this.render('pageOne');
+Router.route('/portal', {
+    layoutTemplate: 'blankLayout'
 });
 
-Router.route('/pageTwo', function () {
-    this.render('pageTwo');
+Router.route('/home', function () {
+    this.render('home');
+});
+
+Router.route('/pending', function () {
+    this.render('pending');
+});
+
+Router.route('/scheduled', function () {
+    this.render('scheduled');
+});
+
+Router.route('/denied', function () {
+    this.render('denied');
+});
+
+Router.route('/admin', function () {
+    this.render('admin');
 });
 
 Router.route('/', function () {
-    Router.go('pageOne');
+    Router.go('portal');
 });
-
-Router.route('/customerRequest',  {
-    layoutTemplate: 'blankLayout'
-});
-
-Router.route('/splashPage', {
-    layoutTemplate: 'blankLayout'
-})

@@ -86,6 +86,26 @@ if (Meteor.isServer) {
           riders: riders,
           pickupTime: pickuptime,
         });
+    },
+    insertDenied: function(name, uoid, phone, pickup, dropoff, riders, pickuptime) {
+        Denied.insert({
+          name: name,
+          phone: phone,
+          uoid: uoid,
+          pickup: pickup,
+          dropoff: dropoff,
+          riders: riders,
+          pickupTime: pickuptime,
+        });
+    },
+    getPending: function() {
+        return Pending.find().fetch();
+    },
+    getScheduled: function() {
+        return Scheduled.find().fetch();
+    },
+    getDenied: function() {
+        return Denied.find().fetch();
     }
 
   }); // end server methods

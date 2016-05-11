@@ -1,4 +1,4 @@
-Template.pageTwo.helpers({
+Template.admin.helpers({
   pending: function() {
     return Pending.find({});
   },
@@ -10,7 +10,7 @@ Template.pageTwo.helpers({
   }
 });
 
-Template.pageTwo.events({
+Template.admin.events({
   // Purge Pending Queue
   'click .btn-success': function() {
     swal({

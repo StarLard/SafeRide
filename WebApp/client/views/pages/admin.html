@@ -1,0 +1,22 @@
+<template name="admin">
+  {{> pageHeading title='Admin' }}
+
+  <div class="wrapper wrapper-content animated fadeInRight">
+
+    <div class="row">
+      <div class="col-md-12">
+        <br>
+        <div class="alert alert-danger">
+          <b>Warning:</b> Purging ANY or ALL database(s) is irreversible.
+          <br><br>
+          <button type="button" class="btn btn-w-m btn-success">Purge 'Pending' Database</button>
+          <button type="button" class="btn btn-w-m btn-primary">Purge 'Scheduled' Database</button>
+          <button type="button" class="btn btn-w-m btn-warning">Purge 'Denied' Database</button>
+          <button type="button" class="btn btn-w-m btn-danger">Purge <b>ALL</b> Databases</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</template>
