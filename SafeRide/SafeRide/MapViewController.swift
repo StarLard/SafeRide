@@ -21,48 +21,30 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
     
     // MARK: Properties (IBAction)
     @IBAction func useMyLocation(sender: AnyObject) {
-        if let loc = self.userLocation {
-            self.mapView.removeAnnotations(mapView.annotations)
-            self.nextButton.enabled = false
-            updateAddressFromCoordinates(loc, addressType: "pick up")
-            self.navigationBar.title = "Set Dropoff Location"
-            numberOfPins = 1
-        }
-        else {
-            print("Error using current location: User location is not set")
+        if (self.numberOfPins < 2) {
+            if let loc = self.userLocation {
+                addLocation(loc)
+            }
+            else {
+                print("Error using current location: User location is not set")
+            }
         }
     }
     @IBAction func setPickUp(sender: UITapGestureRecognizer) {
         if (numberOfPins < 2) {
             let tapLocation = sender.locationInView(self.mapView)
             let tapCoordinates = self.mapView.convertPoint(tapLocation, toCoordinateFromView: self.mapView)
-            let annotation = MKPointAnnotation()
             let getLat: CLLocationDegrees = tapCoordinates.latitude
             let getLon: CLLocationDegrees = tapCoordinates.longitude
             let location: CLLocation =  CLLocation(latitude: getLat, longitude: getLon)
         
-            annotation.coordinate = tapCoordinates
-            if (numberOfPins < 1) {
-                annotation.title = "Pickup Location"
-                self.navigationBar.title = "Set Dropoff Location"
-                updateAddressFromCoordinates(location, addressType: "pick up")
-                
-            }
-            else {
-                annotation.title = "Dropoff Location"
-                self.navigationBar.title = "Press Next to Continue"
-                self.nextButton.enabled = true
-                updateAddressFromCoordinates(location, addressType: "drop off")
-            }
-            self.mapView.addAnnotation(annotation)
-            self.mapView.selectAnnotation(annotation, animated: false)
-            numberOfPins += 1
+            addLocation(location)
         }
     }
     @IBAction func cancelButton(sender: UIBarButtonItem) {
         self.mapView.removeAnnotations(mapView.annotations)
         numberOfPins = 0
-        self.navigationBar.title = "Set Pickup Location"
+        self.navigationBar.prompt = "Set Pickup Location"
         self.nextButton.enabled = false
     }
     
@@ -89,33 +71,49 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
     private var userLocation: CLLocation?
     
     // MARK: Methods (Private)
-    private func updateAddressFromCoordinates(location: CLLocation, addressType: String){
-        if (addressType != "drop off" && addressType != "pick up") {
-            print("Error: addressType must be either \"drop off\" or \"pick up\"!")
-            return
-        }
+    private func addressFromCoordinates(location: CLLocation, completionHandler: (address:String?) -> Void) {
         CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
             
             if error != nil {
                 print("Reverse geocoder failed with error" + error!.localizedDescription)
+                completionHandler(address: nil)
                 return
             }
             
             if placemarks!.count > 0 {
                 let pm = placemarks![0]
                 let address = self.localizedStringForAddressDictionary(pm.addressDictionary!)
-                if (addressType == "pick up") {
-                    self.pickUpAddress = address
-                }
-                else if (addressType == "drop off") {
-                    self.dropOffAddress = address
-
-                }
+                completionHandler(address: address)
             }
             else {
                 print("Problem with the data received from geocoder")
+                completionHandler(address: nil)
             }
         })
+    }
+    
+    private func addLocation(loc: CLLocation) -> Void {
+        if (self.numberOfPins < 2) {
+            addressFromCoordinates(loc) { address in
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = loc.coordinate
+                if (self.numberOfPins < 1) {
+                    self.pickUpAddress = address
+                    annotation.title = "Pickup"
+                    self.navigationBar.prompt = "Set Dropoff Location"
+                }
+                else {
+                    self.dropOffAddress = address
+                    annotation.title = "Dropoff"
+                    self.navigationBar.prompt = "Press Next to Continue"
+                    self.nextButton.enabled = true
+                }
+                annotation.subtitle = address
+                self.mapView.addAnnotation(annotation)
+                self.mapView.selectAnnotation(annotation, animated: true)
+                self.numberOfPins += 1
+            }
+        }
     }
     
     
@@ -143,17 +141,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
         searchController = UISearchController(searchResultsController: resultsViewController)
         searchController?.searchResultsUpdater = resultsViewController
         
-        let subView = UIView(frame: CGRectMake(0, 65.0, 350.0, 45.0))
-        
-        subView.addSubview((searchController?.searchBar)!)
-        self.view.addSubview(subView)
+        // Put the search bar in the navigation bar.
         searchController?.searchBar.sizeToFit()
-        searchController?.hidesNavigationBarDuringPresentation = false
+        self.navigationItem.titleView = searchController?.searchBar
         
         // When UISearchController presents the results view, present it in
         // this view controller, not one further up the chain.
         self.definesPresentationContext = true
-    }
+        
+        // Prevent the navigation bar from being hidden when searching.
+        searchController?.hidesNavigationBarDuringPresentation = false    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier {
