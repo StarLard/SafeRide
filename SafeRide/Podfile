@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'SafeRide' do
 	pod "SwiftDDP", "~> 0.3.0"
+	pod 'GoogleMaps'
 end
 
 target 'SafeRideTests' do

@@ -8,27 +8,24 @@
 
 import UIKit
 import MapKit
+import GoogleMaps
 import CoreLocation
 import Contacts
 
 class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocationManagerDelegate {
     
     // MARK: Properties (IBOutlet)
-    @IBOutlet private weak var mapView: MKMapView!
-    @IBOutlet private weak var navigationBar: UINavigationItem!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var nextButton: UIBarButtonItem!
-    @IBOutlet weak var pickUpSearchBar: UISearchBar!
-    @IBOutlet weak var dropOffSearchBar: UISearchBar!
     
     // MARK: Properties (IBAction)
     @IBAction func useMyLocation(sender: AnyObject) {
         if let loc = self.userLocation {
             self.mapView.removeAnnotations(mapView.annotations)
             self.nextButton.enabled = false
-            self.dropOffSearchBar.text = ""
             updateAddressFromCoordinates(loc, addressType: "pick up")
             self.navigationBar.title = "Set Dropoff Location"
-            self.dropOffSearchBar.userInteractionEnabled = true
             numberOfPins = 1
         }
         else {
@@ -49,7 +46,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
                 annotation.title = "Pickup Location"
                 self.navigationBar.title = "Set Dropoff Location"
                 updateAddressFromCoordinates(location, addressType: "pick up")
-                self.dropOffSearchBar.userInteractionEnabled = true
                 
             }
             else {
@@ -68,11 +64,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
         numberOfPins = 0
         self.navigationBar.title = "Set Pickup Location"
         self.nextButton.enabled = false
-        self.pickUpSearchBar.text = ""
-        self.dropOffSearchBar.text = ""
-        self.dropOffSearchBar.userInteractionEnabled = false
     }
     
+    
+    // MARK: Properties (Public)
+    var pickUpAddress: String?
+    var dropOffAddress: String?
+    var numberOfPins = 0
+    var searchController: UISearchController?
     
     // MARK: Properties (Static)
     
@@ -84,10 +83,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
     let locationManager = CLLocationManager()
 
     // MARK: Properties (Private)
-    private var numberOfPins = 0
+    private var resultsViewController: GMSAutocompleteResultsViewController?
+    private var resultView: UITextView?
     private var boundaryOverlay: MKCircle?
-    private var pickUpAddress = ""
-    private var dropOffAddress = ""
     private var userLocation: CLLocation?
     
     // MARK: Methods (Private)
@@ -108,11 +106,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
                 let address = self.localizedStringForAddressDictionary(pm.addressDictionary!)
                 if (addressType == "pick up") {
                     self.pickUpAddress = address
-                    self.pickUpSearchBar.text = self.pickUpAddress
                 }
                 else if (addressType == "drop off") {
                     self.dropOffAddress = address
-                    self.dropOffSearchBar.text = self.dropOffAddress
 
                 }
             }
@@ -133,37 +129,41 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
             self.locationManager.requestWhenInUseAuthorization()
             self.locationManager.startUpdatingLocation()
             self.mapView.showsUserLocation = true
-            pickUpSearchBar.returnKeyType = UIReturnKeyType.Done
-            dropOffSearchBar.returnKeyType = UIReturnKeyType.Done
         }
         
         // Add Safe Ride Boundary Area
         let circle = MKCircle(centerCoordinate: coordinates, radius: 4828.03)
         self.mapView.addOverlay(circle)
         self.boundaryOverlay = circle
+        
+        // Add Google Maps AutoComplete
+        resultsViewController = GMSAutocompleteResultsViewController()
+        resultsViewController?.delegate = self
+        
+        searchController = UISearchController(searchResultsController: resultsViewController)
+        searchController?.searchResultsUpdater = resultsViewController
+        
+        let subView = UIView(frame: CGRectMake(0, 65.0, 350.0, 45.0))
+        
+        subView.addSubview((searchController?.searchBar)!)
+        self.view.addSubview(subView)
+        searchController?.searchBar.sizeToFit()
+        searchController?.hidesNavigationBarDuringPresentation = false
+        
+        // When UISearchController presents the results view, present it in
+        // this view controller, not one further up the chain.
+        self.definesPresentationContext = true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier {
         case .Some("confirmSegue"):
             let viewController = segue.destinationViewController as! ConfirmViewController
-            viewController.pickUpAddress = pickUpAddress
-            viewController.dropOffAddress = dropOffAddress
+            viewController.pickUpAddress = pickUpAddress!
+            viewController.dropOffAddress = dropOffAddress!
         default:
             super.prepareForSegue(segue, sender: sender)
         }
-    }
-    // MARK: SearchBar Delegate
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        if searchBar == pickUpSearchBar {
-            pickUpAddress = searchBar.text!
-            dropOffSearchBar.userInteractionEnabled = true
-        }
-        else {
-            dropOffAddress = searchBar.text!
-            self.nextButton.enabled = true
-        }
-        searchBar.resignFirstResponder()
     }
     
     // MARK: CLLocationManagerDelegate

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06ADDB062FFB7843C2F8A326 /* Pods_CoreDataServiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB55F6EB3D63D1964F97D0B4 /* Pods_CoreDataServiceTests.framework */; };
+		769C1A8B5352DD3354E43302 /* Pods_SafeRide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBD7490A7B5A26068B10A610 /* Pods_SafeRide.framework */; };
 		8503AF081CCD649F001E0835 /* mapicon6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8503AF041CCD649F001E0835 /* mapicon6.png */; };
 		8503AF091CCD649F001E0835 /* mapicon6+.png in Resources */ = {isa = PBXBuildFile; fileRef = 8503AF051CCD649F001E0835 /* mapicon6+.png */; };
 		8503AF0A1CCD649F001E0835 /* settingsgear6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8503AF061CCD649F001E0835 /* settingsgear6.png */; };
@@ -27,6 +29,8 @@
 		854D396A1CAC70BA00C72EE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 854D39681CAC70BA00C72EE0 /* Main.storyboard */; };
 		854D396C1CAC70BA00C72EE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 854D396B1CAC70BA00C72EE0 /* Assets.xcassets */; };
 		854D39851CAC70BA00C72EE0 /* SafeRideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D39841CAC70BA00C72EE0 /* SafeRideUITests.swift */; };
+		85E1A4881CE3C17F00690BCC /* SafeRideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1A4871CE3C17F00690BCC /* SafeRideTests.swift */; };
+		85E1A4901CE3C48E00690BCC /* GoogleMapsAutocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1A48F1CE3C48E00690BCC /* GoogleMapsAutocomplete.swift */; };
 		85EDC48D1CC2FDA1000BB637 /* CoreDataService.h in Headers */ = {isa = PBXBuildFile; fileRef = 85EDC48C1CC2FDA1000BB637 /* CoreDataService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		85EDC49F1CC2FDA1000BB637 /* CoreDataService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */; };
 		85EDC4A01CC2FDA1000BB637 /* CoreDataService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -35,7 +39,7 @@
 		85EDC4AF1CC2FE64000BB637 /* NSFetchRequest_Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC4AE1CC2FE64000BB637 /* NSFetchRequest_Service.swift */; };
 		85EDC4B21CC2FEBA000BB637 /* NamedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC4B11CC2FEBA000BB637 /* NamedEntity.swift */; };
 		85EDC4B51CC2FF1D000BB637 /* SafeRideDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDC4B41CC2FF1D000BB637 /* SafeRideDataService.swift */; };
-		B45CFC71F0894CBCC5D4C372 /* Pods_SafeRide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D1D2C9E2DA07ADE342EAD7 /* Pods_SafeRide.framework */; };
+		8CD68AFE413520604B3D50FC /* Pods_SafeRideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F474CFFE02AE616C2C7AAA /* Pods_SafeRideTests.framework */; };
 		CE3247721CE3AC1D00A8117F /* RouteAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3247711CE3AC1D00A8117F /* RouteAddressCell.swift */; };
 		CE66C46C1CBC13BC00A17900 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C46B1CBC13BC00A17900 /* SetViewController.swift */; };
 		CEB9D9D71CD160E50083BBC9 /* RideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9D9D61CD160E50083BBC9 /* RideCell.swift */; };
@@ -45,6 +49,7 @@
 		CEBFC9BE1CCED82C008E4932 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFC9BD1CCED82C008E4932 /* ScheduleViewController.swift */; };
 		CEBFC9C01CCED848008E4932 /* RideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFC9BF1CCED848008E4932 /* RideDetailsViewController.swift */; };
 		CEBFC9C21CCEDB7D008E4932 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFC9C11CCEDB7D008E4932 /* LoginViewController.swift */; };
+		CEF92EE9DC0F2E69C26D1A73 /* Pods_CoreDataService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E99D205E30B34926D48C3A7 /* Pods_CoreDataService.framework */; };
 		DB52298E1CB5F8E800736E73 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52298D1CB5F8E800736E73 /* SettingsCell.swift */; };
 		DB7A78B91CC80FD800FB3A0B /* SafeRideUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7A78B81CC80FD800FB3A0B /* SafeRideUnitTests.swift */; };
 		DB7A78C71CC810F300FB3A0B /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7A78C61CC810F300FB3A0B /* CoreDataServiceTests.swift */; };
@@ -52,10 +57,18 @@
 		DB9DB6C51CC2EE4C00D331B6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB9DB6C31CC2EE4C00D331B6 /* Model.xcdatamodeld */; };
 		DB9DB6C91CC2F10700D331B6 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9DB6C71CC2F10700D331B6 /* User+CoreDataProperties.swift */; };
 		DB9DB6CA1CC2F10700D331B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9DB6C81CC2F10700D331B6 /* User.swift */; };
+		F352BFA93E5CFC5ACF81EABD /* Pods_SafeRideUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6735AEA3FEDDF8FB6DBA3E7B /* Pods_SafeRideUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		854D39811CAC70BA00C72EE0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 854D39571CAC70B900C72EE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 854D395E1CAC70B900C72EE0;
+			remoteInfo = SafeRide;
+		};
+		85E1A48A1CE3C17F00690BCC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 854D39571CAC70B900C72EE0 /* Project object */;
 			proxyType = 1;
@@ -107,9 +120,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		31FF99BB0D93F915BC032B6F /* Pods-SafeRide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeRide.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeRide/Pods-SafeRide.release.xcconfig"; sourceTree = "<group>"; };
-		39284A9546FA75740DC88EAB /* Pods-SafeRide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeRide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafeRide/Pods-SafeRide.debug.xcconfig"; sourceTree = "<group>"; };
-		55D1D2C9E2DA07ADE342EAD7 /* Pods_SafeRide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeRide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		237AE7D0C8B046C8476175F3 /* Pods-CoreDataServiceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataServiceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataServiceTests/Pods-CoreDataServiceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2BE33FCDADB3E9A2F25CA65E /* Pods-SafeRide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeRide.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeRide/Pods-SafeRide.release.xcconfig"; sourceTree = "<group>"; };
+		32F474CFFE02AE616C2C7AAA /* Pods_SafeRideTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeRideTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C4C5114B8F03B3DA105C6FC /* Pods-CoreDataService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataService.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataService/Pods-CoreDataService.release.xcconfig"; sourceTree = "<group>"; };
+		566CE087CB7C8773EB63C66D /* Pods-SafeRide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeRide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafeRide/Pods-SafeRide.debug.xcconfig"; sourceTree = "<group>"; };
+		5EB91573C0C474624BFE61E3 /* Pods-CoreDataService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataService.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataService/Pods-CoreDataService.debug.xcconfig"; sourceTree = "<group>"; };
+		6735AEA3FEDDF8FB6DBA3E7B /* Pods_SafeRideUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeRideUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C1A81CC61608C5850063FB /* Pods-SafeRideUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeRideUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafeRideUITests/Pods-SafeRideUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8503AF041CCD649F001E0835 /* mapicon6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapicon6.png; sourceTree = "<group>"; };
 		8503AF051CCD649F001E0835 /* mapicon6+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapicon6+.png"; sourceTree = "<group>"; };
 		8503AF061CCD649F001E0835 /* settingsgear6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsgear6.png; sourceTree = "<group>"; };
@@ -134,6 +152,10 @@
 		854D39801CAC70BA00C72EE0 /* SafeRideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeRideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		854D39841CAC70BA00C72EE0 /* SafeRideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeRideUITests.swift; sourceTree = "<group>"; };
 		854D39861CAC70BA00C72EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85E1A4851CE3C17F00690BCC /* SafeRideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeRideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85E1A4871CE3C17F00690BCC /* SafeRideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeRideTests.swift; sourceTree = "<group>"; };
+		85E1A4891CE3C17F00690BCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85E1A48F1CE3C48E00690BCC /* GoogleMapsAutocomplete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsAutocomplete.swift; sourceTree = "<group>"; };
 		85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreDataService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EDC48C1CC2FDA1000BB637 /* CoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataService.h; sourceTree = "<group>"; };
 		85EDC48E1CC2FDA1000BB637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -142,6 +164,10 @@
 		85EDC4AE1CC2FE64000BB637 /* NSFetchRequest_Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSFetchRequest_Service.swift; sourceTree = "<group>"; };
 		85EDC4B11CC2FEBA000BB637 /* NamedEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamedEntity.swift; sourceTree = "<group>"; };
 		85EDC4B41CC2FF1D000BB637 /* SafeRideDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeRideDataService.swift; sourceTree = "<group>"; };
+		8E99D205E30B34926D48C3A7 /* Pods_CoreDataService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDataService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95CB88AD0F2D3422D788ECD9 /* Pods-SafeRideUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeRideUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeRideUITests/Pods-SafeRideUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B39A82B14956BD661FB23358 /* Pods-SafeRideTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeRideTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafeRideTests/Pods-SafeRideTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BBD7490A7B5A26068B10A610 /* Pods_SafeRide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeRide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3247711CE3AC1D00A8117F /* RouteAddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteAddressCell.swift; sourceTree = "<group>"; };
 		CE66C46B1CBC13BC00A17900 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		CEB9D9D61CD160E50083BBC9 /* RideCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideCell.swift; sourceTree = "<group>"; };
@@ -151,7 +177,10 @@
 		CEBFC9BD1CCED82C008E4932 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		CEBFC9BF1CCED848008E4932 /* RideDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideDetailsViewController.swift; sourceTree = "<group>"; };
 		CEBFC9C11CCEDB7D008E4932 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D428AC0EC5DD18234A106F84 /* Pods-CoreDataServiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataServiceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataServiceTests/Pods-CoreDataServiceTests.release.xcconfig"; sourceTree = "<group>"; };
+		D72D95BB78C9FD0F5651E844 /* Pods-SafeRideTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeRideTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeRideTests/Pods-SafeRideTests.release.xcconfig"; sourceTree = "<group>"; };
 		DB52298D1CB5F8E800736E73 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		DB55F6EB3D63D1964F97D0B4 /* Pods_CoreDataServiceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDataServiceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7A78B61CC80FD800FB3A0B /* SafeRideUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeRideUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7A78B81CC80FD800FB3A0B /* SafeRideUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeRideUnitTests.swift; sourceTree = "<group>"; };
 		DB7A78BA1CC80FD800FB3A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -169,7 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85EDC49F1CC2FDA1000BB637 /* CoreDataService.framework in Frameworks */,
-				B45CFC71F0894CBCC5D4C372 /* Pods_SafeRide.framework in Frameworks */,
+				769C1A8B5352DD3354E43302 /* Pods_SafeRide.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +206,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F352BFA93E5CFC5ACF81EABD /* Pods_SafeRideUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85E1A4821CE3C17F00690BCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CD68AFE413520604B3D50FC /* Pods_SafeRideTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +222,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF92EE9DC0F2E69C26D1A73 /* Pods_CoreDataService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,17 +238,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB7A78C91CC810F300FB3A0B /* CoreDataService.framework in Frameworks */,
+				06ADDB062FFB7843C2F8A326 /* Pods_CoreDataServiceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		43574556B3863199E96C1708 /* Pods */ = {
+		00CDF5AFEE180DB4867975BD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				39284A9546FA75740DC88EAB /* Pods-SafeRide.debug.xcconfig */,
-				31FF99BB0D93F915BC032B6F /* Pods-SafeRide.release.xcconfig */,
+				5EB91573C0C474624BFE61E3 /* Pods-CoreDataService.debug.xcconfig */,
+				3C4C5114B8F03B3DA105C6FC /* Pods-CoreDataService.release.xcconfig */,
+				237AE7D0C8B046C8476175F3 /* Pods-CoreDataServiceTests.debug.xcconfig */,
+				D428AC0EC5DD18234A106F84 /* Pods-CoreDataServiceTests.release.xcconfig */,
+				566CE087CB7C8773EB63C66D /* Pods-SafeRide.debug.xcconfig */,
+				2BE33FCDADB3E9A2F25CA65E /* Pods-SafeRide.release.xcconfig */,
+				B39A82B14956BD661FB23358 /* Pods-SafeRideTests.debug.xcconfig */,
+				D72D95BB78C9FD0F5651E844 /* Pods-SafeRideTests.release.xcconfig */,
+				84C1A81CC61608C5850063FB /* Pods-SafeRideUITests.debug.xcconfig */,
+				95CB88AD0F2D3422D788ECD9 /* Pods-SafeRideUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -227,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				851599661CB319DE0075C656 /* UITableView_Keyboard_Notification.swift */,
+				85E1A48F1CE3C48E00690BCC /* GoogleMapsAutocomplete.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -252,13 +301,14 @@
 			isa = PBXGroup;
 			children = (
 				854D39611CAC70BA00C72EE0 /* SafeRide */,
+				85E1A4861CE3C17F00690BCC /* SafeRideTests */,
 				854D39831CAC70BA00C72EE0 /* SafeRideUITests */,
 				85EDC48B1CC2FDA1000BB637 /* CoreDataService */,
 				DB7A78B71CC80FD800FB3A0B /* SafeRideUnitTests */,
 				DB7A78C51CC810F300FB3A0B /* CoreDataServiceTests */,
 				854D39601CAC70B900C72EE0 /* Products */,
-				43574556B3863199E96C1708 /* Pods */,
-				AC65F3B5F44A18BC0CDD556B /* Frameworks */,
+				00CDF5AFEE180DB4867975BD /* Pods */,
+				DEBCE07E8960E61CC81CAF10 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -270,6 +320,7 @@
 				85EDC48A1CC2FDA1000BB637 /* CoreDataService.framework */,
 				DB7A78B61CC80FD800FB3A0B /* SafeRideUnitTests.xctest */,
 				DB7A78C41CC810F300FB3A0B /* CoreDataServiceTests.xctest */,
+				85E1A4851CE3C17F00690BCC /* SafeRideTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -316,6 +367,15 @@
 			name = Source;
 			sourceTree = "<group>";
 		};
+		85E1A4861CE3C17F00690BCC /* SafeRideTests */ = {
+			isa = PBXGroup;
+			children = (
+				85E1A4871CE3C17F00690BCC /* SafeRideTests.swift */,
+				85E1A4891CE3C17F00690BCC /* Info.plist */,
+			);
+			path = SafeRideTests;
+			sourceTree = SOURCE_ROOT;
+		};
 		85EDC48B1CC2FDA1000BB637 /* CoreDataService */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,14 +419,6 @@
 				85EDC4B41CC2FF1D000BB637 /* SafeRideDataService.swift */,
 			);
 			name = Service;
-			sourceTree = "<group>";
-		};
-		AC65F3B5F44A18BC0CDD556B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				55D1D2C9E2DA07ADE342EAD7 /* Pods_SafeRide.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CEB9D9D41CD1604B0083BBC9 /* Controller */ = {
@@ -425,6 +477,18 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		DEBCE07E8960E61CC81CAF10 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8E99D205E30B34926D48C3A7 /* Pods_CoreDataService.framework */,
+				DB55F6EB3D63D1964F97D0B4 /* Pods_CoreDataServiceTests.framework */,
+				BBD7490A7B5A26068B10A610 /* Pods_SafeRide.framework */,
+				32F474CFFE02AE616C2C7AAA /* Pods_SafeRideTests.framework */,
+				6735AEA3FEDDF8FB6DBA3E7B /* Pods_SafeRideUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -443,13 +507,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 854D39891CAC70BA00C72EE0 /* Build configuration list for PBXNativeTarget "SafeRide" */;
 			buildPhases = (
-				C10E9797CDBC65C3524B1A5F /* Check Pods Manifest.lock */,
+				E4FDC6BA6C98F39CC20B5B4F /* 📦 Check Pods Manifest.lock */,
 				854D395B1CAC70B900C72EE0 /* Sources */,
 				854D395C1CAC70B900C72EE0 /* Frameworks */,
 				854D395D1CAC70B900C72EE0 /* Resources */,
 				85EDC4A61CC2FDA1000BB637 /* Embed Frameworks */,
-				293212D034D2F1964DA96B16 /* Embed Pods Frameworks */,
-				077D8579496EC5251571D2E2 /* Copy Pods Resources */,
+				D5439194DC4E2917CD051A07 /* 📦 Embed Pods Frameworks */,
+				172DA0C500E14F2B44E98FAC /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -465,9 +529,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 854D398F1CAC70BA00C72EE0 /* Build configuration list for PBXNativeTarget "SafeRideUITests" */;
 			buildPhases = (
+				2423406AE4CF79C88A058FB8 /* 📦 Check Pods Manifest.lock */,
 				854D397C1CAC70BA00C72EE0 /* Sources */,
 				854D397D1CAC70BA00C72EE0 /* Frameworks */,
 				854D397E1CAC70BA00C72EE0 /* Resources */,
+				9146DCA8D35DA8EB8BEBABB8 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -479,14 +545,37 @@
 			productReference = 854D39801CAC70BA00C72EE0 /* SafeRideUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		85E1A4841CE3C17F00690BCC /* SafeRideTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85E1A48E1CE3C17F00690BCC /* Build configuration list for PBXNativeTarget "SafeRideTests" */;
+			buildPhases = (
+				D054614378FB132369968F0D /* 📦 Check Pods Manifest.lock */,
+				85E1A4811CE3C17F00690BCC /* Sources */,
+				85E1A4821CE3C17F00690BCC /* Frameworks */,
+				85E1A4831CE3C17F00690BCC /* Resources */,
+				93339F7AB3AB793158BEBE62 /* 📦 Embed Pods Frameworks */,
+				AAD7371A575BC3940D6378B1 /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				85E1A48B1CE3C17F00690BCC /* PBXTargetDependency */,
+			);
+			name = SafeRideTests;
+			productName = SafeRideTests;
+			productReference = 85E1A4851CE3C17F00690BCC /* SafeRideTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		85EDC4891CC2FDA1000BB637 /* CoreDataService */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 85EDC4A51CC2FDA1000BB637 /* Build configuration list for PBXNativeTarget "CoreDataService" */;
 			buildPhases = (
+				2526A9006D614F93F8CDA7D0 /* 📦 Check Pods Manifest.lock */,
 				85EDC4851CC2FDA1000BB637 /* Sources */,
 				85EDC4861CC2FDA1000BB637 /* Frameworks */,
 				85EDC4871CC2FDA1000BB637 /* Headers */,
 				85EDC4881CC2FDA1000BB637 /* Resources */,
+				8AF6AC257E57D048D0F56CC3 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -519,9 +608,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB7A78CC1CC810F300FB3A0B /* Build configuration list for PBXNativeTarget "CoreDataServiceTests" */;
 			buildPhases = (
+				19B01599F80721C93651D616 /* 📦 Check Pods Manifest.lock */,
 				DB7A78C01CC810F300FB3A0B /* Sources */,
 				DB7A78C11CC810F300FB3A0B /* Frameworks */,
 				DB7A78C21CC810F300FB3A0B /* Resources */,
+				A919F870631C6F57D40FDE0C /* 📦 Embed Pods Frameworks */,
+				3B29E63B9B8ACB287CD6D89F /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -550,6 +642,11 @@
 					};
 					854D397F1CAC70BA00C72EE0 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 2524DUVEAT;
+						TestTargetID = 854D395E1CAC70B900C72EE0;
+					};
+					85E1A4841CE3C17F00690BCC = {
+						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 2524DUVEAT;
 						TestTargetID = 854D395E1CAC70B900C72EE0;
 					};
@@ -585,6 +682,7 @@
 				85EDC4891CC2FDA1000BB637 /* CoreDataService */,
 				DB7A78B51CC80FD800FB3A0B /* SafeRideUnitTests */,
 				DB7A78C31CC810F300FB3A0B /* CoreDataServiceTests */,
+				85E1A4841CE3C17F00690BCC /* SafeRideTests */,
 			);
 		};
 /* End PBXProject section */
@@ -616,6 +714,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		85E1A4831CE3C17F00690BCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		85EDC4881CC2FDA1000BB637 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -640,14 +745,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		077D8579496EC5251571D2E2 /* Copy Pods Resources */ = {
+		172DA0C500E14F2B44E98FAC /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -655,14 +760,164 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SafeRide/Pods-SafeRide-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		293212D034D2F1964DA96B16 /* Embed Pods Frameworks */ = {
+		19B01599F80721C93651D616 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2423406AE4CF79C88A058FB8 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2526A9006D614F93F8CDA7D0 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3B29E63B9B8ACB287CD6D89F /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDataServiceTests/Pods-CoreDataServiceTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8AF6AC257E57D048D0F56CC3 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDataService/Pods-CoreDataService-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9146DCA8D35DA8EB8BEBABB8 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SafeRideUITests/Pods-SafeRideUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93339F7AB3AB793158BEBE62 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SafeRideTests/Pods-SafeRideTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A919F870631C6F57D40FDE0C /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDataServiceTests/Pods-CoreDataServiceTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAD7371A575BC3940D6378B1 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SafeRideTests/Pods-SafeRideTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D054614378FB132369968F0D /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D5439194DC4E2917CD051A07 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -670,14 +925,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SafeRide/Pods-SafeRide-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C10E9797CDBC65C3524B1A5F /* Check Pods Manifest.lock */ = {
+		E4FDC6BA6C98F39CC20B5B4F /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -703,6 +958,7 @@
 				CEB9D9D71CD160E50083BBC9 /* RideCell.swift in Sources */,
 				CEBFC9BC1CCEBE0B008E4932 /* HomeViewController.swift in Sources */,
 				851599691CB31D830075C656 /* AddressCell.swift in Sources */,
+				85E1A4901CE3C48E00690BCC /* GoogleMapsAutocomplete.swift in Sources */,
 				854D39651CAC70BA00C72EE0 /* MapViewController.swift in Sources */,
 				DB9DB6C91CC2F10700D331B6 /* User+CoreDataProperties.swift in Sources */,
 				CEB9D9DB1CD164DA0083BBC9 /* Ride.swift in Sources */,
@@ -721,6 +977,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				854D39851CAC70BA00C72EE0 /* SafeRideUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85E1A4811CE3C17F00690BCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85E1A4881CE3C17F00690BCC /* SafeRideTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,6 +1022,11 @@
 			isa = PBXTargetDependency;
 			target = 854D395E1CAC70B900C72EE0 /* SafeRide */;
 			targetProxy = 854D39811CAC70BA00C72EE0 /* PBXContainerItemProxy */;
+		};
+		85E1A48B1CE3C17F00690BCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 854D395E1CAC70B900C72EE0 /* SafeRide */;
+			targetProxy = 85E1A48A1CE3C17F00690BCC /* PBXContainerItemProxy */;
 		};
 		85EDC49E1CC2FDA1000BB637 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -878,7 +1147,7 @@
 		};
 		854D398A1CAC70BA00C72EE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 39284A9546FA75740DC88EAB /* Pods-SafeRide.debug.xcconfig */;
+			baseConfigurationReference = 566CE087CB7C8773EB63C66D /* Pods-SafeRide.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -893,7 +1162,7 @@
 		};
 		854D398B1CAC70BA00C72EE0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 31FF99BB0D93F915BC032B6F /* Pods-SafeRide.release.xcconfig */;
+			baseConfigurationReference = 2BE33FCDADB3E9A2F25CA65E /* Pods-SafeRide.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -908,6 +1177,7 @@
 		};
 		854D39901CAC70BA00C72EE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84C1A81CC61608C5850063FB /* Pods-SafeRideUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SafeRideUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -919,6 +1189,7 @@
 		};
 		854D39911CAC70BA00C72EE0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95CB88AD0F2D3422D788ECD9 /* Pods-SafeRideUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SafeRideUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -928,8 +1199,35 @@
 			};
 			name = Release;
 		};
+		85E1A48C1CE3C17F00690BCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39A82B14956BD661FB23358 /* Pods-SafeRideTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SafeRideTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uoregon.SafeRideTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafeRide.app/SafeRide";
+			};
+			name = Debug;
+		};
+		85E1A48D1CE3C17F00690BCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D72D95BB78C9FD0F5651E844 /* Pods-SafeRideTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SafeRideTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uoregon.SafeRideTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafeRide.app/SafeRide";
+			};
+			name = Release;
+		};
 		85EDC4A11CC2FDA1000BB637 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EB91573C0C474624BFE61E3 /* Pods-CoreDataService.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -952,6 +1250,7 @@
 		};
 		85EDC4A21CC2FDA1000BB637 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C4C5114B8F03B3DA105C6FC /* Pods-CoreDataService.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -997,6 +1296,7 @@
 		};
 		DB7A78CD1CC810F300FB3A0B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 237AE7D0C8B046C8476175F3 /* Pods-CoreDataServiceTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CoreDataServiceTests/Info.plist;
@@ -1009,6 +1309,7 @@
 		};
 		DB7A78CE1CC810F300FB3A0B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D428AC0EC5DD18234A106F84 /* Pods-CoreDataServiceTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CoreDataServiceTests/Info.plist;
@@ -1045,6 +1346,15 @@
 			buildConfigurations = (
 				854D39901CAC70BA00C72EE0 /* Debug */,
 				854D39911CAC70BA00C72EE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85E1A48E1CE3C17F00690BCC /* Build configuration list for PBXNativeTarget "SafeRideTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85E1A48C1CE3C17F00690BCC /* Debug */,
+				85E1A48D1CE3C17F00690BCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
