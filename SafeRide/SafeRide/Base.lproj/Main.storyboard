@@ -867,7 +867,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ride Details" id="Bab-Tx-PWu">
-                        <barButtonItem key="rightBarButtonItem" title="Route" id="9ba-hF-deq"/>
+                        <barButtonItem key="rightBarButtonItem" title="Route" id="9ba-hF-deq">
+                            <connections>
+                                <action selector="routeButtonPressed:" destination="2da-oL-RMg" id="1VF-mt-hEb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="rideDetailsTableView" destination="2He-zD-Lll" id="1e3-ke-D5A"/>
