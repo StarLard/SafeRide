@@ -42,8 +42,8 @@ extension MapViewController: GMSAutocompleteResultsViewControllerDelegate {
                                 self.navigationBar.prompt = "Press Next to Continue"
                             }
                             marker.snippet = place.name
-                            marker.map = self.mapView
-                            self.mapView?.selectedMarker = marker
+                            marker.map = self.googleMapView
+                            self.googleMapView?.selectedMarker = marker
                             self.numberOfPins += 1
                         }
                         else {

@@ -17,15 +17,17 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     // MARK: Properties (IBOutlet)
     @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var nextButton: UIBarButtonItem!
+    @IBOutlet weak var googleMapView: GMSMapView!
+    
     
     // MARK: Properties (IBAction)
     
     @IBAction func cancelButton(sender: UIBarButtonItem) {
-        self.mapView?.clear()
+        self.googleMapView?.clear()
         // Add Safe Ride Boundary Area
         let circleCenter = CLLocationCoordinate2D(latitude: UOCoordinates.latitude, longitude: UOCoordinates.longitude)
         let circ = GMSCircle(position: circleCenter, radius: 4828.03)
-        circ.map = mapView;
+        circ.map = googleMapView;
         numberOfPins = 0
         self.navigationBar.prompt = "Set Pickup Location"
         self.nextButton.enabled = false
@@ -33,7 +35,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     
     // MARK: Properties (Public)
-    var mapView: GMSMapView?
     var pickUpAddress: String?
     var dropOffAddress: String?
     var numberOfPins = 0
@@ -91,8 +92,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
                     self.nextButton.enabled = true
                 }
                 marker.snippet = address
-                marker.map = self.mapView
-                self.mapView?.selectedMarker = marker
+                marker.map = self.googleMapView
+                self.googleMapView?.selectedMarker = marker
                 self.numberOfPins += 1
             }
         }
@@ -112,12 +113,11 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         
         // Add Google Map
         let camera = GMSCameraPosition.cameraWithLatitude((self.UOCoordinates.latitude),
-                                                          longitude: (self.UOCoordinates.longitude), zoom: 6)
-        mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
-        mapView!.myLocationEnabled = true
-        mapView?.settings.myLocationButton = true
-        mapView?.delegate = self
-        self.view = mapView
+                                                          longitude: (self.UOCoordinates.longitude), zoom: 15)
+        googleMapView.camera = camera
+        googleMapView!.myLocationEnabled = true
+        googleMapView?.settings.myLocationButton = true
+        googleMapView?.delegate = self
         
         // Add Google Maps AutoComplete
         resultsViewController = GMSAutocompleteResultsViewController()
@@ -140,7 +140,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         // Add Safe Ride Boundary Area
         let circleCenter = CLLocationCoordinate2D(latitude: UOCoordinates.latitude, longitude: UOCoordinates.longitude)
         let circ = GMSCircle(position: circleCenter, radius: 4828.03)
-        circ.map = mapView;
+        circ.map = googleMapView;
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -158,7 +158,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         if let location = locations.last {
-            mapView!.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            googleMapView!.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
             self.userLocation = location
         }
         else {
