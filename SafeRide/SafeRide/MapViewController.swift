@@ -12,37 +12,20 @@ import GoogleMaps
 import CoreLocation
 import Contacts
 
-class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelegate, CLLocationManagerDelegate {
     
     // MARK: Properties (IBOutlet)
-    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var nextButton: UIBarButtonItem!
     
     // MARK: Properties (IBAction)
-    @IBAction func useMyLocation(sender: AnyObject) {
-        if (self.numberOfPins < 2) {
-            if let loc = self.userLocation {
-                addLocation(loc)
-            }
-            else {
-                print("Error using current location: User location is not set")
-            }
-        }
-    }
-    @IBAction func setPickUp(sender: UITapGestureRecognizer) {
-        if (numberOfPins < 2) {
-            let tapLocation = sender.locationInView(self.mapView)
-            let tapCoordinates = self.mapView.convertPoint(tapLocation, toCoordinateFromView: self.mapView)
-            let getLat: CLLocationDegrees = tapCoordinates.latitude
-            let getLon: CLLocationDegrees = tapCoordinates.longitude
-            let location: CLLocation =  CLLocation(latitude: getLat, longitude: getLon)
-        
-            addLocation(location)
-        }
-    }
+    
     @IBAction func cancelButton(sender: UIBarButtonItem) {
-        self.mapView.removeAnnotations(mapView.annotations)
+        self.mapView?.clear()
+        // Add Safe Ride Boundary Area
+        let circleCenter = CLLocationCoordinate2D(latitude: UOCoordinates.latitude, longitude: UOCoordinates.longitude)
+        let circ = GMSCircle(position: circleCenter, radius: 4828.03)
+        circ.map = mapView;
         numberOfPins = 0
         self.navigationBar.prompt = "Set Pickup Location"
         self.nextButton.enabled = false
@@ -50,6 +33,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
     
     
     // MARK: Properties (Public)
+    var mapView: GMSMapView?
     var pickUpAddress: String?
     var dropOffAddress: String?
     var numberOfPins = 0
@@ -58,9 +42,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
     // MARK: Properties (Static)
     
     // UO Coordinates
-    let coordinates = CLLocationCoordinate2D(latitude: 44.0459320, longitude: -123.0706070)
-    // San Francisco Coordinates for testing
-    let coordinates2 = CLLocationCoordinate2D(latitude: 37.7749290, longitude: -122.4194160)
+    let UOCoordinates = CLLocationCoordinate2D(latitude: 44.0459320, longitude: -123.0706070)
 
     let locationManager = CLLocationManager()
 
@@ -95,22 +77,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
     private func addLocation(loc: CLLocation) -> Void {
         if (self.numberOfPins < 2) {
             addressFromCoordinates(loc) { address in
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = loc.coordinate
+                let marker = GMSMarker()
+                marker.position = loc.coordinate
                 if (self.numberOfPins < 1) {
                     self.pickUpAddress = address
-                    annotation.title = "Pickup"
+                    marker.title = "Pickup"
                     self.navigationBar.prompt = "Set Dropoff Location"
                 }
                 else {
                     self.dropOffAddress = address
-                    annotation.title = "Dropoff"
+                    marker.title = "Dropoff"
                     self.navigationBar.prompt = "Press Next to Continue"
                     self.nextButton.enabled = true
                 }
-                annotation.subtitle = address
-                self.mapView.addAnnotation(annotation)
-                self.mapView.selectAnnotation(annotation, animated: true)
+                marker.snippet = address
+                marker.map = self.mapView
+                self.mapView?.selectedMarker = marker
                 self.numberOfPins += 1
             }
         }
@@ -126,13 +108,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
             self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
             self.locationManager.requestWhenInUseAuthorization()
             self.locationManager.startUpdatingLocation()
-            self.mapView.showsUserLocation = true
         }
         
-        // Add Safe Ride Boundary Area
-        let circle = MKCircle(centerCoordinate: coordinates, radius: 4828.03)
-        self.mapView.addOverlay(circle)
-        self.boundaryOverlay = circle
+        // Add Google Map
+        let camera = GMSCameraPosition.cameraWithLatitude((self.UOCoordinates.latitude),
+                                                          longitude: (self.UOCoordinates.longitude), zoom: 6)
+        mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
+        mapView!.myLocationEnabled = true
+        mapView?.settings.myLocationButton = true
+        mapView?.delegate = self
+        self.view = mapView
         
         // Add Google Maps AutoComplete
         resultsViewController = GMSAutocompleteResultsViewController()
@@ -150,7 +135,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
         self.definesPresentationContext = true
         
         // Prevent the navigation bar from being hidden when searching.
-        searchController?.hidesNavigationBarDuringPresentation = false    }
+        searchController?.hidesNavigationBarDuringPresentation = false
+        
+        // Add Safe Ride Boundary Area
+        let circleCenter = CLLocationCoordinate2D(latitude: UOCoordinates.latitude, longitude: UOCoordinates.longitude)
+        let circ = GMSCircle(position: circleCenter, radius: 4828.03)
+        circ.map = mapView;
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier {
@@ -165,12 +156,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
     
     // MARK: CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-        self.userLocation = location
-        let center = CLLocationCoordinate2DMake(location!.coordinate.latitude, location!.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
         
-        self.mapView.setRegion(region, animated: true)
+        if let location = locations.last {
+            mapView!.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            self.userLocation = location
+        }
+        else {
+            print("Could not get user location\n")
+        }
         
         self.locationManager.stopUpdatingLocation()
     }
@@ -179,16 +172,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
         print("Errors: " + error.localizedDescription)
     }
     
-    // MARK: MKMapViewDelegate
-    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-        let circleOverlay = overlay as! MKCircle
-        let circleRenderer = MKCircleRenderer(overlay: circleOverlay)
-        circleRenderer.strokeColor = UIColor.blueColor()
-        circleRenderer.lineWidth = 1
-        circleRenderer.alpha = 0.5
-        
-        return circleRenderer
+    // MARK: GMSMapViewDelegate
+    func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+        let location: CLLocation =  CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        addLocation(location)
     }
+    
     
     // MARK: Methods (Private)
     func postalAddressFromAddressDictionary(addressdictionary: Dictionary<NSObject,AnyObject>) -> CNMutablePostalAddress {

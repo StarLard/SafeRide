@@ -28,22 +28,22 @@ extension MapViewController: GMSAutocompleteResultsViewControllerDelegate {
                     if let clDropoffPlacemark = placemarks?.first {
                         if let coordinate = clDropoffPlacemark.location?.coordinate {
                             // Drop a pin
-                            let dropPin = MKPointAnnotation()
-                            dropPin.coordinate = coordinate
+                            let marker = GMSMarker()
+                            marker.position = coordinate
                             if (self.numberOfPins < 1)  {
-                                dropPin.title = "Pickup"
+                                marker.title = "Pickup"
                                 self.pickUpAddress = destination
                                 self.navigationBar.prompt = "Set Dropoff Location"
                             }
                             else {
-                                dropPin.title = "Dropoff"
+                                marker.title = "Dropoff"
                                 self.dropOffAddress = destination
                                 self.nextButton.enabled = true
                                 self.navigationBar.prompt = "Press Next to Continue"
                             }
-                            dropPin.subtitle = place.name
-                            self.mapView.addAnnotation(dropPin)
-                            self.mapView.selectAnnotation(dropPin, animated: true)
+                            marker.snippet = place.name
+                            marker.map = self.mapView
+                            self.mapView?.selectedMarker = marker
                             self.numberOfPins += 1
                         }
                         else {
