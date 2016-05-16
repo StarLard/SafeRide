@@ -121,6 +121,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         
         // Add Google Maps AutoComplete
         resultsViewController = GMSAutocompleteResultsViewController()
+        let bounds = GMSCoordinateBounds(coordinate: self.UOCoordinates, coordinate: self.UOCoordinates)
+        self.resultsViewController?.autocompleteBounds = bounds
         resultsViewController?.delegate = self
         
         searchController = UISearchController(searchResultsController: resultsViewController)
@@ -177,7 +179,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         let location: CLLocation =  CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         addLocation(location)
     }
-    
     
     // MARK: Methods (Private)
     func postalAddressFromAddressDictionary(addressdictionary: Dictionary<NSObject,AnyObject>) -> CNMutablePostalAddress {
