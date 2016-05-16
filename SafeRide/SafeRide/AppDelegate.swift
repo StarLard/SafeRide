@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let viewController = storyboard.instantiateViewControllerWithIdentifier("employeeNavigationController")
                 self.window?.rootViewController = viewController
+                self.window?.makeKeyAndVisible()
             }
         }
         else {
@@ -36,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let viewController = storyboard.instantiateViewControllerWithIdentifier("homeViewController")
             self.window?.rootViewController = viewController
+            self.window?.makeKeyAndVisible()
         }
         GMSServices.provideAPIKey("AIzaSyCPHhAPneKcheJLtYeyX6yn2U7KxuN9qz4")
         return true
