@@ -106,7 +106,14 @@ if (Meteor.isServer) {
     },
     getDenied: function() {
         return Denied.find().fetch();
+    },
+    createAccount: function(usr, pw) {
+      Accounts.createUser({
+        username: usr,
+        password: pw
+      });
     }
+
 
   }); // end server methods
 
