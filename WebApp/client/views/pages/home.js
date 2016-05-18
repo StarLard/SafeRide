@@ -1,7 +1,4 @@
 Template.home.rendered = function(){
-
-  // fixRendered();
-
   var data = [{
       label: "Pending",
       data: Pending.find().count(),
@@ -37,7 +34,3 @@ Template.home.rendered = function(){
   });
 
 };
-
-Template.home.helpers({
-
-});
