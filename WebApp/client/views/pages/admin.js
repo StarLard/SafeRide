@@ -70,6 +70,22 @@ Template.admin.events({
         Meteor.call('purgeAll');
         swal("Databases Deleted!", "All databases have been successfully purged.", "success");
     });
+  },
+  // Register account
+  'click .btn-default': function(e){
+    e.preventDefault();
+    var username = $('[name=username]').val();
+    var password = $('[name=password]').val();
+    // var status = $('[name=status]').val();
+    // var role = $('[name=role]').val();
+
+    if (typeof Meteor.users.findOne({'username': username}) === "undefined") {
+      Meteor.call('createAccount', username, password)
+      toastr.success("Registration Successful: Created account for " + username);
+    } else {
+      toastr.error("Registration Error: Account already exists for " + username);
+    }
+    document.getElementById("createAcctForm").reset();
   }
 
 });

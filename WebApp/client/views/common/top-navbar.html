@@ -6,9 +6,9 @@
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
-                <!-- <li>
-                    <span class="m-r-sm text-muted welcome-message"> Welcome to the UO SafeRide Portal </span>
-                </li> -->
+                <li>
+                    <!-- <span class="m-r-sm text-muted welcome-message"> Welcome back, {{currentUser.username}}! </span> -->
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                         <i class="fa fa-calendar-plus-o"></i>  <span class="label label-success">{{pendingCount}}</span>
@@ -59,6 +59,9 @@
                 </li>
                 <li>
                   <img src="logos/textOnlySmall.png">
+                </li>
+                <li>
+                  <a href="#" class="logout"><i class="fa fa-sign-out fa-lg"></i></a>
                 </li>
             </ul>
 

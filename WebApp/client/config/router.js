@@ -1,10 +1,13 @@
 Router.configure({
     layoutTemplate: 'mainLayout',
     notFoundTemplate: 'notFound'
-
 });
 
 Router.route('/portal', {
+    layoutTemplate: 'blankLayout'
+});
+
+Router.route('/login', {
     layoutTemplate: 'blankLayout'
 });
 
@@ -30,4 +33,14 @@ Router.route('/admin', function () {
 
 Router.route('/', function () {
     Router.go('portal');
+});
+
+Router.onBeforeAction(function () {
+    if (!Meteor.user() && !Meteor.loggingIn()) {
+        this.redirect('/portal');
+    } else {
+        this.next();
+    }
+}, {
+    except: ['login', 'portal']
 });
