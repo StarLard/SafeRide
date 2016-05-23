@@ -1,6 +1,6 @@
 PODS:
   - CryptoSwift (0.4.1)
-  - GoogleMaps (1.13.1)
+  - GoogleMaps (1.13.2)
   - SwiftDDP (0.3.1):
     - CryptoSwift (~> 0.3)
     - SwiftWebSocket (~> 2.6.0)
@@ -14,7 +14,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   CryptoSwift: 25b5aff3f260967391f8fff2e9abe4254d2c6fd5
-  GoogleMaps: 8935220056a6cc8e9ca298b4da4ae530620aa71b
+  GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
   SwiftDDP: d99fb617559e19ebb3651fa2b95ee7e35d8451f1
   SwiftWebSocket: ccace0c3843fa5dc5a571506b01dcbb8f8d0add8
   XCGLogger: d6e196e78940ff6daab17d6917107876f973fa31
