@@ -61,7 +61,7 @@ class SafeRideDataService {
     
     // MARK: Meteor Service
     
-    func loadRidesFromMeteor(completionHandler: (success:Bool) -> Void) {
+    func loadRidesFromMeteor(username: String, pass password: String, completionHandler: (success:Bool) -> Void) {
         
         let context = CoreDataService.sharedCoreDataService.mainQueueContext
         
@@ -72,52 +72,62 @@ class SafeRideDataService {
                 
                 // Get rides from server
                 
-                Meteor.client.allowSelfSignedSSL = false     // Connect to a server that uses a self signed ssl certificate
-                Meteor.client.logLevel = .None
-                
                 
                 context.performBlockAndWait {
-                    Meteor.connect("wss://saferide.meteorapp.com/websocket") {
-                        Meteor.call("getScheduled", params: [], callback: {result, error in
-                            if let rides = result {
-                                let numberOfRides = rides.count
-                                for i in 0 ..< numberOfRides {
-                                    guard let meteorID = rides[i]["_id"],
-                                        let dropoff = rides[i]["dropoff"],
-                                        let name = rides[i]["name"],
-                                        let phone = rides[i]["phone"],
-                                        let time = rides[i]["pickupTime"],
-                                        let pickup = rides[i]["pickup"],
-                                        let numberOfRiders = rides[i]["riders"],
-                                        let uoid = rides[i]["uoid"] else {
-                                            print("Error: Unable to get unwrap ride info.\n")
-                                            return
+                    Meteor.loginWithPassword(username, password: password) { result, error in
+                        if (error == nil) {
+                            Meteor.call("getScheduled", params: [], callback: {result, error in
+                                if let rides = result {
+                                    let numberOfRides = rides.count
+                                    for i in 0 ..< numberOfRides {
+                                        guard let meteorID = rides[i]["_id"],
+                                            let dropoff = rides[i]["dropoff"],
+                                            let name = rides[i]["name"],
+                                            let phone = rides[i]["phone"],
+                                            let time = rides[i]["pickupTime"],
+                                            let pickup = rides[i]["pickup"],
+                                            let numberOfRiders = rides[i]["riders"],
+                                            let uoid = rides[i]["uoid"] else {
+                                                print("Error: Unable to get unwrap ride info.\n")
+                                                return
+                                        }
+                                        let ride = NSEntityDescription.insertNewObjectForNamedEntity(Ride.self, inManagedObjectContext: context)
+                                        
+                                        ride.meteorID = meteorID as? String
+                                        ride.dropoff = dropoff as? String
+                                        ride.rider = name as? String
+                                        ride.phone = phone as? String
+                                        ride.time = time as? String
+                                        ride.pickup = pickup as? String
+                                        ride.numberOfRiders = numberOfRiders as? String
+                                        ride.uoid = uoid as? String
+                                        
                                     }
-                                    let ride = NSEntityDescription.insertNewObjectForNamedEntity(Ride.self, inManagedObjectContext: context)
                                     
-                                    ride.meteorID = meteorID as? String
-                                    ride.dropoff = dropoff as? String
-                                    ride.rider = name as? String
-                                    ride.phone = phone as? String
-                                    ride.time = time as? String
-                                    ride.pickup = pickup as? String
-                                    ride.numberOfRiders = numberOfRiders as? String
-                                    ride.uoid = uoid as? String
-                                    
+                                    try! context.save()
+                                    CoreDataService.sharedCoreDataService.saveRootContext {
+                                        print("Successfully saved rides data")
+                                        completionHandler(success: true)
+                                    }
                                 }
-                                
-                                try! context.save()
-                                CoreDataService.sharedCoreDataService.saveRootContext {
-                                    print("Successfully saved rides data")
-                                    completionHandler(success: true)
+                                else {
+                                    if let reason = error?.reason {
+                                        print(reason)
+                                    }
+                                    completionHandler(success: false)
+                                    return
                                 }
+                            })
+                        }
+                        else {
+                            if let reason = error?.reason {
+                                print(reason)
                             }
-                            else {
-                                print("Unable to get rides from server")
-                                completionHandler(success: false)
-                                return
-                            }
-                        })
+                            print("username: " + username)
+                            print("password: " + password)
+                            completionHandler(success: false)
+                            return
+                        }
                     }
                 }
                 
@@ -130,27 +140,31 @@ class SafeRideDataService {
     }
     
     func insertPending(name: String, universityID uoid: String, phoneNumber phone: String, pickupAddress pickup: String, dropoffAddress dropoff: String, numberofRiders numOfRiders: String, timeOfRide rideTime: String, completionHandler: (success:Bool) -> Void) {
-        // Meteor Stuff
-        Meteor.client.allowSelfSignedSSL = false     // Connect to a server that uses a self signed ssl certificate
-        Meteor.client.logLevel = .None
-
-        Meteor.connect("wss://saferide.meteorapp.com/websocket") {
-            Meteor.call("insertPending", params: [name, uoid, phone, pickup, dropoff, numOfRiders, rideTime], callback: {result, error in
+        Meteor.call("insertPending", params: [name, uoid, phone, pickup, dropoff, numOfRiders, rideTime], callback: {result, error in
+            if (error == nil) {
                 completionHandler(success: true)
-            })
-        }
+            }
+            else {
+                if let reason = error?.reason {
+                    print(reason)
+                }
+                completionHandler(success: false)
+            }
+        })
     }
     
     func removeSheduled(meteorID: String, completionHandler: (success:Bool) -> Void) {
-        // Meteor Stuff
-        Meteor.client.allowSelfSignedSSL = false     // Connect to a server that uses a self signed ssl certificate
-        Meteor.client.logLevel = .None
-        
-        Meteor.connect("wss://saferide.meteorapp.com/websocket") {
-            Meteor.call("removeScheduled", params: [meteorID], callback: {result, error in
+        Meteor.call("removeScheduled", params: [meteorID], callback: {result, error in
+            if (error == nil) {
                 completionHandler(success: true)
-            })
-        }
+            }
+            else {
+                if let reason = error?.reason {
+                    print(reason)
+                }
+                completionHandler(success: false)
+            }
+        })
     }
     
     // MARK: Initialization

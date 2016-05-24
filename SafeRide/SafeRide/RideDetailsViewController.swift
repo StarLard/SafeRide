@@ -12,6 +12,8 @@ class RideDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     
     // MARK: Properties (Public)
     var ride: Ride?
+    var username: String?
+    var password: String?
     
     // MARK: Properties (Private)
     private let headerTitles = ["Ride Information", "Rider Information"]
@@ -41,7 +43,7 @@ class RideDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             SafeRideDataService.sharedSafeRideDataService.removeSheduled(unwrappedRide.meteorID!) { success in
                 if success {
                     // Reload updated meteor data
-                    SafeRideDataService.sharedSafeRideDataService.loadRidesFromMeteor() { success in
+                    SafeRideDataService.sharedSafeRideDataService.loadRidesFromMeteor(self.username!, pass: self.password!) { success in
                         if success {
                             let alert = UIAlertController(title: "Ride Completed!", message: "Dispatch has been notified.",preferredStyle: .Alert)
                             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(_)in

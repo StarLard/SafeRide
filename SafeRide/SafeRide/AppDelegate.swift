@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import SwiftDDP
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // Meteor Setup
+        Meteor.client.allowSelfSignedSSL = false     // Connect to a server that uses a self signed ssl certificate
+        Meteor.client.logLevel = .None
+        let websocketURL = "wss://saferide.meteorapp.com/websocket"
+        Meteor.connect(websocketURL) {
+        }
         // Override point for customization after application launch.
         if let userRole = NSUserDefaults.standardUserDefaults().objectForKey("userRole") {
             let role = userRole as! String

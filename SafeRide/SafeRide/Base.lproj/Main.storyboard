@@ -515,7 +515,7 @@
                                             <constraint firstAttribute="height" constant="30" id="eCy-x3-j6U"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -586,6 +586,8 @@
                         <barButtonItem key="backBarButtonItem" title="Logout" id="8at-v2-qPN"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="passwordField" destination="Xyz-MA-qq3" id="4Gn-Mk-Kef"/>
+                        <outlet property="usernameField" destination="LfW-87-Ei4" id="h2e-kh-t2c"/>
                         <segue destination="sGY-02-gLf" kind="show" identifier="scheduleSegue" id="0qo-mk-FJv"/>
                     </connections>
                 </viewController>

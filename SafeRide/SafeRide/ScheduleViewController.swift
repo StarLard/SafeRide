@@ -11,6 +11,10 @@ import CoreData
 
 class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: Properties (Public)
+    var username: String?
+    var password: String?
+    
     // MARK: Properties (Private)
     private var resultsController: NSFetchedResultsController?
     
@@ -92,6 +96,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
                 let indexPath = NSIndexPath(forRow: row, inSection: 0)
                 let rideDetailsViewController = segue.destinationViewController as! RideDetailsViewController
                 let ride = resultsController!.objectAtIndexPath(indexPath) as! Ride
+                rideDetailsViewController.username = self.username
+                rideDetailsViewController.password = self.password
                 rideDetailsViewController.ride = ride
             }
         default:
