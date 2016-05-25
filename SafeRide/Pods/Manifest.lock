@@ -5,7 +5,7 @@ PODS:
     - CryptoSwift (~> 0.3)
     - SwiftWebSocket (~> 2.6.0)
     - XCGLogger
-  - SwiftWebSocket (2.6.1)
+  - SwiftWebSocket (2.6.2)
   - XCGLogger (3.3)
 
 DEPENDENCIES:
@@ -16,7 +16,7 @@ SPEC CHECKSUMS:
   CryptoSwift: 25b5aff3f260967391f8fff2e9abe4254d2c6fd5
   GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
   SwiftDDP: d99fb617559e19ebb3651fa2b95ee7e35d8451f1
-  SwiftWebSocket: ccace0c3843fa5dc5a571506b01dcbb8f8d0add8
+  SwiftWebSocket: 2bb9dda75c87f64eaf9768131141857ca8611aac
   XCGLogger: d6e196e78940ff6daab17d6917107876f973fa31
 
 PODFILE CHECKSUM: cefa2746db2aa1a4d2ef0adfa75dedf25a25bd57
