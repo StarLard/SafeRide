@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftDDP
 
 class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -51,6 +52,16 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillDisappear(animated : Bool) {
+        super.viewWillDisappear(animated)
+        
+        if (self.isMovingFromParentViewController()){
+            // Back button pressed
+            Meteor.logout()
+        }
+    }
+
     
     // MARK: Properties (IBOutlet)
 

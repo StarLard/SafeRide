@@ -74,7 +74,7 @@ class SafeRideDataService {
                 
                 
                 context.performBlockAndWait {
-                    Meteor.loginWithPassword(username, password: password) { result, error in
+                    Meteor.loginWithUsername(username, password: password) { result, error in
                         if (error == nil) {
                             Meteor.call("getScheduled", params: [], callback: {result, error in
                                 if let rides = result {
