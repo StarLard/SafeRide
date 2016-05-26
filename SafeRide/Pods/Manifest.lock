@@ -1,6 +1,7 @@
 PODS:
   - CryptoSwift (0.4.1)
   - GoogleMaps (1.13.2)
+  - Locksmith (2.0.8)
   - SwiftDDP (0.3.1):
     - CryptoSwift (~> 0.3)
     - SwiftWebSocket (~> 2.6.0)
@@ -10,15 +11,17 @@ PODS:
 
 DEPENDENCIES:
   - GoogleMaps
+  - Locksmith
   - SwiftDDP (~> 0.3.0)
 
 SPEC CHECKSUMS:
   CryptoSwift: 25b5aff3f260967391f8fff2e9abe4254d2c6fd5
   GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
+  Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
   SwiftDDP: d99fb617559e19ebb3651fa2b95ee7e35d8451f1
   SwiftWebSocket: 2bb9dda75c87f64eaf9768131141857ca8611aac
   XCGLogger: d6e196e78940ff6daab17d6917107876f973fa31
 
-PODFILE CHECKSUM: cefa2746db2aa1a4d2ef0adfa75dedf25a25bd57
+PODFILE CHECKSUM: 09631120fa17a7de42df561a5d43f8e0b4a38373
 
 COCOAPODS: 1.0.0

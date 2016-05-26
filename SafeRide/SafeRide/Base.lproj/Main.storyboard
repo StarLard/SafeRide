@@ -533,7 +533,7 @@
                                     <constraint firstAttribute="width" constant="100" id="5kJ-lA-gSc"/>
                                     <constraint firstAttribute="height" constant="30" id="823-XO-vtv"/>
                                 </constraints>
-                                <state key="normal" title="Login">
+                                <state key="normal" title="Log In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -624,6 +624,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="passwordField" destination="Xyz-MA-qq3" id="4Gn-Mk-Kef"/>
+                        <outlet property="rememberMeSwitch" destination="d6u-Mb-RzU" id="bmF-bu-Jqa"/>
                         <outlet property="usernameField" destination="LfW-87-Ei4" id="h2e-kh-t2c"/>
                         <segue destination="sGY-02-gLf" kind="show" identifier="scheduleSegue" id="0qo-mk-FJv"/>
                     </connections>

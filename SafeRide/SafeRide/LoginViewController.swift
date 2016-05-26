@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Locksmith
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -22,6 +23,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordField.returnKeyType = UIReturnKeyType.Done
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        
+        let defualts = NSUserDefaults.standardUserDefaults()
+        if let isRemembered = defualts.objectForKey("isRemembered") {
+            if (isRemembered as! NSObject == true) {
+                if let username = defualts.objectForKey("username") {
+                    let userInfo = Locksmith.loadDataForUserAccount(username as! String)
+                    passwordField.text = userInfo!["password"] as? String
+                    usernameField.text = username as? String
+                    rememberMeSwitch.on = true
+                }
+            }
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +52,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var rememberMeSwitch: UISwitch!
     
     // MARK: Properties (IBAction)
     
@@ -57,6 +72,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let username = usernameField.text where (username != ""), let password = passwordField.text where (password != ""){
             SafeRideDataService.sharedSafeRideDataService.loadRidesFromMeteor(username, pass: password) { success in
                 if success {
+                    self.remember(username, password: password)
                     self.performSegueWithIdentifier("scheduleSegue", sender: self)
                 }
                 else {
@@ -66,6 +82,65 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     alert.addAction(OKAction)
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
+            }
+        }
+    }
+    
+    // Private (Methods)
+    private func remember(username: String, password pass: String) -> Void {
+        let defualts = NSUserDefaults.standardUserDefaults()
+        if let isRemembered = defualts.objectForKey("isRemembered") {
+            if (isRemembered as! NSObject == true) {
+                if (self.rememberMeSwitch.on) {
+                    // User previously had switch on adn it is still on
+                    do {
+                        try Locksmith.updateData(["password": pass], forUserAccount: username)
+                        defualts.setObject(username, forKey: "username")
+                        defualts.setObject(true, forKey: "isRemembered")
+                    }
+                    catch {
+                        print("Could not update username & password in keychain")
+                    }
+                }
+                else {
+                    // User previously had switch on, but has turned it off
+                    do {
+                        try Locksmith.deleteDataForUserAccount(username)
+                        defualts.setObject(false, forKey: "isRemembered")
+                        defualts.removeObjectForKey("username")
+                    }
+                    catch {
+                        print("Could not remove username & password from keychain")
+                    }
+                    
+                }
+            }
+            else {
+                if (!self.rememberMeSwitch.on) {
+                    // User previously had switch off adn it is still off
+                    defualts.setObject(false, forKey: "isRemembered")
+                }
+                else {
+                    // User previously had switch off, but has turned it on
+                    do {
+                        try Locksmith.saveData(["password": pass], forUserAccount: username)
+                        defualts.setObject(true, forKey: "isRemembered")
+                        defualts.setObject(username, forKey: "username")
+                    }
+                    catch {
+                        print("Could not save username & password to keychain")
+                    }
+                    
+                }
+            }
+        }
+        if (self.rememberMeSwitch.on) {
+            do {
+                try Locksmith.saveData(["password": pass], forUserAccount: username)
+                defualts.setObject(true, forKey: "isRemembered")
+            }
+            catch {
+                print("Could not save username & password to keychain")
             }
         }
     }

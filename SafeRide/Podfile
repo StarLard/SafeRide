@@ -8,6 +8,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'SafeRide' do
 	pod "SwiftDDP", "~> 0.3.0"
 	pod 'GoogleMaps'
+	pod 'Locksmith'
 end
 
 target 'SafeRideTests' do
