@@ -94,11 +94,7 @@ class ConfirmViewController: UIViewController, UITextViewDelegate, UIPickerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let background = UIImageView(image: UIImage(named: "Background"))
-        background.alpha = 0.5
-        background.contentMode = UIViewContentMode.ScaleAspectFill
-        
-        self.infoTableView.backgroundView = background
+        self.infoTableView.backgroundColor = UIColor.init(red: 231/255, green: 236/255, blue: 208/255, alpha: 1)
         
         let resultsController = SafeRideDataService.sharedSafeRideDataService.user()
         

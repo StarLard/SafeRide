@@ -14,7 +14,8 @@ class RideCell: UITableViewCell {
     
     var ride: Ride?
     
-    @IBOutlet weak var riderNameLabel: UILabel!
     @IBOutlet weak var rideTimeLabel: UILabel!
+    @IBOutlet weak var riderNameLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
 
 }

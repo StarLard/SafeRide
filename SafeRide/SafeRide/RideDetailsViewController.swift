@@ -24,11 +24,7 @@ class RideDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let background = UIImageView(image: UIImage(named: "Background"))
-        background.alpha = 0.5
-        background.contentMode = UIViewContentMode.ScaleAspectFill
-        
-        self.rideDetailsTableView.backgroundView = background
+        self.rideDetailsTableView.backgroundColor = UIColor.init(red: 231/255, green: 236/255, blue: 208/255, alpha: 1)
     }
 
     override func didReceiveMemoryWarning() {
@@ -151,7 +147,7 @@ class RideDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
         if (indexPath == NSIndexPath(forRow: 0, inSection: 0) || indexPath == NSIndexPath(forRow: 1, inSection: 0)){
-            return 90
+            return 165
         }
         return 50
     }

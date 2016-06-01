@@ -25,12 +25,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        let background = UIImageView(image: UIImage(named: "Background"))
-        background.alpha = 0.5
-        background.contentMode = UIViewContentMode.ScaleAspectFill
-        
-        self.scheduleTableView.backgroundView = background
+        scheduleTableView.backgroundColor = UIColor.init(red: 231/255, green: 236/255, blue: 208/255, alpha: 1)
         
         let resultsControllerFetch = SafeRideDataService.sharedSafeRideDataService.rides()
         try! resultsControllerFetch.performFetch()
@@ -89,10 +84,33 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell.riderNameLabel.text = ride.rider
         cell.rideTimeLabel.text = ride.time
+        if let pickup = ride.pickup, dropoff = ride.dropoff {
+            if (pickup.characters.count > 20 && dropoff.characters.count > 20) {
+                let pickupIndex: String.Index = pickup.startIndex.advancedBy(20)
+                let dropoffIndex: String.Index = dropoff.startIndex.advancedBy(20)
+                cell.detailLabel.text = pickup.substringToIndex(pickupIndex) + "... → " + dropoff.substringToIndex(dropoffIndex) + "..."
+            }
+            else if (pickup.characters.count > 20) {
+                let pickupIndex: String.Index = pickup.startIndex.advancedBy(20)
+                cell.detailLabel.text = pickup.substringToIndex(pickupIndex) + "... → " + dropoff
+            }
+            else if (dropoff.characters.count > 20) {
+                let dropoffIndex: String.Index = dropoff.startIndex.advancedBy(20)
+                cell.detailLabel.text = pickup + " → " + dropoff.substringToIndex(dropoffIndex) + "..."
+            }
+            else {
+                cell.detailLabel.text = pickup + " → " + dropoff
+            }
+        }
         cell.ride = ride
         
         return cell
         
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        return 55
     }
     
     
