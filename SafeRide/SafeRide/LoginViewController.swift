@@ -89,10 +89,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // Private (Methods)
     private func remember(username: String, password pass: String) -> Void {
         let defualts = NSUserDefaults.standardUserDefaults()
+        // Triggers only after first load
         if let isRemembered = defualts.objectForKey("isRemembered") {
             if (isRemembered as! NSObject == true) {
                 if (self.rememberMeSwitch.on) {
-                    // User previously had switch on adn it is still on
+                    // User previously had switch on and it is still on
                     do {
                         try Locksmith.updateData(["password": pass], forUserAccount: username)
                         defualts.setObject(username, forKey: "username")
@@ -117,7 +118,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             else {
                 if (!self.rememberMeSwitch.on) {
-                    // User previously had switch off adn it is still off
+                    // User previously had switch off and it is still off
                     defualts.setObject(false, forKey: "isRemembered")
                 }
                 else {
@@ -134,13 +135,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        if (self.rememberMeSwitch.on) {
-            do {
-                try Locksmith.saveData(["password": pass], forUserAccount: username)
-                defualts.setObject(true, forKey: "isRemembered")
+        // Triggers on first load
+        else {
+            if (self.rememberMeSwitch.on) {
+                do {
+                    try Locksmith.saveData(["password": pass], forUserAccount: username)
+                    defualts.setObject(true, forKey: "isRemembered")
+                    defualts.setObject(username, forKey: "username")
+                }
+                catch {
+                    print("Could not save username & password to keychain")
+                }
             }
-            catch {
-                print("Could not save username & password to keychain")
+            else {
+                print("User did not turn switch on")
+                defualts.setObject(false, forKey: "isRemembered")
             }
         }
     }
